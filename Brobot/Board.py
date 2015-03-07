@@ -83,7 +83,7 @@ class RandomBoard(Board):
 		boolList = [True, False]
 		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
 			wallDict[direction] = boolList[random.randint(0,1)]
-		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot
+		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot/target
 
 
 
@@ -107,8 +107,32 @@ class StandardBoard(Board):
 		Board.__init__(self, rows, cols) # call super constructor
 
 
+	def initializeTiles(self):
+		''' this method initializes the array of tiles to match a standard board.
+			this includes wall placement but not robots or targets '''
+		result = np.empty((self.rows, self.cols), dtype=object)
+		for i in xrange(self.rows):
+			for j in xrange(self.cols)
+				# relatively few of the tiles have wall, so hard-code these as special cases
+				if (i,j) = (0,5):
+					result[i,j] = generateTileFromDirections(["EAST"])
+				else:
+					result[i,j] = generateTileFromDirections([]) # default is no walls
+					
+		return result
 
 
+	def generateTileFromDirections(self, directionsList):
+		wallDict = dict()
+		# first initialize no walls (all False)
+		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
+			wallDict[direction] = False
+		
+		#now for the directions passed to the function, set them to True
+		for direction in directionsList:
+			wallDict[direction] = True
+		
+		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot/target
 
 
 
