@@ -1,0 +1,79 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		66B894B21AA8D6EE00F363CA /* Board.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Board.py; sourceTree = "<group>"; };
+		66B894B31AA8DFEB00F363CA /* Tile.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Tile.py; sourceTree = "<group>"; };
+		66B894B61AA9006700F363CA /* Target.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = Target.py; sourceTree = "<group>"; };
+		66B894B71AAA572D00F363CA /* testBoard.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = testBoard.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		66B894AB1AA8D69600F363CA = {
+			isa = PBXGroup;
+			children = (
+				66B894B71AAA572D00F363CA /* testBoard.py */,
+				66B894B61AA9006700F363CA /* Target.py */,
+				66B894B31AA8DFEB00F363CA /* Tile.py */,
+				66B894B21AA8D6EE00F363CA /* Board.py */,
+			);
+			sourceTree = "<group>";
+			usesTabs = 1;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		66B894AC1AA8D69600F363CA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+			};
+			buildConfigurationList = 66B894AF1AA8D69600F363CA /* Build configuration list for PBXProject "Brobot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 66B894AB1AA8D69600F363CA;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		66B894B01AA8D69600F363CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		66B894B11AA8D69600F363CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		66B894AF1AA8D69600F363CA /* Build configuration list for PBXProject "Brobot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				66B894B01AA8D69600F363CA /* Debug */,
+				66B894B11AA8D69600F363CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 66B894AC1AA8D69600F363CA /* Project object */;
+}
