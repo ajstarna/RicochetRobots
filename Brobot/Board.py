@@ -112,12 +112,12 @@ class StandardBoard(Board):
 			this includes wall placement but not robots or targets '''
 		result = np.empty((self.rows, self.cols), dtype=object)
 		for i in xrange(self.rows):
-			for j in xrange(self.cols)
+			for j in xrange(self.cols):
 				# relatively few of the tiles have wall, so hard-code these as special cases
-				if (i,j) = (0,5):
-					result[i,j] = generateTileFromDirections(["EAST"])
+				if (i,j) == (0,5):
+					result[i,j] = self.generateTileFromDirections(["EAST"])
 				else:
-					result[i,j] = generateTileFromDirections([]) # default is no walls
+					result[i,j] = self.generateTileFromDirections([]) # default is no walls
 					
 		return result
 
@@ -135,9 +135,8 @@ class StandardBoard(Board):
 		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot/target
 
 
-
-
-
+	def initializeTargetPositions(self):
+		return {}
 
 
 

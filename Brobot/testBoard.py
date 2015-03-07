@@ -47,22 +47,22 @@ def testInitStandard():
 	''' test the basic initialization of a Board object '''
 
 	size = 16
-	try:
-		rr = Board.StandardBoard(size, size)
-		if rr.array.size != size*size:
-			return 0
-		if rr.rows != size or rr.cols != size:
-			return 0
-		if len(rr.robotPositions) != 4:
-			return 0
-		if len(rr.targetPositions) != 17:
-			return 0
-
-		return 1
-
-	except:
-		print("exception in testInitStandard")
+#	try:
+	rr = Board.StandardBoard(size, size)
+	if rr.array.size != size*size:
 		return 0
+	if rr.rows != size or rr.cols != size:
+		return 0
+	if len(rr.robotPositions) != 4:
+		return 0
+	if len(rr.targetPositions) != 17:
+		return 0
+
+	return 1
+
+	#except:
+#		print("exception in testInitStandard")
+#		return 0
 
 
 
