@@ -14,8 +14,20 @@ class Board:
 	def __init__(self, rows, cols):
 		self.rows = rows
 		self.cols = cols
+		self.array = self.initializeTiles()
+		self.targetPositions = self.initializeTargetPositions()
+		self.robotPositions = self.initializeRobotPositions()
 
 
+	def initializeTiles(self):
+		''' this method initializes the array of tiles randomly.
+			this includes wall placement but not robots or targets '''
+		raise NotImplementedError("Please implement this method")
+
+	def initializeTargetPositions(self):
+		''' this method places the 17 targets on the board.
+			consider an abstract method '''
+		raise NotImplementedError("Please implement this method")
 		
 	def initializeRobotPositions(self):
 		''' this method places the four robots randomly on the board.
@@ -51,14 +63,11 @@ class RandomBoard(Board):
 	
 	def __init__(self, rows, cols):
 		Board.__init__(self, rows, cols) # call super constructor
-		self.array = self.initializeTilesRandom()
-		self.targetPositions = self.initializeTargetPositions()
-		self.robotPositions = self.initializeRobotPositions()
-
 	
 	
 	
-	def initializeTilesRandom(self):
+	
+	def initializeTiles(self):
 		''' this method initializes the array of tiles randomly.
 			this includes wall placement but not robots or targets '''
 		result = np.empty((self.rows, self.cols), dtype=object)
@@ -84,10 +93,32 @@ class RandomBoard(Board):
 		''' this method places the 17 targets randomly on the board.
 			self.array gets updated such that the tiles know when they posses a target.
 			A dictionary containing the targets is returned '''
+		result = {}
+		return result
+	
 
-		return {}
-	
-	
+
+
+class StandardBoard(Board):
+	''' the standard board hard codes the board array to be a built-in one from the game '''
+
+
+	def __init__(self, rows, cols):
+		Board.__init__(self, rows, cols) # call super constructor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 			
 			

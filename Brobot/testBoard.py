@@ -14,12 +14,13 @@ def testInitRandom():
 			return 0
 		if len(rr.robotPositions) != 4:
 			return 0
-		if len(rr.targetPostitions) != 17:
+		if len(rr.targetPositions) != 17:
 			return 0
 
 		return 1
 
 	except:
+		print("exception in testInitRandom")
 		return 0
 
 
