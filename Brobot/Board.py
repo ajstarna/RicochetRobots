@@ -3,6 +3,8 @@ import Tile
 import random
 
 class Board:
+	''' the Board class. to be treated as an abstract class. Use a subclass for the actual board with more
+		specific behaviour '''
 	BLUE = 0
 	RED = 1
 	GREEN = 2
@@ -12,31 +14,9 @@ class Board:
 	def __init__(self, rows, cols):
 		self.rows = rows
 		self.cols = cols
-		self.array = self.initializeTilesRandom()
-		self.targetPositions = self.initializeTargetPositions()
-		self.robotPositions = self.initializeRobotPositions()
+
 
 		
-		
-	def initializeTilesRandom(self):
-		''' this method initializes the array of tiles randomly.
-			this includes wall placement but not robots or targets '''
-		result = np.empty((self.rows, self.cols), dtype=object)
-		# for each position on the board, generate a random tile (the wall placement)
-		for i in xrange(self.rows):
-			for j in xrange(self.cols):
-				result[i,j] = self.generateRandomTile()
-		return result
-	
-	
-	def generateRandomTile(self):
-		wallDict = dict()
-		boolList = [True, False]
-		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
-			wallDict[direction] = boolList[random.randint(0,1)]
-		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot
-
-
 	def initializeRobotPositions(self):
 		''' this method places the four robots randomly on the board.
 			self.array gets updated such that the four tiles know they posses a robot, and
@@ -56,6 +36,48 @@ class Board:
 					self.array[iCoord, jCoord].robot = robot
 					break # move onto the next robot in the outer for loop
 		return robotPositions
+		
+
+
+
+
+
+
+
+			
+class RandomBoard(Board):
+	''' the random board which initializes the tiles randomly '''
+	
+	
+	def __init__(self, rows, cols):
+		Board.__init__(self, rows, cols) # call super constructor
+		self.array = self.initializeTilesRandom()
+		self.targetPositions = self.initializeTargetPositions()
+		self.robotPositions = self.initializeRobotPositions()
+
+	
+	
+	
+	def initializeTilesRandom(self):
+		''' this method initializes the array of tiles randomly.
+			this includes wall placement but not robots or targets '''
+		result = np.empty((self.rows, self.cols), dtype=object)
+		# for each position on the board, generate a random tile (the wall placement)
+		for i in xrange(self.rows):
+			for j in xrange(self.cols):
+				result[i,j] = self.generateRandomTile()
+		return result
+	
+	
+	def generateRandomTile(self):
+		wallDict = dict()
+		boolList = [True, False]
+		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
+			wallDict[direction] = boolList[random.randint(0,1)]
+		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot
+
+
+
 
 
 	def initializeTargetPositions(self):
@@ -64,9 +86,8 @@ class Board:
 			A dictionary containing the targets is returned '''
 
 		return {}
-		
-			
-			
-			
+	
+	
+	
 			
 			

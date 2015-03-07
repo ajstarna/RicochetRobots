@@ -2,12 +2,12 @@
 
 import Board
 
-def testInit():
+def testInitRandom():
 	''' test the basic initialization of a Board object '''
 
 	size = 16
 	try:
-		rr = Board.Board(size, size)
+		rr = Board.RandomBoard(size, size)
 		if rr.array.size != size*size:
 			return 0
 		if rr.rows != size or rr.cols != size:
@@ -24,10 +24,10 @@ def testInit():
 
 
 def testRobotPlacement():
-	''' test that the four robots are placed on the board in distinct spots '''
+	''' test that the four robots are placed on the board in distinct spots. Uses a random board '''
 	size = 16
 	try:
-		rr = Board.Board(size,size)
+		rr = Board.RandomBoard(size,size)
 		positions = rr.robotPositions
 		for i in xrange(4):
 			position = positions[i]
@@ -38,11 +38,12 @@ def testRobotPlacement():
 
 		return 1
 	except:
+		print("exception in testRobotPlacement!")
 		return 0
 
 if __name__ == "__main__":
 
-	tests = [testInit, testRobotPlacement]
+	tests = [testInitRandom, testRobotPlacement]
 
 	totalTestsRan = 0
 	passedTests = 0
