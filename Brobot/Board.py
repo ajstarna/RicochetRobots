@@ -199,6 +199,7 @@ class StandardBoard(Board):
 		for coord in targetCoords:
 			iCoord, jCoord = coord.split(",")
 			self.targetPositions.append((iCoord,jCoord))
+			self.array[iCoord, jCoord].target = True
 		
 
 
