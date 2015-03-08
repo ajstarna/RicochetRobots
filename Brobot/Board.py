@@ -49,7 +49,43 @@ class Board:
 					break # move onto the next robot in the outer for loop
 		return robotPositions
 		
-
+	def printboard(self):
+		''' this method displays a board state '''
+		result = "*"
+		for i in xrange(self.cols):
+			result  += "-*"
+		print(result)
+		for i in xrange(self.rows):
+			result1 ="|"
+			result2 = "*"
+			for j in xrange (self.cols):
+				'''checking tile content'''
+				if (self.array[i,j].robot==None):
+					
+					if (self.array[i,j].target != None):
+						result1 += "X"
+					else:
+						result1 +=" "
+				elif (self.array[i,j].robot==0):
+					result1 += "B"
+				elif (self.array[i,j].robot==1):
+					result1 += "R"
+				elif (self.array[i,j].robot==2):
+					result1 += "G"
+				elif (self.array[i,j].robot==3):
+					result1 += "Y"
+				'''checking east wall'''
+				if(self.array[i,j].wallDict["EAST"]==True):
+					result1+="|"
+				else :
+					result1+= " "
+				'''checking south wall'''
+				if(self.array[i,j].wallDict["SOUTH"]==True):
+					result2+="-*"
+				else :
+					result2+= " *"
+			print(result1)
+			print (result2)
 
 
 

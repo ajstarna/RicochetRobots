@@ -64,12 +64,16 @@ def testInitStandard():
 #		print("exception in testInitStandard")
 #		return 0
 
-
+def testPrintBoard():
+	size =4
+	rr = Board.RandomBoard(size,size)
+	rr.printboard()
+	return 1
 
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard,testPrintBoard]
 
 	totalTestsRan = 0
 	passedTests = 0
