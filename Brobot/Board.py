@@ -14,9 +14,7 @@ class Board:
 	def __init__(self, rows, cols):
 		self.rows = rows
 		self.cols = cols
-		self.array = self.initializeTiles()
-		self.targetPositions = self.initializeTargetPositions()
-		self.robotPositions = self.initializeRobotPositions()
+
 
 
 	def initializeTiles(self):
@@ -99,7 +97,9 @@ class RandomBoard(Board):
 	
 	def __init__(self, rows, cols):
 		Board.__init__(self, rows, cols) # call super constructor
-	
+		self.array = self.initializeTiles()
+		self.targetPositions = self.initializeTargetPositions()
+		self.robotPositions = self.initializeRobotPositions()
 	
 	
 	
@@ -141,7 +141,9 @@ class StandardBoard(Board):
 
 	def __init__(self, rows, cols):
 		Board.__init__(self, rows, cols) # call super constructor
-
+		self.array = self.initializeTiles()
+		self.targetPositions = self.initializeTargetPositions()
+		self.robotPositions = self.initializeRobotPositions()
 
 	def initializeTiles(self):
 		''' this method initializes the array of tiles to match a standard board.
@@ -152,7 +154,6 @@ class StandardBoard(Board):
 				# relatively few of the tiles have wall, so hard-code these as special cases
 				if (i,j) == (0,5):
 					result[i,j] = self.generateTileFromDirections(["EAST"])
-				elif (i,j) == (0,10)
 				else:
 					result[i,j] = self.generateTileFromDirections([]) # default is no walls
 					
