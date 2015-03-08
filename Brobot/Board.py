@@ -52,13 +52,13 @@ class Board:
 	def printboard(self):
 		''' this method displays a board state '''
 		result = "*"
-		for i in xrange(self.col):
+		for i in xrange(self.cols):
 			result  += "-*"
 		print(result)
-		for i in xrange(self.row):
+		for i in xrange(self.rows):
 			result1 ="|"
 			result2 = "*"
-			for j in xrange (self.col):
+			for j in xrange (self.cols):
 				'''checking tile content'''
 				if (self.array[i,j].robot==None):
 					
@@ -66,26 +66,26 @@ class Board:
 						result1 += "X"
 					else:
 						result1 +=" "
-				else if (self.array[i,j].robot==0):
+				elif (self.array[i,j].robot==0):
 					result1 += "B"
-				else if (self.array[i,j].robot==1):
+				elif (self.array[i,j].robot==1):
 					result1 += "R"
-				else if (self.array[i,j].robot==2):
+				elif (self.array[i,j].robot==2):
 					result1 += "G"
-				else if (self.array[i,j].robot==3):
+				elif (self.array[i,j].robot==3):
 					result1 += "Y"
 				'''checking east wall'''
-				if(self.array[i,j].wallDict["EAST"]=True):
+				if(self.array[i,j].wallDict["EAST"]==True):
 					result1+="|"
 				else :
 					result1+= " "
 				'''checking south wall'''
-				if(self.array[i,j].wallDict["SOUTH"]=True):
+				if(self.array[i,j].wallDict["SOUTH"]==True):
 					result2+="-*"
 				else :
 					result2+= " *"
-				print(result1)
-				print (result2)
+			print(result1)
+			print (result2)
 
 
 
