@@ -116,6 +116,7 @@ class StandardBoard(Board):
 				# relatively few of the tiles have wall, so hard-code these as special cases
 				if (i,j) == (0,5):
 					result[i,j] = self.generateTileFromDirections(["EAST"])
+				elif (i,j) == (0,10)
 				else:
 					result[i,j] = self.generateTileFromDirections([]) # default is no walls
 					
@@ -137,7 +138,6 @@ class StandardBoard(Board):
 
 	def initializeTargetPositions(self):
 		return {}
-
 
 
 
