@@ -47,33 +47,35 @@ def testInitStandard():
 	''' test the basic initialization of a Board object '''
 
 	size = 16
-#	try:
-	rr = Board.StandardBoard(size, size)
+	fileName = "builtin1.txt"
+	#try:
+	rr = Board.StandardBoard(size, size, fileName)
 	if rr.array.size != size*size:
 		return 0
 	if rr.rows != size or rr.cols != size:
 		return 0
 	if len(rr.robotPositions) != 4:
 		return 0
-	if len(rr.targetPositions) != 17:
+	if rr.targetPositions == []:
 		return 0
 
 	return 1
 
 	#except:
-#		print("exception in testInitStandard")
-#		return 0
+	#	print("exception in testInitStandard")
+	#	return 0
+
 
 def testPrintBoard():
-	size =4
-	rr = Board.RandomBoard(size,size)
+	size =16
+	rr = Board.StandardBoard(size,size, "builtin1.txt")
 	rr.printboard()
 	return 1
 
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard,testPrintBoard]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard]
 
 	totalTestsRan = 0
 	passedTests = 0
