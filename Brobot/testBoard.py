@@ -48,22 +48,22 @@ def testInitStandard():
 
 	size = 16
 	fileName = "builtin1.txt"
-	#try:
-	rr = Board.StandardBoard(size, size, fileName)
-	if rr.array.size != size*size:
-		return 0
-	if rr.rows != size or rr.cols != size:
-		return 0
-	if len(rr.robotPositions) != 4:
-		return 0
-	if rr.targetPositions == []:
-		return 0
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		if rr.array.size != size*size:
+			return 0
+		if rr.rows != size or rr.cols != size:
+			return 0
+		if len(rr.robotPositions) != 4:
+			return 0
+		if rr.targetPositions == []:
+			return 0
 
-	return 1
+		return 1
 
-	#except:
-	#	print("exception in testInitStandard")
-	#	return 0
+	except:
+		print("exception in testInitStandard")
+		return 0
 
 
 def testPrintBoard():

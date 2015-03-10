@@ -13,3 +13,12 @@ class Player:
 
 	def showBoard(self):
 		self.board.printBoard()
+
+
+
+
+class RandomPlayer(Player):
+	''' the simpliest type of player. It will just randomly make moves until it has arrived at the target. '''
+
+	def __init__(self, board):
+		Player.__init__(self, board) # call super init
