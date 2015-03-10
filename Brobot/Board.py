@@ -91,7 +91,13 @@ class Board:
 
 
 
+	def makeMove(self, move):
+		''' given a move, make it on the board (so move the colour in the direction and update the array) '''
+		
 
+
+
+############################## RandomBoard Subclass ####################################
 
 			
 class RandomBoard(Board):
