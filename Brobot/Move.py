@@ -1,4 +1,5 @@
 import random
+import numpy as np
 
 class Move:
 	''' the move data structure. field for colour of robot and direction of move. '''
@@ -13,16 +14,16 @@ class AllMoves:
 	''' this class holds all possibe moves that can be made in Ricochet Robots '''
 
 	def __init__(self):
-		self.moveSet = self.createMoveSet()
+		self.moveSet = self.createMoveSet() # a np array
 
 
 	def createMoveSet(self):
 		''' creates the move set with all possible colours and directions '''
-		moveSet = set()
+		moveSet = []
 		for colour in xrange(4):
 			for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
-				moveSet.add(Move(colour,direction))
-		return moveSet
+				moveSet.append(Move(colour,direction))
+		return np.array(moveSet)
 
 
 	def getRandomMove(self):

@@ -19,7 +19,7 @@ class Player:
 
 
 	def play(self, timeLimit):
-		''' the play command given with a timeLimit. 
+		''' the play method given with a timeLimit.
 			The current best solution must be returned in this timeLimit, and if none have been found, return None '''
 		raise NotImplementedError("Please implement this method")
 
@@ -38,3 +38,10 @@ class RandomPlayer(Player):
 	def play(self, timeLimit):
 		''' override super '''
 		return None
+
+
+	def findFirstSolutionNoTimeLimit():
+		''' this method will randomly make moves until a single solution is found.
+			It has no time limit, and will only return the first solution it finds (could last a while) '''
+
+		self.sequence = np.
