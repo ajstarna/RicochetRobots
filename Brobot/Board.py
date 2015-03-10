@@ -183,6 +183,7 @@ class StandardBoard(Board):
 
 
 	def processRobotLine(self, line):
+		''' called on a line from the input board that is giving the location of a robot '''
 		for j in xrange(len(line)):
 			if line[j] == "=":
 				iCoord, jCoord = line[j+1:].split(",")
@@ -192,6 +193,7 @@ class StandardBoard(Board):
 			
 			
 	def processTargetLine(self, line):
+		''' called on a line from the input board that is giving the locations of the targets '''
 		if line[0] != "T":
 			# called on the wrong line
 			return
@@ -247,6 +249,8 @@ class StandardBoard(Board):
 	
 
 	def generateTileFromDirections(self, directionsList):
+		''' pass a list of directions which posses a wall. this method returns a tile object with those wall
+			directions set to True in its wallDict '''
 		wallDict = dict()
 		# first initialize no walls (all False)
 		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
