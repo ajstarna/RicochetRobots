@@ -1,4 +1,4 @@
-
+import random
 
 class Move:
 	''' the move data structure. field for colour of robot and direction of move. '''
@@ -25,4 +25,6 @@ class AllMoves:
 		return moveSet
 
 
-	#def getRandomMove(self):
+	def getRandomMove(self):
+		''' return a random move from the moveSet '''
+		return random.sample(self.moveSet, 1)

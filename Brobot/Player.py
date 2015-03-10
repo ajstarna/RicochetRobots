@@ -1,5 +1,5 @@
 import Board
-
+import Move
 
 class Player:
 	''' this player abstract class contains a Board and has methods for playing the game.
@@ -10,6 +10,7 @@ class Player:
 	def __init__(self, board):
 		''' initialize a Player by passing in a Board '''
 		self.board = board
+		self.moves = Move.AllMoves()
 
 
 	def showBoard(self):
