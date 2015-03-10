@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+
 ''' this file contains unit tests for the clobber board. To test model functionaility '''
 
 import Board

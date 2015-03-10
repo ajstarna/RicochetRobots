@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import Player
 import Board
 
@@ -30,6 +32,29 @@ def testShowBoard():
 	except:
 		print("exception in testShowBoard")
 		return 0
+
+
+
+def testPlay():
+	''' use a standard board to test a RandomPlayer's play method '''
+	size = 16
+	try:
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		rPlayer = Player.RandomPlayer(rr)
+		moveSequence = rPlayer.play(10)
+		if rr.validateMoveSequence(moveSequence):
+			# if the move sequence
+			return 1
+		else:
+			return 0
+
+	except:
+		print("exception in testShowBoard")
+		return 0
+
+
+
+
 
 
 if __name__ == "__main__":
