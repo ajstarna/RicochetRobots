@@ -50,7 +50,7 @@ class Board:
 		return robotPositions
 	
 	
-	def printboard(self):
+	def printBoard(self):
 		''' this method displays a board state '''
 		result = "*"
 		for i in xrange(self.cols):

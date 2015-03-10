@@ -69,7 +69,7 @@ def testInitStandard():
 def testPrintBoard():
 	size =16
 	rr = Board.StandardBoard(size,size, "builtin1.txt")
-	rr.printboard()
+	rr.printBoard()
 	return 1
 
 
