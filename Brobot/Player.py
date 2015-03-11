@@ -24,6 +24,11 @@ class Player:
 		raise NotImplementedError("Please implement this method")
 
 
+	def setTarget(self):
+		''' sets the target for the current game from the list of targets '''
+		
+
+
 
 
 ########################## RandomPlayer subclass #############################
@@ -44,4 +49,11 @@ class RandomPlayer(Player):
 		''' this method will randomly make moves until a single solution is found.
 			It has no time limit, and will only return the first solution it finds (could last a while) '''
 
-		self.sequence = np.
+		self.originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
+
+		while not self.board.endState():
+			moveToMake = self.moves.getRandomMove()
+			self.currentSequence.append(moveToMake)
+			self.board.makeMove(moveToMake)
+		

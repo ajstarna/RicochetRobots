@@ -28,6 +28,14 @@ class Board:
 		''' this method places the 17 targets on the board.
 			consider an abstract method '''
 		raise NotImplementedError("Please implement this method")
+	
+	
+	def setCurrentTarget(self):
+		''' this method will pick a random target from the target list and make that the currentTarget for the game '''
+		self.currentTarget = random.sample(self.targetPositions, 1)
+		self.targetPositions.remove(self.currentTarget)
+	
+		
 		
 	def initializeRobotPositions(self):
 		''' this method places the four robots randomly on the board.
@@ -93,8 +101,26 @@ class Board:
 
 	def makeMove(self, move):
 		''' given a move, make it on the board (so move the colour in the direction and update the array) '''
-		
+		startPosition = self.robotPositions[move.colour] # initalize the endPosition to be the starting position
+		# now see how far the robot can move in the direction
+		currentTile = self.array[startPosition]
+		while True:
+			if currentTile.wallDict[direction]:
+				# there is a wall in the direction we need to move, so final spot
+				break
+			# since an edge tile will always have a wall, if we made it to here then we know we can find the adjacent tile
+			adjacentTile = self.getAdjacentTile(currentTile, direction)
+			if adjacentTile.robot != None:
+				# there is a robot blocking us, so final spot
+				break
 
+			# no wall or robot in the way, so move the robot onto the adjacent tile
+			adjacentTile.robot = currentTile.robot
+			currentTile.robot = None
+			self.robotPositions[colour] = adjacentTile.position
+			currentTile = adjacentTile
+
+		# the currentTile is the ending position
 
 
 ############################## RandomBoard Subclass ####################################
@@ -142,6 +168,10 @@ class RandomBoard(Board):
 		return result
 	
 
+
+
+
+########################### StandardBoard Subclass ##############################
 
 
 class StandardBoard(Board):

@@ -41,7 +41,7 @@ def testPlay():
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
 		rPlayer = Player.RandomPlayer(rr)
-		moveSequence = rPlayer.play(10)
+		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			return 1
@@ -59,7 +59,7 @@ def testPlay():
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testShowBoard]
+	tests = [testInitRandom, testShowBoard, testPlay]
 
 	totalTestsRan = 0
 	passedTests = 0
