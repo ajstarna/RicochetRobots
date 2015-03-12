@@ -318,7 +318,8 @@ class StandardBoard(Board):
 	def processArrayLine(self, line, lineCount):
 		''' pass an array line from the input file. This method sets that line's tiles in the np array '''
 		for j in xrange(self.cols):
-			self.array[lineCount, j] = self.generateTileFromNumber(line[j])
+			position = (lineCount, j)
+			self.array[lineCount, j] = self.generateTileFromNumber(line[j], position)
 
 
 	def processRobotLine(self, line):
@@ -344,42 +345,42 @@ class StandardBoard(Board):
 		
 
 
-	def generateTileFromNumber(self, number):
+	def generateTileFromNumber(self, number, positon):
 		''' when reading from the txt file, this is called to process a given number.
 			Each number corresponds to a wall configuration. A tile with this configuration is returned'''
 		
 		if number == "0":
-			return self.generateTileFromDirections([])
+			return self.generateTileFromDirections([], positon)
 		elif number == "1":
-			return self.generateTileFromDirections(["NORTH"])
+			return self.generateTileFromDirections(["NORTH"], positon)
 		elif number == "2":
-			return self.generateTileFromDirections(["EAST"])
+			return self.generateTileFromDirections(["EAST"], positon)
 		elif number == "3":
-			return self.generateTileFromDirections(["NORTH", "EAST"])
+			return self.generateTileFromDirections(["NORTH", "EAST"], positon)
 		elif number == "4":
-			return self.generateTileFromDirections(["SOUTH"])
+			return self.generateTileFromDirections(["SOUTH"], positon)
 		elif number == "5":
-			return self.generateTileFromDirections(["NORTH","SOUTH"])
+			return self.generateTileFromDirections(["NORTH","SOUTH"], positon)
 		elif number == "6":
-			return self.generateTileFromDirections(["EAST","SOUTH"])
+			return self.generateTileFromDirections(["EAST","SOUTH"], positon)
 		elif number == "7":
-			return self.generateTileFromDirections(["NORTH", "EAST", "SOUTH"])
+			return self.generateTileFromDirections(["NORTH", "EAST", "SOUTH"], positon)
 		elif number == "8":
-			return self.generateTileFromDirections(["WEST"])
+			return self.generateTileFromDirections(["WEST"], positon)
 		elif number == "9":
-			return self.generateTileFromDirections(["WEST", "NORTH"])
+			return self.generateTileFromDirections(["WEST", "NORTH"], positon)
 		elif number == "a":
-			return self.generateTileFromDirections(["WEST","EAST"])
+			return self.generateTileFromDirections(["WEST","EAST"], positon)
 		elif number == "b":
-			return self.generateTileFromDirections(["WEST", "NORTH","EAST"])
+			return self.generateTileFromDirections(["WEST", "NORTH","EAST"], positon)
 		elif number == "c":
-			return self.generateTileFromDirections(["WEST","SOUTH"])
+			return self.generateTileFromDirections(["WEST","SOUTH"], positon)
 		elif number == "d":
-			return self.generateTileFromDirections(["WEST", "NORTH","SOUTH"])
+			return self.generateTileFromDirections(["WEST", "NORTH","SOUTH"], positon)
 		elif number == "e":
-			return self.generateTileFromDirections(["WEST","SOUTH","EAST"])
+			return self.generateTileFromDirections(["WEST","SOUTH","EAST"], positon)
 		elif number == "f":
-			return self.generateTileFromDirections(["WEST", "NORTH","SOUTH","EAST"])
+			return self.generateTileFromDirections(["WEST", "NORTH","SOUTH","EAST"], positon)
 			
 		else:
 			print("Error no wall configuration for this input number = {}!".format(number))
@@ -387,7 +388,7 @@ class StandardBoard(Board):
 	
 	
 
-	def generateTileFromDirections(self, directionsList):
+	def generateTileFromDirections(self, directionsList, position):
 		''' pass a list of directions which posses a wall. this method returns a tile object with those wall
 			directions set to True in its wallDict '''
 		wallDict = dict()
@@ -399,7 +400,7 @@ class StandardBoard(Board):
 		for direction in directionsList:
 			wallDict[direction] = True
 		
-		return Tile.Tile(None, False, wallDict) # return a tile with random walls and None robot and False target
+		return Tile.Tile(position, None, False, wallDict) # return a tile with random walls and None robot and False target
 
 
 
