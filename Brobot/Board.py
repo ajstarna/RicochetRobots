@@ -136,28 +136,28 @@ class Board:
 		
 		ray =[]
 		currentTile = self.array[r,c]
-		if (direction ==0 && r > 0): #NORTH
+		if (direction ==0 and r > 0): #NORTH
 			
 			currentTile = self.array[r-1,c]
-			while (!currentTile.wallDict["NORTH"]):
+			while (not currentTile.wallDict["NORTH"]):
 			 	ray.append(currentTile)
 			 	currentTile = self.array[r-1,c]
 			ray.append(currentTile)
-		elif (direction == 1 && c<self.cols): # EAST
+		elif (direction == 1 and c<self.cols): # EAST
 			currentTile = self.array[r,c+1]
-			while (!currentTile.wallDict["EAST"]):
+			while (not currentTile.wallDict["EAST"]):
 			 	ray.append(currentTile)
 			 	currentTile = self.array[r,c+1]	
 			ray.append(currentTile)
-		elif (direction == 2 && r<self.rows): # SOUTH
+		elif (direction == 2 and r<self.rows): # SOUTH
 			currentTile = self.array[r+1,c]
-			while (!currentTile.wallDict["SOUTH"]):
+			while (not currentTile.wallDict["SOUTH"]):
 			 	ray.append(currentTile)
 			 	currentTile = self.array[r+1,c]
 			ray.append(currentTile)	
-		elif (direction == 3 && c>0): # WEST- 
+		elif (direction == 3 and c>0): # WEST- 
 			currentTile = self.array[r,c-1]
-			while (!currentTile.wallDict["EAST"]):
+			while (not currentTile.wallDict["EAST"]):
 			 	ray.append(currentTile)
 			 	currentTile = self.array[r,c-1]	
 			ray.append(currentTile)
@@ -173,42 +173,42 @@ class Board:
 		
 		input arguement should be the a list of first four lines of tiles in the four direction of the target tile
 		'''
-		if (!tileList):
+		if (not tileList):
 			return
 		newList =[]
 		for tile in tileList:
-			for d in xrange(4):
+			
 			r = tile.position[0]
 			c = tile.position[1]
-			if (!tile.wallDict["NORTH"]):
+			if (not tile.wallDict["NORTH"]):
 				temp = self.array[r-1,c]
-				if (temp.lowerBound==-1 || temp.lowerBound == LB):
-					while(!temp.wallDict["NORTH"]):
-						if (!temp.lowerBoard  == -1):
+				if (temp.lowerBound==-1 or temp.lowerBound == LB):
+					while(not temp.wallDict["NORTH"]):
+						if (temp.lowerBoard  != -1):
 							temp.lowerBoard = LB
 							newList.append(temp)
 						temp=self.array[temp.position[0]-1,c]
-			if (!tile.wallDict["EAST"]):
+			if (not tile.wallDict["EAST"]):
 				temp = self.array[r,c+1]
-				if (temp.lowerBound==-1 || temp.lowerBound == LB):
-					while(!temp.wallDict["EAST"]):
-						if (!temp.lowerBoard  == -1):
+				if (temp.lowerBound==-1 or temp.lowerBound == LB):
+					while(not temp.wallDict["EAST"]):
+						if (temp.lowerBoard  != -1):
 							temp.lowerBoard = LB
 							newList.append(temp)
 						temp=self.array[r,temp.position[1]+1]
-			if (!tile.wallDict["SOUTH"]):
+			if (not tile.wallDict["SOUTH"]):
 				temp = self.array[r+1,c]
-				if (temp.lowerBound==-1 || temp.lowerBound == LB):
-					while(!temp.wallDict["SOUTH"]):
-						if (!temp.lowerBoard  == -1):
+				if (temp.lowerBound==-1 or temp.lowerBound == LB):
+					while(not temp.wallDict["SOUTH"]):
+						if (temp.lowerBoard  != -1):
 							temp.lowerBoard = LB
 							newList.append(temp)
 						temp=self.array[temp.position[0]+1,c]
-			if (!tile.wallDict["WEST"]):
+			if (not tile.wallDict["WEST"]):
 				temp = self.array[r,c-1]
-				if (temp.lowerBound==-1 || temp.lowerBound == LB):
-					while(!temp.wallDict["WEST"]):
-						if (!temp.lowerBoard  == -1):
+				if (temp.lowerBound==-1 or temp.lowerBound == LB):
+					while(not temp.wallDict["WEST"]):
+						if (temp.lowerBoard  != -1):
 							temp.lowerBoard = LB
 							newList.append(temp)
 						temp=self.array[r,temp.position[1]-1]
