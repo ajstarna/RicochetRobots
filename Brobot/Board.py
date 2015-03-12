@@ -121,8 +121,111 @@ class Board:
 			currentTile = adjacentTile
 
 		# the currentTile is the ending position
-
-
+		
+		
+	def getRay(self,r,c,direction):
+		''' returns a list of tile that casts from (r,c) in a direction
+		until a wall is present
+		not including tile(r,c) itself
+			0 = NORTH
+			1 = EAST
+			2 = SOUTH
+			3 = WEST
+		
+		'''
+		
+		ray =[]
+		currentTile = self.array[r,c]
+		if (direction ==0 && r > 0): #NORTH
+			
+			currentTile = self.array[r-1,c]
+			while (!currentTile.wallDict["NORTH"]):
+			 	ray.append(currentTile)
+			 	currentTile = self.array[r-1,c]
+			ray.append(currentTile)
+		elif (direction == 1 && c<self.cols): # EAST
+			currentTile = self.array[r,c+1]
+			while (!currentTile.wallDict["EAST"]):
+			 	ray.append(currentTile)
+			 	currentTile = self.array[r,c+1]	
+			ray.append(currentTile)
+		elif (direction == 2 && r<self.rows): # SOUTH
+			currentTile = self.array[r+1,c]
+			while (!currentTile.wallDict["SOUTH"]):
+			 	ray.append(currentTile)
+			 	currentTile = self.array[r+1,c]
+			ray.append(currentTile)	
+		elif (direction == 3 && c>0): # WEST- 
+			currentTile = self.array[r,c-1]
+			while (!currentTile.wallDict["EAST"]):
+			 	ray.append(currentTile)
+			 	currentTile = self.array[r,c-1]	
+			ray.append(currentTile)
+		return ray	
+	
+	
+	def paintLB(self,tileList, LB):
+		'''recursive function to calculate lowerbound on each tile, 
+		each tile should starte with score -1
+		at the end of the function, if some tile was not visited ,
+		that means it is not reachable from the target tile
+		thus would also have a score of -1
+		
+		input arguement should be the a list of first four lines of tiles in the four direction of the target tile
+		'''
+		if (!tileList):
+			return
+		newList =[]
+		for tile in tileList:
+			for d in xrange(4):
+			r = tile.position[0]
+			c = tile.position[1]
+			if (!tile.wallDict["NORTH"]):
+				temp = self.array[r-1,c]
+				if (temp.lowerBound==-1 || temp.lowerBound == LB):
+					while(!temp.wallDict["NORTH"]):
+						if (!temp.lowerBoard  == -1):
+							temp.lowerBoard = LB
+							newList.append(temp)
+						temp=self.array[temp.position[0]-1,c]
+			if (!tile.wallDict["EAST"]):
+				temp = self.array[r,c+1]
+				if (temp.lowerBound==-1 || temp.lowerBound == LB):
+					while(!temp.wallDict["EAST"]):
+						if (!temp.lowerBoard  == -1):
+							temp.lowerBoard = LB
+							newList.append(temp)
+						temp=self.array[r,temp.position[1]+1]
+			if (!tile.wallDict["SOUTH"]):
+				temp = self.array[r+1,c]
+				if (temp.lowerBound==-1 || temp.lowerBound == LB):
+					while(!temp.wallDict["SOUTH"]):
+						if (!temp.lowerBoard  == -1):
+							temp.lowerBoard = LB
+							newList.append(temp)
+						temp=self.array[temp.position[0]+1,c]
+			if (!tile.wallDict["WEST"]):
+				temp = self.array[r,c-1]
+				if (temp.lowerBound==-1 || temp.lowerBound == LB):
+					while(!temp.wallDict["WEST"]):
+						if (!temp.lowerBoard  == -1):
+							temp.lowerBoard = LB
+							newList.append(temp)
+						temp=self.array[r,temp.position[1]-1]
+		paintLB(newList,LB+1)
+		
+		
+	def lowerBoundPreProc(self,targetTile):
+		'''pre-process the board with lower bound heuristics'''
+		targetTile.lowerBound=0;
+		row =targetTile.position[0]
+		col =targetTile.position[1]
+		initList =[]
+		for i in xrange(4):
+			initList + getRay(row,col,i)
+		paintLB(initList,1)
+		
+		
 ############################## RandomBoard Subclass ####################################
 
 			
