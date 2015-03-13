@@ -4,6 +4,11 @@
 ''' this file contains unit tests for the clobber board. To test model functionaility '''
 
 import Board
+import Move
+import sys
+import traceback
+
+
 
 def testInitRandom():
 	''' test the basic initialization of a Board object '''
@@ -24,6 +29,7 @@ def testInitRandom():
 
 	except:
 		print("exception in testInitRandom")
+		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
@@ -43,6 +49,7 @@ def testRobotPlacement():
 		return 1
 	except:
 		print("exception in testRobotPlacement!")
+		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
@@ -66,6 +73,7 @@ def testInitStandard():
 
 	except:
 		print("exception in testInitStandard")
+		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
@@ -76,18 +84,45 @@ def testPrintBoard():
 	return 1
 
 
+
 def testLowerBounds():
 	size =16
 	rr = Board.StandardBoard(size,size, "builtin1.txt")
 	rr.lowerBoundPreProc(rr.array[3,4])
 	rr.printLBs()
 	return 1
-	
+
+
+
+def testMakeMove():
+	''' test making a move in the board '''
+	size = 16
+	fileName = "builtin1.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		move = Move.Move(Board.BLUE, "SOUTH") # create the move object
+		initalPosition = rr.robotPositions[Board.BLUE]
+		if initalPosition != (5,1):
+			return 0 # not what we excepted from builtin1.txt
+		
+		rr.makeMove(move) # now make the move
+		
+		if rr.robotPositions[Board.BLUE] != (12,1):
+			return 0 # not what we excepted from builtin1.txt
+		
+		return 1
+
+	except:
+		print("exception in testMakeMove")
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
 
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove]
 
 	totalTestsRan = 0
 	passedTests = 0

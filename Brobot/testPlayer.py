@@ -2,6 +2,7 @@
 
 import Player
 import Board
+import sys, traceback
 
 
 def testInitRandom():
@@ -49,7 +50,8 @@ def testPlay():
 			return 0
 
 	except:
-		print("exception in testShowBoard")
+		print("exception in testPlay")
+		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
