@@ -100,16 +100,18 @@ def testMakeMove():
 	fileName = "builtin1.txt"
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
-		move = Move.Move(Board.BLUE, "SOUTH") # create the move object
-		initalPosition = rr.robotPositions[Board.BLUE]
+		move = Move.Move(Board.Board.BLUE, "SOUTH") # create the move object
+		initalPosition = rr.robotPositions[Board.Board.BLUE]
 		if initalPosition != (5,1):
+			print("initial position incorrect")
 			return 0 # not what we excepted from builtin1.txt
 		
 		rr.makeMove(move) # now make the move
 		
-		if rr.robotPositions[Board.BLUE] != (12,1):
+		if rr.robotPositions[Board.Board.BLUE] != (12,1):
+			print("final position incorrect")
 			return 0 # not what we excepted from builtin1.txt
-		
+
 		return 1
 
 	except:
@@ -120,9 +122,38 @@ def testMakeMove():
 
 
 
+def testEndState():
+	''' make the necessary moves from builtin2.txt to get to an endstate then see if the board can recognize this '''
+	size = 16
+	fileName = "builtin2.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		# set the current Target for the game
+		rr.setCurrentTarget()
+		
+		move1 = Move.Move(Board.Board.GREEN, "EAST")
+		move2 = Move.Move(Board.Board.BLUE, "NORTH")
+		move3 = Move.Move(Board.Board.BLUE, "WEST") # create the move object
+		
+		rr.makeMove(move1) # now make the move
+		rr.makeMove(move2) # now make the move
+		rr.makeMove(move3) # now make the move
+		
+		if rr.endState() == True:
+			return 1
+		else:
+			return 0
+
+	except:
+		print("exception in testEndState")
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
+
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState]
 
 	totalTestsRan = 0
 	passedTests = 0

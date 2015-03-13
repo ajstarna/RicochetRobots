@@ -25,7 +25,8 @@ class Player:
 
 
 	def setTarget(self):
-		''' sets the target for the current game from the list of targets '''
+		''' sets the target for the current game randomly from the list of targets '''
+		self.board.currentTarget = self.board.targetPositions.pop()
 		
 
 
@@ -45,7 +46,7 @@ class RandomPlayer(Player):
 		return None
 
 
-	def findFirstSolutionNoTimeLimit():
+	def findFirstSolutionNoTimeLimit(self):
 		''' this method will randomly make moves until a single solution is found.
 			It has no time limit, and will only return the first solution it finds (could last a while) '''
 
