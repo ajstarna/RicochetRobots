@@ -408,16 +408,16 @@ class RandomBoard(Board):
 		# for each position on the board, generate a random tile (the wall placement)
 		for i in xrange(self.rows):
 			for j in xrange(self.cols):
-				result[i,j] = self.generateRandomTile()
+				result[i,j] = self.generateRandomTile((i,j))
 		return result
 	
 	
-	def generateRandomTile(self):
+	def generateRandomTile(self, position):
 		wallDict = dict()
 		boolList = [True, False]
 		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
 			wallDict[direction] = boolList[random.randint(0,1)]
-		return Tile.Tile(None, None, wallDict) # return a tile with random walls and None robot/target
+		return Tile.Tile(position, None, None, wallDict) # return a tile with random walls and None robot/target
 
 
 
@@ -560,7 +560,7 @@ class StandardBoard(Board):
 		for direction in directionsList:
 			wallDict[direction] = True
 		
-		return Tile.Tile(position, None, False, wallDict) # return a tile with random walls and None robot and False target
+		return Tile.Tile(position, None, False, wallDict) # return a tile with  walls and None robot and False target
 
 
 
