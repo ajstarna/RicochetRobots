@@ -207,25 +207,25 @@ class Board:
 		
 		input arguement should be the a list of first four lines of tiles in the four direction of the target tile
 		'''
-		if (not tileList):
+		if (not tileList):# if the queue is empty return none
 			return
 		newList =[]
-		for tile in tileList:
+		for tile in tileList:# each tile at this level (distance away from target)
 			
 			r = tile.position[0]
 			c = tile.position[1]
-			if (not tile.wallDict["NORTH"]):
-				temp = self.array[r-1,c]
-				if (temp.lowerBound==-1 or temp.lowerBound == LB):
-					while(not temp.wallDict["NORTH"]):
-						if (temp.lowerBound  == -1):
+			if (not tile.wallDict["NORTH"]):## check  all the tile to the north direction of the current tile
+				temp = self.array[r-1,c] ## move one tile to the north
+				if (temp.lowerBound==-1 or temp.lowerBound == LB): ## if -1 then unvisited, if LB some other tile from this same level has visited this tile before but in a different direction, so we need to check
+					while(not temp.wallDict["NORTH"]): 	##loop keep going north
+						if (temp.lowerBound  == -1):	## unvisited 
 							temp.lowerBound = LB
-							newList.append(temp)
-						temp=self.array[temp.position[0]-1,c]
-					if (temp.lowerBound==-1):
+							newList.append(temp)	##add to queue	
+						temp=self.array[temp.position[0]-1,c] ## loop to next
+					if (temp.lowerBound==-1):		## loop stoped one tile before the last tile , now is checking
 						temp.lowerBound=LB
 						newList.append(temp)
-			if (not tile.wallDict["EAST"]):
+			if (not tile.wallDict["EAST"]):## check all tiles to the east of current tile
 				temp = self.array[r,c+1]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["EAST"]):
@@ -236,7 +236,7 @@ class Board:
 					if (temp.lowerBound==-1):
 						temp.lowerBound=LB
 						newList.append(temp)
-			if (not tile.wallDict["SOUTH"]):
+			if (not tile.wallDict["SOUTH"]):## check all the tiles to the south of the current tile
 				temp = self.array[r+1,c]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["SOUTH"]):
@@ -247,7 +247,7 @@ class Board:
 					if (temp.lowerBound==-1):
 						temp.lowerBound=LB
 						newList.append(temp)
-			if (not tile.wallDict["WEST"]):
+			if (not tile.wallDict["WEST"]):## check all the tiles to the west
 				temp = self.array[r,c-1]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["WEST"]):
@@ -258,7 +258,7 @@ class Board:
 					if (temp.lowerBound==-1):
 						temp.lowerBound=LB
 						newList.append(temp)
-		self.paintLB(newList,LB+1)
+		self.paintLB(newList,LB+1)## proceed to the next level with new list contains the queue
 		
 		
 	def lowerBoundPreProc(self,targetTile):
@@ -281,7 +281,145 @@ class Board:
 			for j in xrange(self.cols):
 				a+=str(self.array[i,j].lowerBound)
 			print (a)
+		
+	
+	def CalcReachability(self,r,c,firsttime):
+		
+		if(firsttime): ## clean  RB
+			for i in xrange(self.rows):
+				for j in xrange(self.cols):
+					self.array[i,j].reachable=-1
+		for i in xrange(self.rows): ## clean visited flag, is only used in paintRB
+			for j in xrange(self.cols):		
+				self.array[i,j].check =False
+		data = paintReachability([].append(self.array[r,c]),1)
+		
+		return data
+	
+	def paintRB(self,tileList,RB):
+		'''recursive function to calculate Reachability on each tile, 
+		each tile should starte with score -1 only if it was the first time painting
+		at the end of the function, if some tile was not visited ,
+		that means it is not reachable from the target tile
+		thus would also have a score of -1
+		
+		input arguement should be the a list of tiles  
+		'''
+		data.num =0; ## number of tiles can be reached
+		data.sum =0; ## sum of score : +1 for RB decrease from previous state, -1 for RB increase from previous state 
+		if (not tileList):
+			return data
+		newList =[]
+		for tile in tileList:
 			
+			r = tile.position[0]
+			c = tile.position[1]
+			if (not tile.wallDict["NORTH"] and tile.wallDict["SOUTH"]):## north direction, north no wall  south wall
+				temp = self.array[r-1,c] ## one step north
+				if (temp.check==False or temp.reachable == RB): ## not visited ? or is visited by current level
+					while(not temp.wallDict["NORTH"]): ## looping to the north
+						if (temp.check == False):
+							temp.check =True ## calc score
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
+								newList.append(temp)
+						temp=self.array[temp.position[0]-1,c]
+					if (temp.check == False):## last tile after the loop
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
+								newList.append(temp)
+			if (not tile.wallDict["EAST"] and tile.wallDict["WEST"]): ### same for the east
+				temp = self.array[r,c+1]
+				if (temp.check==False or temp.reachable == RB):
+					while(not temp.wallDict["EAST"]):
+						if (temp.check == False):
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
+								newList.append(temp)
+						temp=self.array[r,temp.position[1]+1]
+					if (temp.check == False):
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
+								newList.append(temp)
+					
+			if (not tile.wallDict["SOUTH"] and tile.wallDict["NORTH"]):## south
+				temp = self.array[r+1,c]
+				if (temp.check==False or temp.reachable == RB):
+					while(not temp.wallDict["SOUTH"]):
+						if (temp.check == False):
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
+								newList.append(temp)
+					temp=self.array[temp.position[0]+1,c]
+					if (temp.check == False):
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
+								newList.append(temp)
+			if (not tile.wallDict["WEST"] and tile.wallDict["EAST"]): ## west
+				temp = self.array[r,c-1]
+				if (temp.check==False or temp.reachable == RB):
+					while(not temp.wallDict["WEST"]):
+						if (temp.check == False):
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
+								newList.append(temp)
+						temp=self.array[r,temp.position[1]-1]
+					if (temp.check == False):
+							temp.check =True
+							data.num +=1
+							if(temp.reachable<RB):
+								data.sum -= 1
+							elif (temp.reachable >RB):
+								data.sum +=1
+							temp.reachable = RB
+							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
+								newList.append(temp)
+						
+		data1 = self.paintRB(newList,RB+1)
+		data.num += data1.num
+		data.sum += data1.sum
+		return data
 ############################## RandomBoard Subclass ####################################
 
 			
