@@ -400,7 +400,7 @@ class StandardBoard(Board):
 		for direction in directionsList:
 			wallDict[direction] = True
 		
-		return Tile.Tile(position, None, False, wallDict) # return a tile with random walls and None robot and False target
+		return Tile.Tile(position, None, False, wallDict) # return a tile with  walls and None robot and False target
 
 
 
