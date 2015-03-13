@@ -76,9 +76,18 @@ def testPrintBoard():
 	return 1
 
 
+def testLowerBounds():
+	size =16
+	rr = Board.StandardBoard(size,size, "builtin1.txt")
+	rr.lowerBoundPreProc(rr.array[3,4])
+	rr.printLBs()
+	return 1
+	
+
+
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds]
 
 	totalTestsRan = 0
 	passedTests = 0

@@ -136,30 +136,30 @@ class Board:
 		
 		ray =[]
 		currentTile = self.array[r,c]
-		if (direction ==0 and r > 0): #NORTH
+		if (direction ==0 and not currentTile.wallDict["NORTH"]  ): #NORTH
 			
 			currentTile = self.array[r-1,c]
 			while (not currentTile.wallDict["NORTH"]):
 			 	ray.append(currentTile)
-			 	currentTile = self.array[r-1,c]
+			 	currentTile = self.array[currentTile.position[0]-1,c]
 			ray.append(currentTile)
-		elif (direction == 1 and c<self.cols): # EAST
+		elif (direction == 1 and not currentTile.wallDict["EAST"]): # EAST
 			currentTile = self.array[r,c+1]
 			while (not currentTile.wallDict["EAST"]):
 			 	ray.append(currentTile)
-			 	currentTile = self.array[r,c+1]	
+			 	currentTile = self.array[r,currentTile.position[1]+1]	
 			ray.append(currentTile)
-		elif (direction == 2 and r<self.rows): # SOUTH
+		elif (direction == 2 and not currentTile.wallDict["SOUTH"]): # SOUTH
 			currentTile = self.array[r+1,c]
 			while (not currentTile.wallDict["SOUTH"]):
 			 	ray.append(currentTile)
-			 	currentTile = self.array[r+1,c]
+			 	currentTile = self.array[currentTile.position[0]+1,c]
 			ray.append(currentTile)	
-		elif (direction == 3 and c>0): # WEST- 
+		elif (direction == 3 and not currentTile.wallDict["WEST"]): # WEST- 
 			currentTile = self.array[r,c-1]
 			while (not currentTile.wallDict["EAST"]):
 			 	ray.append(currentTile)
-			 	currentTile = self.array[r,c-1]	
+			 	currentTile = self.array[r,currentTile.position[1]-1]	
 			ray.append(currentTile)
 		return ray	
 	
@@ -184,35 +184,47 @@ class Board:
 				temp = self.array[r-1,c]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["NORTH"]):
-						if (temp.lowerBoard  != -1):
-							temp.lowerBoard = LB
+						if (temp.lowerBound  == -1):
+							temp.lowerBound = LB
 							newList.append(temp)
 						temp=self.array[temp.position[0]-1,c]
+					if (temp.lowerBound==-1):
+						temp.lowerBound=LB
+						newList.append(temp)
 			if (not tile.wallDict["EAST"]):
 				temp = self.array[r,c+1]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["EAST"]):
-						if (temp.lowerBoard  != -1):
-							temp.lowerBoard = LB
+						if (temp.lowerBound  == -1):
+							temp.lowerBound = LB
 							newList.append(temp)
 						temp=self.array[r,temp.position[1]+1]
+					if (temp.lowerBound==-1):
+						temp.lowerBound=LB
+						newList.append(temp)
 			if (not tile.wallDict["SOUTH"]):
 				temp = self.array[r+1,c]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["SOUTH"]):
-						if (temp.lowerBoard  != -1):
-							temp.lowerBoard = LB
+						if (temp.lowerBound  == -1):
+							temp.lowerBound = LB
 							newList.append(temp)
 						temp=self.array[temp.position[0]+1,c]
+					if (temp.lowerBound==-1):
+						temp.lowerBound=LB
+						newList.append(temp)
 			if (not tile.wallDict["WEST"]):
 				temp = self.array[r,c-1]
 				if (temp.lowerBound==-1 or temp.lowerBound == LB):
 					while(not temp.wallDict["WEST"]):
-						if (temp.lowerBoard  != -1):
-							temp.lowerBoard = LB
+						if (temp.lowerBound  == -1):
+							temp.lowerBound = LB
 							newList.append(temp)
 						temp=self.array[r,temp.position[1]-1]
-		paintLB(newList,LB+1)
+					if (temp.lowerBound==-1):
+						temp.lowerBound=LB
+						newList.append(temp)
+		self.paintLB(newList,LB+1)
 		
 		
 	def lowerBoundPreProc(self,targetTile):
@@ -222,10 +234,20 @@ class Board:
 		col =targetTile.position[1]
 		initList =[]
 		for i in xrange(4):
-			initList + getRay(row,col,i)
-		paintLB(initList,1)
+			initList += self.getRay(row,col,i)
+		for t in initList:
+			t.lowerBound = 1
+		self.paintLB(initList,2)
+	
+	def printLBs(self):
+		'''this function displays the board heuristics'''
 		
-		
+		for i in xrange(self.rows):
+			a =""
+			for j in xrange(self.cols):
+				a+=str(self.array[i,j].lowerBound)
+			print (a)
+			
 ############################## RandomBoard Subclass ####################################
 
 			
