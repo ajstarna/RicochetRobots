@@ -28,4 +28,4 @@ class AllMoves:
 
 	def getRandomMove(self):
 		''' return a random move from the moveSet '''
-		return random.sample(self.moveSet, 1)
+		return random.sample(self.moveSet, 1)[0]

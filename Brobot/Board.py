@@ -156,6 +156,29 @@ class Board:
 			return False
 
 
+	def resetRobots(self, resetPositions):
+		''' this method takes a dictionary with robot positions to set self.robot positions to.
+			it does that as well as updating the tiles in the array to reflect the change. '''
+		for i in xrange(4):
+			self.array[self.robotPositions[i]].robot = None
+			self.array[resetPositions[i]] = i
+
+		self.robotPositions = resetPositions
+		
+		
+
+	def validateMoveSequence(self, sequence):
+		''' takes a move sequence as input as validates if it results in an end state '''
+		resetPositions = self.robotPositions
+		for move in sequence:
+			self.makeMove(move)
+
+		valid = self.endState()
+		self.resetRobots(resetPositions)
+		return valid
+
+
+
 		
 	def getRay(self,r,c,direction):
 		''' returns a list of tile that casts from (r,c) in a direction

@@ -42,6 +42,7 @@ def testPlay():
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
 		rPlayer = Player.RandomPlayer(rr)
+		rPlayer.setTarget()
 		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
