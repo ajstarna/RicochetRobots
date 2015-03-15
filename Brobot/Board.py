@@ -101,7 +101,11 @@ class Board:
 
 	def makeMove(self, move):
 		''' given a move, make it on the board (so move the colour in the direction and update the array) '''
+
+		
 		startPosition = self.robotPositions[move.colour] # initalize the endPosition to be the starting position
+		
+		#print("Start position = {}".format(startPosition))
 		# now see how far the robot can move in the direction
 		currentTile = self.array[startPosition]
 		while True:
@@ -161,7 +165,7 @@ class Board:
 			it does that as well as updating the tiles in the array to reflect the change. '''
 		for i in xrange(4):
 			self.array[self.robotPositions[i]].robot = None
-			self.array[resetPositions[i]] = i
+			self.array[resetPositions[i]].robot = i
 
 		self.robotPositions = resetPositions
 		

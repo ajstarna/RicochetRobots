@@ -150,10 +150,53 @@ def testEndState():
 		return 0
 
 
+def testResetRobots():
+	''' make a couple moves then reset the robots using resetRobots method '''
+	size = 16
+	fileName = "builtin1.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		
+		reset = rr.robotPositions
+		
+		move1 = Move.Move(Board.Board.GREEN, "EAST")
+		move2 = Move.Move(Board.Board.BLUE, "NORTH")
+		move3 = Move.Move(Board.Board.BLUE, "WEST") # create the move object
+		
+		rr.makeMove(move1) # now make the move
+		rr.makeMove(move2) # now make the move
+		rr.makeMove(move3) # now make the move
+	
+		rr.resetRobots(reset)
+	
+		# test that the robot dict got reset
+		if rr.robotPositions != reset:
+			return 0
+
+		# now test that the tile make sense
+		for i in xrange(size):
+			for j in xrange(size):
+				tile = rr.array[i,j]
+				if (i,j) in rr.robotPositions.values() and tile.robot == None:
+					# the dictionary says this tile should have a robot but it doesn't
+					return 0
+				elif (not (i,j) in rr.robotPositions.values()) and tile.robot != None:
+					# the dictionary says this tile should not have a robot but it does
+					return 0
+
+
+		return 1
+		
+	except:
+		print("exception in testEndState")
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState, testResetRobots]
 
 	totalTestsRan = 0
 	passedTests = 0

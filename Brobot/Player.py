@@ -1,5 +1,6 @@
 import Board
 import Move
+import time
 
 class Player:
 	''' this player abstract class contains a Board and has methods for playing the game.
@@ -44,7 +45,20 @@ class RandomPlayer(Player):
 
 	def play(self, timeLimit):
 		''' override super '''
-		return None
+		self.originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
+
+		tStart = time.clock()
+		
+		while True:
+			while not self.board.endState():
+				moveToMake = self.moves.getRandomMove()
+				self.currentSequence.append(moveToMake)
+				self.board.makeMove(moveToMake)
+
+		
+		return self.currentSequence, len(self.currentSequence)
+		
 
 
 	def findFirstSolutionNoTimeLimit(self):
@@ -52,14 +66,14 @@ class RandomPlayer(Player):
 			It has no time limit, and will only return the first solution it finds (could last a while) 
 			Make sure that a current target has been set before this is called (use setTarget)'''
 
-		self.originalPositions = self.board.robotPositions # keep the original positions for resetting the board
-		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
+		originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 
 		while not self.board.endState():
 			moveToMake = self.moves.getRandomMove()
-			self.currentSequence.append(moveToMake)
+			currentSequence.append(moveToMake)
 			self.board.makeMove(moveToMake)
-
 		
-		return self.currentSequence, len(self.currentSequence)
+		self.board.resetRobots(originalPositions) # don't want to actually change the board
+		return currentSequence, len(currentSequence)
 		

@@ -46,6 +46,7 @@ def testPlay():
 		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
+			#print("valid sequence with {} moves!".format(numMoves))
 			return 1
 		else:
 			return 0
