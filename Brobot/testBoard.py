@@ -98,7 +98,7 @@ def testReachability():
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
 		n,s = rr.CalcReachability(3,4,True)
-		
+		rr.printRBs()
 		print ("number of tiles can be reached :" + str( n))
 		return 1
 		
@@ -210,7 +210,7 @@ def testResetRobots():
 if __name__ == "__main__":
 
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState, testResetRobots]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState, testResetRobots,testReachability]
 
 
 	totalTestsRan = 0
