@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-import Player
+import MCPlayer
 import Board
 import sys, traceback
 
@@ -10,7 +10,7 @@ def testInit():
 	size = 16
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
-		rPlayer = Player.MCPlayer(rr)
+		rPlayer = MCPlayer.MCPlayer(rr)
 		if rPlayer.board != None:
 			return 1
 		else:
@@ -29,7 +29,7 @@ def testFindFirstSol():
 	fileName = "builtin1.txt"
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
-		mcPlayer = Player.MCPlayer(rr)
+		mcPlayer = MCPlayer.MCPlayer(rr)
 		mcPlayer.setTarget()
 		moveSequence, numMoves = mcPlayer.findFirstSolutionNoTimeLimit()
 		if rr.validateMoveSequence(moveSequence):
