@@ -92,7 +92,20 @@ def testLowerBounds():
 	rr.printLBs()
 	return 1
 
-
+def testReachability():
+	size = 16
+	fileName = "builtin1.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		n,s = rr.CalcReachability(3,4,True)
+		
+		print ("number of tiles can be reached :" + str( n))
+		return 1
+		
+	except:
+		print("exception in testMakeMove")
+		traceback.print_exc(file=sys.stdout)
+		return 0
 
 def testMakeMove():
 	''' test making a move in the board '''
@@ -122,7 +135,7 @@ def testMakeMove():
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove,testReachability]
 
 	totalTestsRan = 0
 	passedTests = 0

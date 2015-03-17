@@ -258,9 +258,11 @@ class Board:
 		for i in xrange(self.rows): ## clean visited flag, is only used in paintRB
 			for j in xrange(self.cols):		
 				self.array[i,j].check =False
-		data = paintReachability([].append(self.array[r,c]),1)
+		a=[]
+		a.append(self.array[r,c])
+		n,s = self.paintRB(a,1)
 		
-		return data
+		return n,s
 	
 	def paintRB(self,tileList,RB):
 		'''recursive function to calculate Reachability on each tile, 
@@ -271,10 +273,12 @@ class Board:
 		
 		input arguement should be the a list of tiles  
 		'''
-		data.num =0; ## number of tiles can be reached
-		data.sum =0; ## sum of score : +1 for RB decrease from previous state, -1 for RB increase from previous state 
+		
+		nums =0; ## number of tiles can be reached
+		sums =0; ## sum of score : +1 for RB decrease from previous state, -1 for RB increase from previous state 
 		if (not tileList):
-			return data
+			
+			return nums,sums
 		newList =[]
 		for tile in tileList:
 			
@@ -286,22 +290,22 @@ class Board:
 					while(not temp.wallDict["NORTH"]): ## looping to the north
 						if (temp.check == False):
 							temp.check =True ## calc score
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums+=1
 							temp.reachable = RB
 							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
 								newList.append(temp)
 						temp=self.array[temp.position[0]-1,c]
 					if (temp.check == False):## last tile after the loop
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
 								newList.append(temp)
@@ -311,22 +315,22 @@ class Board:
 					while(not temp.wallDict["EAST"]):
 						if (temp.check == False):
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
 								newList.append(temp)
 						temp=self.array[r,temp.position[1]+1]
 					if (temp.check == False):
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
 								newList.append(temp)
@@ -337,22 +341,22 @@ class Board:
 					while(not temp.wallDict["SOUTH"]):
 						if (temp.check == False):
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
 								newList.append(temp)
 					temp=self.array[temp.position[0]+1,c]
 					if (temp.check == False):
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
 								newList.append(temp)
@@ -362,30 +366,32 @@ class Board:
 					while(not temp.wallDict["WEST"]):
 						if (temp.check == False):
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+							
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
 								newList.append(temp)
 						temp=self.array[r,temp.position[1]-1]
 					if (temp.check == False):
 							temp.check =True
-							data.num +=1
+							nums +=1
 							if(temp.reachable<RB):
-								data.sum -= 1
+								sums -= 1
 							elif (temp.reachable >RB):
-								data.sum +=1
+								sums +=1
 							temp.reachable = RB
 							if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
 								newList.append(temp)
 						
-		data1 = self.paintRB(newList,RB+1)
-		data.num += data1.num
-		data.sum += data1.sum
-		return data
+		num1, sum1 = self.paintRB(newList,RB+1)
+		print (nums)
+		nums += num1
+		sums += sum1
+		return nums, sums
 ############################## RandomBoard Subclass ####################################
 
 			
