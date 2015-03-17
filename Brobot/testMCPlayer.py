@@ -1,49 +1,37 @@
 #!/usr/bin/python
 
-import Player
+import MCPlayer
 import Board
 import sys, traceback
 
 
-def testInitRandom():
-	''' use a standard board to test a random player '''
+def testInit():
+	''' use a standard board to test a MC player '''
 	size = 16
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
-		rPlayer = Player.RandomPlayer(rr)
+		rPlayer = MCPlayer.MCPlayer(rr)
 		if rPlayer.board != None:
 			return 1
 		else:
 			return 0
 	except:
-		print("exception in testInitRandom")
+		print("exception in testInit")
 		return 0
 
 
 
-def testShowBoard():
-	''' use a standard board to test a random player's showBoard method '''
+
+
+def testFindFirstSol():
+	''' use a standard board to test a MCPlayer's play method '''
 	size = 16
+	fileName = "builtin1.txt"
 	try:
-		rr = Board.StandardBoard(size, size, "builtin1.txt")
-		rPlayer = Player.RandomPlayer(rr)
-		rPlayer.showBoard()
-		return 1
-
-	except:
-		print("exception in testShowBoard")
-		return 0
-
-
-
-def testPlay():
-	''' use a standard board to test a RandomPlayer's play method '''
-	size = 16
-	try:
-		rr = Board.StandardBoard(size, size, "builtin1.txt")
-		rPlayer = Player.RandomPlayer(rr)
-		rPlayer.setTarget()
-		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
+		rr = Board.StandardBoard(size, size, fileName)
+		mcPlayer = MCPlayer.MCPlayer(rr)
+		mcPlayer.setTarget()
+		moveSequence, numMoves = mcPlayer.findFirstSolutionNoTimeLimit()
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			#print("valid sequence with {} moves!".format(numMoves))
@@ -63,7 +51,7 @@ def testPlay():
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testShowBoard, testPlay]
+	tests = [testInit, testFindFirstSol]
 
 	totalTestsRan = 0
 	passedTests = 0

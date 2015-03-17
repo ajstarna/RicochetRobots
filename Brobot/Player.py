@@ -1,5 +1,6 @@
 import Board
 import Move
+import time
 
 class Player:
 	''' this player abstract class contains a Board and has methods for playing the game.
@@ -20,12 +21,21 @@ class Player:
 
 	def play(self, timeLimit):
 		''' the play method given with a timeLimit.
-			The current best solution must be returned in this timeLimit, and if none have been found, return None '''
+			The current best solution must be returned in this timeLimit, and if none have been found, return None 
+			Make sure that a current target has been set before this is called (use setTarget)'''
+		raise NotImplementedError("Please implement this method")
+
+
+	def findFirstSolutionNoTimeLimit(self):
+		''' this method will randomly make moves until a single solution is found.
+			It has no time limit, and will only return the first solution it finds (could last a while) 
+			Make sure that a current target has been set before this is called (use setTarget)'''
 		raise NotImplementedError("Please implement this method")
 
 
 	def setTarget(self):
-		''' sets the target for the current game from the list of targets '''
+		''' sets the target for the current game randomly from the list of targets '''
+		self.board.currentTarget = self.board.targetPositions.pop()
 		
 
 
@@ -42,18 +52,35 @@ class RandomPlayer(Player):
 
 	def play(self, timeLimit):
 		''' override super '''
-		return None
-
-
-	def findFirstSolutionNoTimeLimit():
-		''' this method will randomly make moves until a single solution is found.
-			It has no time limit, and will only return the first solution it finds (could last a while) '''
-
 		self.originalPositions = self.board.robotPositions # keep the original positions for resetting the board
 		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
 
+		tStart = time.clock()
+		
+		while True:
+			while not self.board.endState():
+				moveToMake = self.moves.getRandomMove()
+				self.currentSequence.append(moveToMake)
+				self.board.makeMove(moveToMake)
+
+		
+		return self.currentSequence, len(self.currentSequence)
+		
+
+
+	def findFirstSolutionNoTimeLimit(self):
+		''' this method will randomly make moves until a single solution is found.
+			It has no time limit, and will only return the first solution it finds (could last a while) 
+			Make sure that a current target has been set before this is called (use setTarget)'''
+
+		originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		currentSequence = [] # keep track of the sequence of moves that brought us to current state
+
 		while not self.board.endState():
 			moveToMake = self.moves.getRandomMove()
-			self.currentSequence.append(moveToMake)
+			currentSequence.append(moveToMake)
 			self.board.makeMove(moveToMake)
+		
+		self.board.resetRobots(originalPositions) # don't want to actually change the board
+		return currentSequence, len(currentSequence)
 		

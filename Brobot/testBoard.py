@@ -113,16 +113,18 @@ def testMakeMove():
 	fileName = "builtin1.txt"
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
-		move = Move.Move(Board.BLUE, "SOUTH") # create the move object
-		initalPosition = rr.robotPositions[Board.BLUE]
+		move = Move.Move(Board.Board.BLUE, "SOUTH") # create the move object
+		initalPosition = rr.robotPositions[Board.Board.BLUE]
 		if initalPosition != (5,1):
+			print("initial position incorrect")
 			return 0 # not what we excepted from builtin1.txt
 		
 		rr.makeMove(move) # now make the move
 		
-		if rr.robotPositions[Board.BLUE] != (12,1):
+		if rr.robotPositions[Board.Board.BLUE] != (12,1):
+			print("final position incorrect")
 			return 0 # not what we excepted from builtin1.txt
-		
+
 		return 1
 
 	except:
@@ -133,9 +135,83 @@ def testMakeMove():
 
 
 
+def testEndState():
+	''' make the necessary moves from builtin2.txt to get to an endstate then see if the board can recognize this '''
+	size = 16
+	fileName = "builtin2.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		# set the current Target for the game
+		rr.setCurrentTarget()
+		
+		move1 = Move.Move(Board.Board.GREEN, "EAST")
+		move2 = Move.Move(Board.Board.BLUE, "NORTH")
+		move3 = Move.Move(Board.Board.BLUE, "WEST") # create the move object
+		
+		rr.makeMove(move1) # now make the move
+		rr.makeMove(move2) # now make the move
+		rr.makeMove(move3) # now make the move
+		
+		if rr.endState() == True:
+			return 1
+		else:
+			return 0
+
+	except:
+		print("exception in testEndState")
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
+def testResetRobots():
+	''' make a couple moves then reset the robots using resetRobots method '''
+	size = 16
+	fileName = "builtin1.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		
+		reset = rr.robotPositions
+		
+		move1 = Move.Move(Board.Board.GREEN, "EAST")
+		move2 = Move.Move(Board.Board.BLUE, "NORTH")
+		move3 = Move.Move(Board.Board.BLUE, "WEST") # create the move object
+		
+		rr.makeMove(move1) # now make the move
+		rr.makeMove(move2) # now make the move
+		rr.makeMove(move3) # now make the move
+	
+		rr.resetRobots(reset)
+	
+		# test that the robot dict got reset
+		if rr.robotPositions != reset:
+			return 0
+
+		# now test that the tile make sense
+		for i in xrange(size):
+			for j in xrange(size):
+				tile = rr.array[i,j]
+				if (i,j) in rr.robotPositions.values() and tile.robot == None:
+					# the dictionary says this tile should have a robot but it doesn't
+					return 0
+				elif (not (i,j) in rr.robotPositions.values()) and tile.robot != None:
+					# the dictionary says this tile should not have a robot but it does
+					return 0
+
+
+		return 1
+		
+	except:
+		print("exception in testEndState")
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
+
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove,testReachability]
+
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState, testResetRobots]
+
 
 	totalTestsRan = 0
 	passedTests = 0

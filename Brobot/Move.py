@@ -9,6 +9,9 @@ class Move:
 		self.direction = direction # this string is NORTH, SOUTH, EAST, or WEST
 
 
+	def __str__(self):
+		return "Colour = {} and direction = {}".format(self.colour, self.direction)
+
 
 class AllMoves:
 	''' this class holds all possibe moves that can be made in Ricochet Robots '''
@@ -28,4 +31,4 @@ class AllMoves:
 
 	def getRandomMove(self):
 		''' return a random move from the moveSet '''
-		return random.sample(self.moveSet, 1)
+		return random.sample(self.moveSet, 1)[0]

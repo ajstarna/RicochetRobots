@@ -32,7 +32,7 @@ class Board:
 	
 	def setCurrentTarget(self):
 		''' this method will pick a random target from the target list and make that the currentTarget for the game '''
-		self.currentTarget = random.sample(self.targetPositions, 1)
+		self.currentTarget = random.sample(self.targetPositions, 1)[0]
 		self.targetPositions.remove(self.currentTarget)
 	
 		
@@ -101,15 +101,19 @@ class Board:
 
 	def makeMove(self, move):
 		''' given a move, make it on the board (so move the colour in the direction and update the array) '''
+
+		
 		startPosition = self.robotPositions[move.colour] # initalize the endPosition to be the starting position
+		
+		#print("Start position = {}".format(startPosition))
 		# now see how far the robot can move in the direction
 		currentTile = self.array[startPosition]
 		while True:
-			if currentTile.wallDict[direction]:
+			if currentTile.wallDict[move.direction]:
 				# there is a wall in the direction we need to move, so final spot
 				break
 			# since an edge tile will always have a wall, if we made it to here then we know we can find the adjacent tile
-			adjacentTile = self.getAdjacentTile(currentTile, direction)
+			adjacentTile = self.getAdjacentTile(currentTile, move.direction)
 			if adjacentTile.robot != None:
 				# there is a robot blocking us, so final spot
 				break
@@ -117,11 +121,68 @@ class Board:
 			# no wall or robot in the way, so move the robot onto the adjacent tile
 			adjacentTile.robot = currentTile.robot
 			currentTile.robot = None
-			self.robotPositions[colour] = adjacentTile.position
+			self.robotPositions[move.colour] = adjacentTile.position
 			currentTile = adjacentTile
 
 		# the currentTile is the ending position
 		
+		
+		
+		
+	def getAdjacentTile(self, tile, direction):
+		''' given a tile and a direction, this returns the tile adjacent in that direction.
+			return None if an edge '''
+		i, j = tile.position
+		if direction == "NORTH":
+			i -= 1
+		elif direction == "SOUTH":
+			i += 1
+		elif direction == "EAST":
+			j += 1
+		elif direction == "WEST":
+			j -= 1
+
+		if i < 0 or i >= self.rows or j < 0 or j >= self.cols:
+			# out of bounds
+			return None
+			
+		return self.array[i,j]
+
+
+
+	def endState(self):
+		''' returns boolean of whether the board is in an end state (i.e. is the right robot at the target '''
+		try:
+			return self.currentTarget == self.robotPositions[Board.BLUE] #we assume blue is always the target robot
+		except:
+			# currentTarget not set yet
+			print("currentTarget not yet set!")
+			return False
+
+
+	def resetRobots(self, resetPositions):
+		''' this method takes a dictionary with robot positions to set self.robot positions to.
+			it does that as well as updating the tiles in the array to reflect the change. '''
+		for i in xrange(4):
+			self.array[self.robotPositions[i]].robot = None
+			self.array[resetPositions[i]].robot = i
+
+		self.robotPositions = resetPositions
+		
+		
+
+	def validateMoveSequence(self, sequence):
+		''' takes a move sequence as input as validates if it results in an end state '''
+		resetPositions = self.robotPositions
+		for move in sequence:
+			self.makeMove(move)
+
+		valid = self.endState()
+		self.resetRobots(resetPositions)
+		return valid
+
+
+
 		
 	def getRay(self,r,c,direction):
 		''' returns a list of tile that casts from (r,c) in a direction
@@ -494,7 +555,7 @@ class StandardBoard(Board):
 			if line[j] == "=":
 				iCoord, jCoord = line[j+1:].split(",")
 				robotINT = Board.conversionDict[line[:j]]
-				self.robotPositions[robotINT] = (iCoord, jCoord)
+				self.robotPositions[robotINT] = (int(iCoord), int(jCoord))
 				self.array[iCoord, jCoord].robot = robotINT
 			
 			
@@ -506,7 +567,7 @@ class StandardBoard(Board):
 		targetCoords = line[2:].split(" ")
 		for coord in targetCoords:
 			iCoord, jCoord = coord.split(",")
-			self.targetPositions.append((iCoord,jCoord))
+			self.targetPositions.append((int(iCoord),int(jCoord)))
 			self.array[iCoord, jCoord].target = True
 		
 
