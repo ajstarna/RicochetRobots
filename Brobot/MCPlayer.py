@@ -1,5 +1,5 @@
 from Player import Player
-
+from copy import deepcopy
 
 class MCPlayer(Player):
 	def __init__(self, board):
@@ -7,7 +7,7 @@ class MCPlayer(Player):
 
 	def findFirstSolutionNoTimeLimit(self):
 
-		originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
 		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 
 		while not self.board.endState():

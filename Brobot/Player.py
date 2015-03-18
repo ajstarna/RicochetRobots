@@ -54,43 +54,43 @@ class RandomPlayer(Player):
 	def play(self, timeLimit):
 		''' override super '''
 		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
-		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
-		self.bestSequence = None # this will be the best of all sequences found
+		currentSequence = [] # keep track of the sequence of moves that brought us to current state
+		bestSequence = None # this will be the best of all sequences found
 		tStart = time.clock()
 		
 		timeRemaining = True
 		while True:
 	
 			while not self.board.endState():
-				if self.bestSequence != None and len(self.currentSequence) >= len(self.bestSequence):
+				if bestSequence != None and len(currentSequence) >= len(bestSequence):
 					# no need to keep looking on this path
-					self.currentSequence = []
+					currentSequence = []
 					self.board.resetRobots(originalPositions)
 					continue
 				
 				
 				moveToMake = self.moves.getRandomMove()
-				self.currentSequence.append(moveToMake)
+				currentSequence.append(moveToMake)
 				self.board.makeMove(moveToMake)
 				endState = True
 				if time.clock() - tStart >= timeLimit:
 					
 					self.board.resetRobots(originalPositions)
-					if self.bestSequence == None:
+					if bestSequence == None:
 						return [], 0
 					else:
-						return self.bestSequence, len(self.bestSequence)
+						return bestSequence, len(bestSequence)
 			
 			# at this point it is an endstate
-			if self.bestSequence == None:
+			if bestSequence == None:
 				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
-				self.bestSequence = self.currentSequence
-			elif len(self.bestSequence) > len(self.currentSequence):
+				bestSequence = currentSequence
+			elif len(bestSequence) > len(currentSequence):
 				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
-				self.bestSequence = self.currentSequence
+				bestSequence = currentSequence
 	
 
-			self.currentSequence = []
+			currentSequence = []
 			self.board.resetRobots(originalPositions)
 
 		
