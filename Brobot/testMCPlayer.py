@@ -31,7 +31,9 @@ def testFindFirstSol():
 		rr = Board.StandardBoard(size, size, fileName)
 		mcPlayer = MCPlayer.MCPlayer(rr)
 		mcPlayer.setTarget()
-		moveSequence, numMoves = mcPlayer.findFirstSolutionNoTimeLimit()
+		numSamples = 10
+		depth = 5
+		moveSequence, numMoves = mcPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			#print("valid sequence with {} moves!".format(numMoves))
