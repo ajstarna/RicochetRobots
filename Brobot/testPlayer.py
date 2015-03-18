@@ -36,7 +36,7 @@ def testShowBoard():
 
 
 
-def testPlay():
+def testFindFirstSol():
 	''' use a standard board to test a RandomPlayer's play method '''
 	size = 16
 	try:
@@ -57,13 +57,32 @@ def testPlay():
 		return 0
 
 
+def testPlay():
+	''' use a standard board to test a RandomPlayer's play method '''
+	size = 16
+	try:
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		rPlayer = Player.RandomPlayer(rr)
+		rPlayer.setTarget()
+		moveSequence, numMoves = rPlayer.play(10)
+		if rr.validateMoveSequence(moveSequence):
+			# if the move sequence
+			print("valid sequence with {} moves!".format(numMoves))
+			return 1
+		else:
+			return 0
+
+	except:
+		print("exception in testPlay")
+		traceback.print_exc(file=sys.stdout)
+		return 0
 
 
 
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testShowBoard, testPlay]
+	tests = [testInitRandom, testShowBoard, testFindFirstSol, testPlay]
 
 	totalTestsRan = 0
 	passedTests = 0

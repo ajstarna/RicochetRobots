@@ -27,7 +27,7 @@ class Player:
 
 
 	def findFirstSolutionNoTimeLimit(self):
-		''' this method will randomly make moves until a single solution is found.
+		''' this method will search until a single solution is found.
 			It has no time limit, and will only return the first solution it finds (could last a while) 
 			Make sure that a current target has been set before this is called (use setTarget)'''
 		raise NotImplementedError("Please implement this method")
@@ -54,17 +54,34 @@ class RandomPlayer(Player):
 		''' override super '''
 		self.originalPositions = self.board.robotPositions # keep the original positions for resetting the board
 		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
-
+		self.bestSequence = None # this will be the best of all sequences found
 		tStart = time.clock()
 		
+		timeRemaining = True
 		while True:
+			print("Start of loop Blue is at {0}".format(self.board.robotPositions[Board.Board.BLUE]))
 			while not self.board.endState():
 				moveToMake = self.moves.getRandomMove()
 				self.currentSequence.append(moveToMake)
 				self.board.makeMove(moveToMake)
-
+				print("Time ellapsed = {0}".format(time.clock() - tStart))
+				if time.clock() - tStart >= timeLimit:
+					if self.bestSequence == None:
+						return None, None
+					else:
+						return self.currentSequence, len(self.currentSequence)
+			
+			# at this point it is an endstate
+			if self.bestSequence == None:
+				self.bestSequence = self.currentSequence
+			elif len(self.bestSequence) > len(self.currentSequence):
+				print("Updating best sequence")
+				self.bestSequence = self.currentSequence
+	
+			self.currentSequence = []
+			self.board.resetRobots(self.originalPositions)
 		
-		return self.currentSequence, len(self.currentSequence)
+		
 		
 
 
