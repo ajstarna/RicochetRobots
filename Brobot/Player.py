@@ -60,12 +60,19 @@ class RandomPlayer(Player):
 		
 		timeRemaining = True
 		while True:
+	
 			while not self.board.endState():
-
+				if self.bestSequence != None and len(self.currentSequence) >= len(self.bestSequence):
+					# no need to keep looking on this path
+					self.currentSequence = []
+					self.board.resetRobots(originalPositions)
+					continue
+				
+				
 				moveToMake = self.moves.getRandomMove()
 				self.currentSequence.append(moveToMake)
 				self.board.makeMove(moveToMake)
-				#print("Time ellapsed = {0}".format(time.clock() - tStart))
+				endState = True
 				if time.clock() - tStart >= timeLimit:
 					
 					self.board.resetRobots(originalPositions)
