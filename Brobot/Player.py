@@ -77,16 +77,16 @@ class RandomPlayer(Player):
 					
 					self.board.resetRobots(originalPositions)
 					if self.bestSequence == None:
-						return None, None
+						return [], 0
 					else:
 						return self.bestSequence, len(self.bestSequence)
 			
 			# at this point it is an endstate
 			if self.bestSequence == None:
-				print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
+				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
 				self.bestSequence = self.currentSequence
 			elif len(self.bestSequence) > len(self.currentSequence):
-				print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
+				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
 				self.bestSequence = self.currentSequence
 	
 
