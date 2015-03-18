@@ -1,6 +1,7 @@
 import numpy as np
 import Tile
 import random
+from copy import deepcopy
 
 class Board:
 	''' the Board class. to be treated as an abstract class. Use a subclass for the actual board with more
@@ -167,7 +168,7 @@ class Board:
 			self.array[self.robotPositions[i]].robot = None
 			self.array[resetPositions[i]].robot = i
 
-		self.robotPositions = resetPositions
+		self.robotPositions = deepcopy(resetPositions)
 		
 		
 

@@ -1,6 +1,7 @@
 import Board
 import Move
 import time
+from copy import deepcopy
 
 class Player:
 	''' this player abstract class contains a Board and has methods for playing the game.
@@ -52,7 +53,8 @@ class RandomPlayer(Player):
 
 	def play(self, timeLimit):
 		''' override super '''
-		self.originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
+		print("Original positions = {0}".format(originalPositions))
 		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
 		self.bestSequence = None # this will be the best of all sequences found
 		tStart = time.clock()
@@ -60,11 +62,13 @@ class RandomPlayer(Player):
 		timeRemaining = True
 		while True:
 			print("Start of loop Blue is at {0}".format(self.board.robotPositions[Board.Board.BLUE]))
+			endFlag = True
 			while not self.board.endState():
+				endFlag = False
 				moveToMake = self.moves.getRandomMove()
 				self.currentSequence.append(moveToMake)
 				self.board.makeMove(moveToMake)
-				print("Time ellapsed = {0}".format(time.clock() - tStart))
+				#print("Time ellapsed = {0}".format(time.clock() - tStart))
 				if time.clock() - tStart >= timeLimit:
 					if self.bestSequence == None:
 						return None, None
@@ -78,8 +82,14 @@ class RandomPlayer(Player):
 				print("Updating best sequence")
 				self.bestSequence = self.currentSequence
 	
+			print("len of best = {0}".format(len(self.bestSequence)))
 			self.currentSequence = []
-			self.board.resetRobots(self.originalPositions)
+			print("len of best = {0}".format(len(self.bestSequence)))
+			print("Original positions = {0}".format(originalPositions))
+			self.board.resetRobots(originalPositions)
+	
+			if endFlag:
+				return
 		
 		
 		
@@ -90,7 +100,7 @@ class RandomPlayer(Player):
 			It has no time limit, and will only return the first solution it finds (could last a while) 
 			Make sure that a current target has been set before this is called (use setTarget)'''
 
-		originalPositions = self.board.robotPositions # keep the original positions for resetting the board
+		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
 		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 
 		while not self.board.endState():
