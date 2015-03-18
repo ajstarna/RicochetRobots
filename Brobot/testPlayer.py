@@ -46,13 +46,14 @@ def testFindFirstSol():
 		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
-			#print("valid sequence with {} moves!".format(numMoves))
+			print("valid sequence with {0} moves!".format(numMoves))
 			return 1
 		else:
+			print("Invalid move sequence")
 			return 0
 
 	except:
-		print("exception in testPlay")
+		print("exception in testFindFirstSol")
 		traceback.print_exc(file=sys.stdout)
 		return 0
 
@@ -64,12 +65,13 @@ def testPlay():
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
 		rPlayer = Player.RandomPlayer(rr)
 		rPlayer.setTarget()
-		moveSequence, numMoves = rPlayer.play(10)
+		moveSequence, numMoves = rPlayer.play(7) # let it search for 3 seconds
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
-			print("valid sequence with {} moves!".format(numMoves))
+			#print("valid sequence with {0} moves!".format(numMoves))
 			return 1
 		else:
+			#print("Invalid sequence with {0} moves!".format(numMoves))
 			return 0
 
 	except:

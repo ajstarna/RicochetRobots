@@ -54,42 +54,38 @@ class RandomPlayer(Player):
 	def play(self, timeLimit):
 		''' override super '''
 		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
-		print("Original positions = {0}".format(originalPositions))
 		self.currentSequence = [] # keep track of the sequence of moves that brought us to current state
 		self.bestSequence = None # this will be the best of all sequences found
 		tStart = time.clock()
 		
 		timeRemaining = True
 		while True:
-			print("Start of loop Blue is at {0}".format(self.board.robotPositions[Board.Board.BLUE]))
-			endFlag = True
 			while not self.board.endState():
-				endFlag = False
+
 				moveToMake = self.moves.getRandomMove()
 				self.currentSequence.append(moveToMake)
 				self.board.makeMove(moveToMake)
 				#print("Time ellapsed = {0}".format(time.clock() - tStart))
 				if time.clock() - tStart >= timeLimit:
+					
+					self.board.resetRobots(originalPositions)
 					if self.bestSequence == None:
 						return None, None
 					else:
-						return self.currentSequence, len(self.currentSequence)
+						return self.bestSequence, len(self.bestSequence)
 			
 			# at this point it is an endstate
 			if self.bestSequence == None:
+				print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
 				self.bestSequence = self.currentSequence
 			elif len(self.bestSequence) > len(self.currentSequence):
-				print("Updating best sequence")
+				print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
 				self.bestSequence = self.currentSequence
 	
-			print("len of best = {0}".format(len(self.bestSequence)))
+
 			self.currentSequence = []
-			print("len of best = {0}".format(len(self.bestSequence)))
-			print("Original positions = {0}".format(originalPositions))
 			self.board.resetRobots(originalPositions)
-	
-			if endFlag:
-				return
+
 		
 		
 		
