@@ -167,8 +167,10 @@ class Board:
 		for i in xrange(4):
 			self.array[self.robotPositions[i]].robot = None
 			self.array[resetPositions[i]].robot = i
+		
+			self.robotPositions[i] = resetPositions[i]
 
-		self.robotPositions = deepcopy(resetPositions)
+		#self.robotPositions = deepcopy(resetPositions)
 		
 		
 
