@@ -33,12 +33,17 @@ def testFindFirstSol():
 		mcPlayer.setTarget()
 		numSamples = 10
 		depth = 5
+		
+		print("robot positions before call to findFirstSol = {0}".format(mcPlayer.board.robotPositions))
 		moveSequence, numMoves = mcPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
+		print("robot positions after call to findFirstSol = {0}".format(mcPlayer.board.robotPositions))
+		
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
-			#print("valid sequence with {} moves!".format(numMoves))
+			print("valid sequence with {} moves!".format(numMoves))
 			return 1
 		else:
+			print("Invalid sequence with {} moves!".format(numMoves))
 			return 0
 
 	except:

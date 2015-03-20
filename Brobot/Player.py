@@ -2,6 +2,7 @@ import Board
 import Move
 import time
 from copy import deepcopy
+import random
 
 class Player:
 	''' this player abstract class contains a Board and has methods for playing the game.
@@ -107,10 +108,51 @@ class RandomPlayer(Player):
 		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 
 		while not self.board.endState():
-			moveToMake = self.moves.getRandomMove()
+			moveToMake = random.randint(0,15) # 16 possible moves; this is the index
 			currentSequence.append(moveToMake)
-			self.board.makeMove(moveToMake)
+			self.board.makeMoveByInt(moveToMake)
+		
+		'''
+		savedDict = deepcopy(self.board.robotPositions)
+		print("savedDict")
+		print(savedDict)
+		self.board.resetRobots(originalPositions)
+		print(self.board.robotPositions)
+		for move in currentSequence:
+			self.board.makeMove(move)
+		print(self.board.robotPositions)
+		'''
 		
 		self.board.resetRobots(originalPositions) # don't want to actually change the board
 		return currentSequence, len(currentSequence)
+
+
+
+	'''
+	def dictFromSequence(self, originalPositions, currentSequence):
+		rr = deepcopy(self.board)
+		rr.resetRobots(originalPositions)
 		
+		for move in currentSequence:
+			rr.makeMoveByInt(move)
+
+		return rr.robotPositions
+	'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

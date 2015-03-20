@@ -207,6 +207,37 @@ def testResetRobots():
 
 
 
+
+def testCopyBoard():
+	''' make the necessary moves from builtin2.txt to get to an endstate then see if the board can recognize this '''
+	size = 16
+	fileName = "builtin2.txt"
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		# set the current Target for the game
+		rr.setCurrentTarget()
+		
+		move1 = Move.Move(Board.Board.GREEN, "EAST")
+		move2 = Move.Move(Board.Board.BLUE, "NORTH")
+		move3 = Move.Move(Board.Board.BLUE, "WEST") # create the move object
+		
+		rr.makeMove(move1) # now make the move
+		rr.makeMove(move2) # now make the move
+		rr.makeMove(move3) # now make the move
+		
+		if rr.endState() == True:
+			return 1
+		else:
+			return 0
+
+	except:
+		print("exception in testEndState")
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
+
+
 if __name__ == "__main__":
 
 

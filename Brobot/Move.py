@@ -1,5 +1,6 @@
 import random
 import numpy as np
+from copy import deepcopy
 
 class Move:
 	''' the move data structure. field for colour of robot and direction of move. '''
@@ -31,4 +32,8 @@ class AllMoves:
 
 	def getRandomMove(self):
 		''' return a random move from the moveSet '''
-		return random.sample(self.moveSet, 1)[0]
+		return deepcopy(random.sample(self.moveSet, 1)[0])
+
+	def getMoveAtIndex(self, index):
+		''' return the move at this index '''
+		return self.moveSet[index]

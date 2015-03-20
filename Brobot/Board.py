@@ -1,6 +1,7 @@
 import numpy as np
 import Tile
 import random
+import Move
 from copy import deepcopy
 
 class Board:
@@ -17,8 +18,7 @@ class Board:
 	def __init__(self, rows, cols):
 		self.rows = rows
 		self.cols = cols
-
-
+		self.allMoves = Move.AllMoves()
 
 	def initializeTiles(self):
 		''' this method initializes the array of tiles randomly.
@@ -98,6 +98,12 @@ class Board:
 			print (result2)
 
 
+	def makeMoveByInt(self, moveInt):
+		''' this method will take an integer and make the move that that intege corresponds to.
+			in this way, we can store moves as just an integer and convert them as needed.
+			board will contain an AllMoves object where the move is grabbed from '''
+		move = self.allMoves.getMoveAtIndex(moveInt)
+		self.makeMove(move)
 
 
 	def makeMove(self, move):
@@ -168,19 +174,20 @@ class Board:
 			self.array[self.robotPositions[i]].robot = None
 			self.array[resetPositions[i]].robot = i
 		
-			self.robotPositions[i] = resetPositions[i]
+			self.robotPositions[i] = (resetPositions[i][0], resetPositions[i][1])
 
 		#self.robotPositions = deepcopy(resetPositions)
 		
 		
 
 	def validateMoveSequence(self, sequence):
-		''' takes a move sequence as input as validates if it results in an end state '''
-		resetPositions = self.robotPositions
+		''' takes a move sequence (as integers!) as input as validates if it results in an end state '''
+		resetPositions = deepcopy(self.robotPositions)
 		for move in sequence:
-			self.makeMove(move)
+			self.makeMoveByInt(move)
 
 		valid = self.endState()
+		print("robot positions after making moves in validateMoveSequence = {0}".format(self.robotPositions))
 		self.resetRobots(resetPositions)
 		return valid
 
