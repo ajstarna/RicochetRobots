@@ -43,10 +43,14 @@ def testFindFirstSol():
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
 		rPlayer = Player.RandomPlayer(rr)
 		rPlayer.setTarget()
-		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
-		if rr.validateMoveSequence(moveSequence):
+		moveSequence, numMoves, stateSequence = rPlayer.findFirstSolutionNoTimeLimit()
+		
+		if (not rr.correctRobotTiles()):
+			print("Incorrect robot posititions before validations")
+		
+		if rr.validateMoveSequence(moveSequence, stateSequence):
 			# if the move sequence
-			#print("valid sequence with {0} moves!".format(numMoves))
+			print("valid sequence with {0} moves!".format(numMoves))
 			return 1
 		else:
 			print("Invalid sequence with {0} moves!".format(numMoves))
@@ -66,6 +70,8 @@ def testPlay():
 		rPlayer = Player.RandomPlayer(rr)
 		rPlayer.setTarget()
 		moveSequence, numMoves = rPlayer.play(0.1) # let it search for 3 seconds
+		answer = rr.validateMoveSequence(moveSequence)
+		print("first validate = {0}".format(answer))
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			#print("valid sequence with {0} moves!".format(numMoves))

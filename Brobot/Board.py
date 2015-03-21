@@ -133,8 +133,9 @@ class Board:
 
 		# the currentTile is the ending position
 		
-		
-		
+
+
+	
 		
 	def getAdjacentTile(self, tile, direction):
 		''' given a tile and a direction, this returns the tile adjacent in that direction.
@@ -170,28 +171,82 @@ class Board:
 	def resetRobots(self, resetPositions):
 		''' this method takes a dictionary with robot positions to set self.robot positions to.
 			it does that as well as updating the tiles in the array to reflect the change. '''
-		for i in xrange(4):
-			self.array[self.robotPositions[i]].robot = None
-			self.array[resetPositions[i]].robot = i
 		
-			self.robotPositions[i] = (resetPositions[i][0], resetPositions[i][1])
+		#print("start of resetrobots: self.robotPositions = {0}, resetPositions = {1}".format(self.robotPositions, resetPositions))
+		
+		for i in xrange(4):
+			originalPosition = self.robotPositions[i]
+			originalTile = self.array[originalPosition]
+			if not originalTile.position in resetPositions.values():
+				originalTile.robot = None
+			#print("original Tile = {0}".format(originalTile))
+			newPosition = resetPositions[i]
+			newTile = self.array[newPosition]
+			newTile.robot = i
+			#print("new tile = {0}".format(newTile))
+		
+			self.robotPositions[i] = resetPositions[i]#(resetPositions[i][0], resetPositions[i][1])
+			#print("start of resetrobots: self.robotPositions = {0}, resetPositions = {1}".format(self.robotPositions, resetPositions))
+			#print()
+			#print()
+	
 
 		#self.robotPositions = deepcopy(resetPositions)
 		
 		
 
-	def validateMoveSequence(self, sequence):
+	def validateMoveSequence(self, sequence, states):
 		''' takes a move sequence (as integers!) as input as validates if it results in an end state '''
 		resetPositions = deepcopy(self.robotPositions)
-		for move in sequence:
-			self.makeMoveByInt(move)
+		
+		#print("original position = {0}".format(resetPositions))
+		#print("states[0] = {0}".format(states[0]))
+		
+		
+		previousState = "fart"
+		
+		for i in xrange(sequence.size):
+			
+			
+			if not self.correctRobotTiles():
+				print("previous states at i-1 = {2}! {0}, {1}".format(states[i-1], previousState, i-1))
+				print("previous move = {}".format(self.allMoves.getMoveAtIndex(sequence[i-1])))
+				print("states are different at i = {2}! {0}, {1}".format(states[i], self.robotPositions, i))
+				return False
+			
+			
+			
+			if states[i] != self.robotPositions:
+				print("previous states at i-1 = {2}! {0}, {1}".format(states[i-1], previousState, i-1))
+				print("previous move = {}".format(self.allMoves.getMoveAtIndex(sequence[i-1])))
+				print("states are different at i = {2}! {0}, {1}".format(states[i], self.robotPositions, i))
+				return False
+			
+			
+			previousState = deepcopy(self.robotPositions)
+			self.makeMoveByInt(sequence[i])
+
+		
 
 		valid = self.endState()
-		print("robot positions after making moves in validateMoveSequence = {0}".format(self.robotPositions))
+		#print("robot positions after making moves in validateMoveSequence = {0}".format(self.robotPositions))
 		self.resetRobots(resetPositions)
 		return valid
 
 
+
+	def correctRobotTiles(self):
+		robots = {}
+		for j in xrange(16):
+			for k in xrange(16):
+				if self.array[j,k].robot != None:
+					robots[self.array[j,k].robot] = (j,k)
+					#print("Tile at {0},{1} has robot = {2}".format(j, k, self.array[j,k].robot))
+
+		if len(robots) != 4:
+			print("Too few tiles think they have a robot! {0}".format(robots))
+			return False
+		return True
 
 		
 	def getRay(self,r,c,direction):
