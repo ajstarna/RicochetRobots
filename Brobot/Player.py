@@ -71,9 +71,9 @@ class RandomPlayer(Player):
 					continue
 				
 				
-				moveToMake = self.moves.getRandomMove()
+				moveToMake = random.randint(0,15)
 				currentSequence.append(moveToMake)
-				self.board.makeMove(moveToMake)
+				self.board.makeMoveByInt(moveToMake)
 				endState = True
 				if time.clock() - tStart >= timeLimit:
 					
@@ -110,14 +110,14 @@ class RandomPlayer(Player):
 
 		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
 		currentSequence = [] # keep track of the sequence of moves that brought us to current state
-		dictSequence = [deepcopy(self.board.robotPositions)]
+		#dictSequence = [deepcopy(self.board.robotPositions)]
 		while not self.board.endState():
 		
 			moveToMake = random.randint(0,15) # 16 possible moves; this is the index
 			currentSequence.append(moveToMake)
 			self.board.makeMoveByInt(moveToMake)
 			positions = deepcopy(self.board.robotPositions)
-			dictSequence.append(positions)
+			#dictSequence.append(positions)
 			if (not self.board.correctRobotTiles()):
 				print("Previous state = {0}".format(dictSequence[-2]))
 				print("Incorrect robot posititions when state = {0}".format(dictSequence[-1]))
@@ -129,7 +129,7 @@ class RandomPlayer(Player):
 		if (not self.board.correctRobotTiles()):
 			print("Incorrect robot posititions at END of findFirstSol")		
 		
-		return np.array(currentSequence), len(currentSequence), dictSequence
+		return currentSequence, len(currentSequence)
 
 
 

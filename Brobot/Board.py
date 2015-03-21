@@ -195,7 +195,7 @@ class Board:
 		
 		
 
-	def validateMoveSequence(self, sequence, states):
+	def validateMoveSequence(self, sequence):
 		''' takes a move sequence (as integers!) as input as validates if it results in an end state '''
 		resetPositions = deepcopy(self.robotPositions)
 		
@@ -203,28 +203,25 @@ class Board:
 		#print("states[0] = {0}".format(states[0]))
 		
 		
-		previousState = "fart"
-		
-		for i in xrange(sequence.size):
+		for i in sequence:
 			
 			
-			if not self.correctRobotTiles():
+			'''if not self.correctRobotTiles():
 				print("previous states at i-1 = {2}! {0}, {1}".format(states[i-1], previousState, i-1))
 				print("previous move = {}".format(self.allMoves.getMoveAtIndex(sequence[i-1])))
 				print("states are different at i = {2}! {0}, {1}".format(states[i], self.robotPositions, i))
 				return False
 			
-			
-			
-			if states[i] != self.robotPositions:
+			#if states[i] != self.robotPositions:
 				print("previous states at i-1 = {2}! {0}, {1}".format(states[i-1], previousState, i-1))
 				print("previous move = {}".format(self.allMoves.getMoveAtIndex(sequence[i-1])))
 				print("states are different at i = {2}! {0}, {1}".format(states[i], self.robotPositions, i))
 				return False
-			
-			
-			previousState = deepcopy(self.robotPositions)
-			self.makeMoveByInt(sequence[i])
+				
+			#previousState = deepcopy(self.robotPositions)
+			'''
+			#print(i)
+			self.makeMoveByInt(i)
 
 		
 

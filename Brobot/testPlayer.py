@@ -43,12 +43,12 @@ def testFindFirstSol():
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
 		rPlayer = Player.RandomPlayer(rr)
 		rPlayer.setTarget()
-		moveSequence, numMoves, stateSequence = rPlayer.findFirstSolutionNoTimeLimit()
+		moveSequence, numMoves = rPlayer.findFirstSolutionNoTimeLimit()
 		
 		if (not rr.correctRobotTiles()):
 			print("Incorrect robot posititions before validations")
 		
-		if rr.validateMoveSequence(moveSequence, stateSequence):
+		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			print("valid sequence with {0} moves!".format(numMoves))
 			return 1
@@ -70,14 +70,14 @@ def testPlay():
 		rPlayer = Player.RandomPlayer(rr)
 		rPlayer.setTarget()
 		moveSequence, numMoves = rPlayer.play(0.1) # let it search for 3 seconds
-		answer = rr.validateMoveSequence(moveSequence)
-		print("first validate = {0}".format(answer))
+		
+		print("before validate")
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
-			#print("valid sequence with {0} moves!".format(numMoves))
+			print("valid sequence with {0} moves!".format(numMoves))
 			return 1
 		elif numMoves == 0:
-			#print("no sequence found in time limit!")
+			print("no sequence found in time limit!")
 			return 1
 		else:
 			print("Invalid sequence with {0} moves!".format(numMoves))
@@ -93,8 +93,7 @@ def testPlay():
 
 if __name__ == "__main__":
 
-	#tests = [testInitRandom, testShowBoard, testFindFirstSol, testPlay]
-	tests = [testFindFirstSol]
+	tests = [testInitRandom, testShowBoard, testFindFirstSol, testPlay]
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:
