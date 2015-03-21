@@ -36,8 +36,7 @@ def testFindFirstSol():
 		
 		#print("robot positions before call to findFirstSol = {0}".format(mcPlayer.board.robotPositions))
 		moveSequence, numMoves = mcPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
-		#
-		print("robot positions after call to findFirstSol = {0}".format(mcPlayer.board.robotPositions))
+		#print("robot positions after call to findFirstSol = {0}".format(mcPlayer.board.robotPositions))
 		
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
@@ -54,12 +53,41 @@ def testFindFirstSol():
 
 
 
+def testPlay():
+	''' use a standard board to test a MCPlayer's play method '''
+	size = 16
+	try:
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		mcPlayer = MCPlayer.MCPlayer(rr)
+		mcPlayer.setTarget()
+		numSamples = 10
+		depth = 5
+		
+		
+		moveSequence, numMoves = mcPlayer.play(3, numSamples, depth) # let it search for 3 seconds
+		
+
+		if rr.validateMoveSequence(moveSequence):
+			# if the move sequence
+			print("valid sequence with {0} moves!".format(numMoves))
+			return 1
+		elif numMoves == 0:
+			print("no sequence found in time limit!")
+			return 1
+		else:
+			print("Invalid sequence with {0} moves!".format(numMoves))
+			return 0
+
+	except:
+		print("exception in testPlay")
+		traceback.print_exc(file=sys.stdout)
+		return 0
 
 
 
 if __name__ == "__main__":
 
-	tests = [testInit, testFindFirstSol]
+	tests = [testInit, testFindFirstSol, testPlay]
 
 	totalTestsRan = 0
 	passedTests = 0

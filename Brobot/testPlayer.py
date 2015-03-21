@@ -69,9 +69,9 @@ def testPlay():
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
 		rPlayer = Player.RandomPlayer(rr)
 		rPlayer.setTarget()
-		moveSequence, numMoves = rPlayer.play(0.1) # let it search for 3 seconds
+		moveSequence, numMoves = rPlayer.play(1) # let it search for 3 seconds
 		
-		print("before validate")
+
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			print("valid sequence with {0} moves!".format(numMoves))
