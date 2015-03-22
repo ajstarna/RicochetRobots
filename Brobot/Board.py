@@ -140,13 +140,13 @@ class Board:
 		''' given a tile and a direction, this returns the tile adjacent in that direction.
 			return None if an edge '''
 		i, j = tile.position
-		if direction == "NORTH":
+		if direction == "NORTH" or direction ==0:
 			i -= 1
-		elif direction == "SOUTH":
+		elif direction == "SOUTH" or direction == 2:
 			i += 1
-		elif direction == "EAST":
+		elif direction == "EAST" or direction ==1:
 			j += 1
-		elif direction == "WEST":
+		elif direction == "WEST" or direction ==3:
 			j -= 1
 
 		if i < 0 or i >= self.rows or j < 0 or j >= self.cols:
@@ -423,6 +423,8 @@ class Board:
 		
 		return n,s
 	
+	
+	
 	def shootRay(self,direction,r,c,RB,newList):
 	
 		direct = ["NORTH","EAST","SOUTH","WEST"]
@@ -432,10 +434,10 @@ class Board:
 		sums=0
 		tile = self.array[r,c]
 		
-		if (not tile.wallDict[direct[direction]] and tile.wallDict[direct[(direction+2)%4]]):
+		if (not tile.wallDict[direct[direction]] and (tile.wallDict[direct[(direction+2)%4]] or self.getAdjacentTile(tile,(direction+2)%4).robot>0) and (tile.robot==None or tile.robot ==0)):
 			temp = self.array[r+pace[direction][0],c+pace[direction][1]] ## one step
 #				
-			while(not temp.wallDict[direct[direction]]): ## looping
+			while(not temp.wallDict[direct[direction]] and (temp.robot == None or temp.robot==0)): ## looping
 				if (temp.check == False):
 					temp.check =True ## calc score
 					nums +=1
@@ -444,10 +446,15 @@ class Board:
 					elif (temp.reachable >RB):
 						sums+=1
 					temp.reachable = RB
-					if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]]):
+					
+					tile1 = self.getAdjacentTile(temp,(direction+1)%4)
+					tile2 = self.getAdjacentTile(temp,(direction+3)%4)
+					if (tile1.robot>0):
+						print (tile2.robot)
+					if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]] or (tile1!=None and tile1.robot!=0) or (tile2!=None and tile2.robot!=0)):
 						newList.append(temp)
 				temp=self.array[temp.position[0]+pace[direction][0],temp.position[1]+pace[direction][1]]
-			if (temp.check == False):## last tile after the loop
+			if (temp.check == False and (temp.robot == None or temp.robot==0)):## last tile after the loop
 				temp.check =True
 				nums +=1
 				if(temp.reachable<RB):
@@ -455,7 +462,9 @@ class Board:
 				elif (temp.reachable >RB):
 					sums +=1
 				temp.reachable = RB
-				if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]]):
+				tile1 = self.getAdjacentTile(temp,(direction+1)%4)
+				tile2 = self.getAdjacentTile(temp,(direction+3)%4)
+				if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]] or (tile1!=None and tile1.robot!=0) or (tile2!=None and tile2.robot!=0)):
 					newList.append(temp)
 		return nums,sums		
 	
