@@ -233,7 +233,7 @@ class Board:
 
 	def getTileOfRobot(self, robot):
 		''' given a robot (integer) returns the tile which it is occupying '''
-		position = self.robotPositions(robot)
+		position = self.robotPositions[robot]
 		return self.array[position]
 	
 
