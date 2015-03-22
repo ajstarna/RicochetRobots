@@ -38,7 +38,8 @@ class Player:
 
 	def setTarget(self):
 		''' sets the target for the current game randomly from the list of targets '''
-		self.board.currentTarget = self.board.targetPositions.pop()
+		self.board.setTarget()
+		
 		
 
 
