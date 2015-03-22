@@ -231,7 +231,15 @@ class Board:
 
 
 
+	def getTileOfRobot(self, robot):
+		''' given a robot (integer) returns the tile which it is occupying '''
+		position = self.robotPositions(robot)
+		return self.array[position]
+	
+
+
 	def correctRobotTiles(self):
+		''' a debugging method to see if all 4 robots are accounted for on a tile '''
 		robots = {}
 		for j in xrange(16):
 			for k in xrange(16):
@@ -244,7 +252,9 @@ class Board:
 			return False
 		return True
 
-		
+
+
+
 	def getRay(self,r,c,direction):
 		''' returns a list of tile that casts from (r,c) in a direction
 		until a wall is present

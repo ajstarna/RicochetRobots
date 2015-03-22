@@ -100,4 +100,15 @@ class MCPlayer(Player):
 
 
 	def evaluateState(self):
+		totalReachableTiles = self.board.CalcReachability
+		blueTile = self.board.getTileOfRobot(Board.Board.BLUE)
+		currentReachability = blueTile.reachable
+		lowerBound = blueTile.lowerBound
+		
 		return 10
+
+
+
+
+
+
