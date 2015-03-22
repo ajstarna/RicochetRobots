@@ -39,6 +39,7 @@ class Player:
 	def setTarget(self):
 		''' sets the target for the current game randomly from the list of targets '''
 		self.board.setTarget()
+		self.board.lowerBoundPreProc() # set up the lower bound in each tile
 		
 		
 

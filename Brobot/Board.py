@@ -361,9 +361,7 @@ class Board:
 		
 	def lowerBoundPreProc(self):
 		'''pre-process the board with lower bound heuristics'''
-		
-		
-		
+
 		row,col =self.currentTarget
 		self.array[row,col].lowerBound=0
 		initList =[]
@@ -556,6 +554,7 @@ class StandardBoard(Board):
 		
 		# now read the board information from the input file
 		self.readFromFile(inputFileName)
+
 
 
 

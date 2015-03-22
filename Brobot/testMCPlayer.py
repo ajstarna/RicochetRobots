@@ -61,10 +61,11 @@ def testPlay():
 		mcPlayer = MCPlayer.MCPlayer(rr)
 		mcPlayer.setTarget()
 		numSamples = 10
-		depth = 5
+		depth = 3
 		
 		
-		moveSequence, numMoves = mcPlayer.play(3, numSamples, depth) # let it search for 3 seconds
+		
+		moveSequence, numMoves = mcPlayer.play(5, numSamples, depth) # let it search for 3 seconds
 		
 
 		if rr.validateMoveSequence(moveSequence):
@@ -87,7 +88,9 @@ def testPlay():
 
 if __name__ == "__main__":
 
-	tests = [testInit, testFindFirstSol, testPlay]
+	#tests = [testInit, testFindFirstSol, testPlay]
+	tests = [testPlay]
+
 
 	totalTestsRan = 0
 	passedTests = 0

@@ -93,7 +93,8 @@ def testPlay():
 
 if __name__ == "__main__":
 
-	tests = [testInitRandom, testShowBoard, testFindFirstSol, testPlay]
+	#tests = [testInitRandom, testShowBoard, testFindFirstSol, testPlay]
+	tests = [testPlay]
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:

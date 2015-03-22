@@ -3,6 +3,7 @@ import Board
 from copy import deepcopy
 import random
 import time
+import numpy as np
 
 class MCPlayer(Player):
 	def __init__(self, board):
@@ -73,7 +74,7 @@ class MCPlayer(Player):
 			d the depth of each sample
 		'''
 		startPositions = deepcopy(self.board.robotPositions)
-		currentValue = 0
+		currentValue = float("-inf") # there will always be a sequence that can beat negative infity score
 		for i in xrange(numSamples):
 			sequence = self.sample(depth)
 			value = self.evaluateState()
@@ -101,12 +102,48 @@ class MCPlayer(Player):
 
 
 	def evaluateState(self):
-		totalReachableTiles = self.board.CalcReachability()
-		blueTile = self.board.getTileOfRobot(Board.Board.BLUE)
-		currentReachability = blueTile.reachable
-		lowerBound = blueTile.lowerBound
+		heuristicList = []
+
+		totalReachableTiles, sum = self.board.CalcReachability(True) # initialize the reachable field of each tile
 		
-		return 10
+		blueTile = self.board.getTileOfRobot(Board.Board.BLUE)
+		
+		# first deal with the reachibility from blue's tile
+		currentReachability = blueTile.reachable
+		if currentReachability == -1:
+			# punish this heavily since if it is reachable then the answer is close (in this case not reachable)
+			reachableScore = -1000
+		else:
+			# negate it since want to maximize score and lower reachability is better
+			reachableScore = -1*currentReachability
+		
+		# add it to the heuristic list
+		heuristicList.append(reachableScore)
+		
+		# now deal with the lower bound from blue's tile
+		lowerBound = blueTile.lowerBound
+		if lowerBound == -1:
+			# this is really bad (and probably can't happen on a normal board
+			lowerBoundScore = -10000
+		else:
+			lowerBoundScore = -1*lowerBound
+		
+		heuristicList.append(lowerBoundScore)
+		
+		# now deal with total number of reachable tiles
+		totalReachableScore = totalReachableTiles # no need to negate this number since higher is better
+		
+		heuristicList.append(totalReachableScore)
+		
+		#print(heuristicList)
+		heuristicArray = np.array(heuristicList)
+		weightsArray = np.ones(heuristicArray.size) # try all weights the same for now
+		
+		#weightsArray[1] = 0 # turn off lower bound
+		
+		finalScore = np.sum(heuristicArray * weightsArray)
+		
+		return finalScore
 
 
 
