@@ -97,7 +97,8 @@ def testReachability():
 	fileName = "builtin1.txt"
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
-		n,s = rr.CalcReachability(3,4,True)
+		rr.setCurrentTarget()
+		n,s = rr.CalcReachability(True)
 		rr.printRBs()
 		print ("number of tiles can be reached :" + str( n))
 		return 1

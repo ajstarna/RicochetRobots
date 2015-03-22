@@ -384,7 +384,20 @@ class Board:
 			print (a)
 		
 	
-	def CalcReachability(self,r,c,firsttime):
+	def CalcReachability(self,firsttime):
+		''' calculate reachability 
+		
+			input boolean firsttime indicate if erase previous information, true = erase
+			
+			return n s
+			
+			n: number of tiles can be reached from this target
+			
+			S :  sum of increase and decrease from a previous state of the board.
+				increase decrease in respect of number of moves to reach target, the tile.reachable 
+		'''
+		
+		r,c =self.currentTarget
 		
 		if(firsttime): ## clean  RB
 			for i in xrange(self.rows):
