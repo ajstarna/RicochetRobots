@@ -98,6 +98,7 @@ def testReachability():
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
 		rr.setTarget()
+		
 		n,s = rr.CalcReachability(True)
 		rr.printRBs()
 		print ("number of tiles can be reached :" + str( n))
