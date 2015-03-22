@@ -88,7 +88,8 @@ def testPrintBoard():
 def testLowerBounds():
 	size =16
 	rr = Board.StandardBoard(size,size, "builtin1.txt")
-	rr.lowerBoundPreProc(rr.array[3,4])
+	rr.setTarget()
+	rr.lowerBoundPreProc()
 	rr.printLBs()
 	return 1
 
