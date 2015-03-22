@@ -407,10 +407,47 @@ class Board:
 				self.array[i,j].check =False
 		a=[]
 		self.array[r,c].reachable =0
+		self.array[r,c].check = True
 		a.append(self.array[r,c])
 		n,s = self.paintRB(a,1)
 		
 		return n,s
+	
+	def shootRay(self,direction,r,c,RB,newList):
+	
+		direct = ["NORTH","EAST","SOUTH","WEST"]
+		pace =[[-1,0],[0,1],[1,0],[0,-1]]
+		
+		nums=0
+		sums=0
+		tile = self.array[r,c]
+		
+		if (not tile.wallDict[direct[direction]] and tile.wallDict[direct[(direction+2)%4]]):
+			temp = self.array[r+pace[direction][0],c+pace[direction][1]] ## one step north
+#				if (temp.check==False or temp.reachable == RB): ## not visited ? or is visited by current level
+			while(not temp.wallDict[direct[direction]]): ## looping to the north
+				if (temp.check == False):
+					temp.check =True ## calc score
+					nums +=1
+					if(temp.reachable<RB):
+						sums -= 1
+					elif (temp.reachable >RB):
+						sums+=1
+					temp.reachable = RB
+					if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]]):
+						newList.append(temp)
+				temp=self.array[temp.position[0]+pace[direction][0],temp.position[1]+pace[direction][1]]
+			if (temp.check == False):## last tile after the loop
+				temp.check =True
+				nums +=1
+				if(temp.reachable<RB):
+					sums -= 1
+				elif (temp.reachable >RB):
+					sums +=1
+				temp.reachable = RB
+				if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]]):
+					newList.append(temp)
+		return nums,sums		
 	
 	def paintRB(self,tileList,RB):
 		'''recursive function to calculate Reachability on each tile, 
@@ -433,109 +470,10 @@ class Board:
 			
 			r = tile.position[0]
 			c = tile.position[1]
-			if (not tile.wallDict["NORTH"] and tile.wallDict["SOUTH"]):## north direction, north no wall  south wall
-				temp = self.array[r-1,c] ## one step north
-#				if (temp.check==False or temp.reachable == RB): ## not visited ? or is visited by current level
-				while(not temp.wallDict["NORTH"]): ## looping to the north
-					if (temp.check == False):
-						temp.check =True ## calc score
-						nums +=1
-						if(temp.reachable<RB):
-							sums -= 1
-						elif (temp.reachable >RB):
-							sums+=1
-						temp.reachable = RB
-						if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
-							newList.append(temp)
-					temp=self.array[temp.position[0]-1,c]
-				if (temp.check == False):## last tile after the loop
-					temp.check =True
-					nums +=1
-					if(temp.reachable<RB):
-						sums -= 1
-					elif (temp.reachable >RB):
-						sums +=1
-					temp.reachable = RB
-					if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
-						newList.append(temp)		
-			if (not tile.wallDict["EAST"] and tile.wallDict["WEST"]): ### same for the east
-				temp = self.array[r,c+1]
-#				if (temp.check==False or temp.reachable == RB):
-				while(not temp.wallDict["EAST"]):
-					if (temp.check == False):
-						temp.check =True
-						nums +=1
-						if(temp.reachable<RB):
-							sums -= 1
-						elif (temp.reachable >RB):
-							sums +=1
-						temp.reachable = RB
-						if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
-							newList.append(temp)
-					temp=self.array[r,temp.position[1]+1]
-				if (temp.check == False):
-					temp.check =True
-					nums +=1
-					if(temp.reachable<RB):
-						sums -= 1
-					elif (temp.reachable >RB):
-						sums +=1
-					temp.reachable = RB
-					if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
-						newList.append(temp)
-						
-			if (not tile.wallDict["SOUTH"] and tile.wallDict["NORTH"]):## south
-				temp = self.array[r+1,c]
-#				if (temp.check==False or temp.reachable == RB):
-				while(not temp.wallDict["SOUTH"]):
-					if (temp.check == False):
-						temp.check =True
-						nums +=1
-						if(temp.reachable<RB):
-							sums -= 1
-						elif (temp.reachable >RB):
-							sums +=1
-						temp.reachable = RB
-						if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
-							newList.append(temp)
-					temp=self.array[temp.position[0]+1,c]
-				if (temp.check == False):
-					temp.check =True
-					nums +=1
-					if(temp.reachable<RB):
-						sums -= 1
-					elif (temp.reachable >RB):
-						sums +=1
-					temp.reachable = RB
-					if (temp.wallDict["EAST"] != temp.wallDict["WEST"]):
-						newList.append(temp)	
-			if (not tile.wallDict["WEST"] and tile.wallDict["EAST"]): ## west
-				temp = self.array[r,c-1]
-#				if (temp.check==False or temp.reachable == RB):
-				while(not temp.wallDict["WEST"]):
-					if (temp.check == False):
-						temp.check =True
-						nums +=1
-						if(temp.reachable<RB):
-						
-							sums -= 1
-						elif (temp.reachable >RB):
-							sums +=1
-						temp.reachable = RB
-						if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"]):
-							newList.append(temp)
-					temp=self.array[r,temp.position[1]-1]
-				if (temp.check == False):
-					temp.check =True
-					nums +=1
-					if(temp.reachable<RB):
-						sums -= 1
-					elif (temp.reachable >RB):
-						sums +=1
-					temp.reachable = RB
-					if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"] ):
-						newList.append(temp)	
-		print ("new list size :" + str(len(newList)))				
+			for i in xrange(4):
+				n,s =self.shootRay(i,r,c,RB,newList)	
+				nums+=n
+				sums+=s	
 		num1, sum1 = self.paintRB(newList,RB+1)
 #		print (nums)
 		nums += num1
