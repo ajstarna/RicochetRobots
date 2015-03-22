@@ -97,7 +97,7 @@ def testReachability():
 	fileName = "builtin1.txt"
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
-		rr.setCurrentTarget()
+		rr.setTarget()
 		n,s = rr.CalcReachability(True)
 		rr.printRBs()
 		print ("number of tiles can be reached :" + str( n))
@@ -143,7 +143,7 @@ def testEndState():
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
 		# set the current Target for the game
-		rr.setCurrentTarget()
+		rr.setTarget()
 		
 		move1 = Move.Move(Board.Board.GREEN, "EAST")
 		move2 = Move.Move(Board.Board.BLUE, "NORTH")
@@ -216,7 +216,7 @@ def testCopyBoard():
 	try:
 		rr = Board.StandardBoard(size, size, fileName)
 		# set the current Target for the game
-		rr.setCurrentTarget()
+		rr.setTarget()
 		
 		move1 = Move.Move(Board.Board.GREEN, "EAST")
 		move2 = Move.Move(Board.Board.BLUE, "NORTH")

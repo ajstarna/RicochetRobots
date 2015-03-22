@@ -406,6 +406,7 @@ class Board:
 			for j in xrange(self.cols):		
 				self.array[i,j].check =False
 		a=[]
+		self.array[r,c].reachable =0
 		a.append(self.array[r,c])
 		n,s = self.paintRB(a,1)
 		
@@ -427,6 +428,7 @@ class Board:
 			
 			return nums,sums
 		newList =[]
+		
 		for tile in tileList:
 			
 			r = tile.position[0]
@@ -533,7 +535,7 @@ class Board:
 					temp.reachable = RB
 					if (temp.wallDict["NORTH"] != temp.wallDict["SOUTH"] ):
 						newList.append(temp)	
-#		print ("new list size :" + str(len(newList)))				
+		print ("new list size :" + str(len(newList)))				
 		num1, sum1 = self.paintRB(newList,RB+1)
 #		print (nums)
 		nums += num1
