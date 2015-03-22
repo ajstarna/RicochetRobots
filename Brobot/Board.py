@@ -31,10 +31,9 @@ class Board:
 		raise NotImplementedError("Please implement this method")
 	
 	
-	def setCurrentTarget(self):
+	def setTarget(self):
 		''' this method will pick a random target from the target list and make that the currentTarget for the game '''
-		self.currentTarget = random.sample(self.targetPositions, 1)[0]
-		self.targetPositions.remove(self.currentTarget)
+		self.currentTarget = self.targetPositions.pop()
 	
 		
 		
