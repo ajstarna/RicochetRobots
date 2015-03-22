@@ -349,11 +349,13 @@ class Board:
 		self.paintLB(newList,LB+1)## proceed to the next level with new list contains the queue
 		
 		
-	def lowerBoundPreProc(self,targetTile):
+	def lowerBoundPreProc(self):
 		'''pre-process the board with lower bound heuristics'''
-		targetTile.lowerBound=0;
-		row =targetTile.position[0]
-		col =targetTile.position[1]
+		
+		
+		
+		row,col =self.currentTarget
+		self.array[row,col].lowerBound=0
 		initList =[]
 		for i in xrange(4):
 			initList += self.getRay(row,col,i)
@@ -423,9 +425,9 @@ class Board:
 		tile = self.array[r,c]
 		
 		if (not tile.wallDict[direct[direction]] and tile.wallDict[direct[(direction+2)%4]]):
-			temp = self.array[r+pace[direction][0],c+pace[direction][1]] ## one step north
-#				if (temp.check==False or temp.reachable == RB): ## not visited ? or is visited by current level
-			while(not temp.wallDict[direct[direction]]): ## looping to the north
+			temp = self.array[r+pace[direction][0],c+pace[direction][1]] ## one step
+#				
+			while(not temp.wallDict[direct[direction]]): ## looping
 				if (temp.check == False):
 					temp.check =True ## calc score
 					nums +=1
