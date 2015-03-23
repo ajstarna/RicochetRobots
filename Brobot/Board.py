@@ -449,8 +449,8 @@ class Board:
 					
 					tile1 = self.getAdjacentTile(temp,(direction+1)%4)
 					tile2 = self.getAdjacentTile(temp,(direction+3)%4)
-					if (tile1.robot>0):
-						print (tile2.robot)
+					#if (tile1.robot>0):
+					#	print (tile2.robot)
 					if (temp.wallDict[direct[(direction+1)%4]] != temp.wallDict[direct[(direction+3)%4]] or (tile1!=None and tile1.robot!=0) or (tile2!=None and tile2.robot!=0)):
 						newList.append(temp)
 				temp=self.array[temp.position[0]+pace[direction][0],temp.position[1]+pace[direction][1]]

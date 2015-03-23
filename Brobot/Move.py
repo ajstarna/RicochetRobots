@@ -4,6 +4,8 @@ from copy import deepcopy
 
 class Move:
 	''' the move data structure. field for colour of robot and direction of move. '''
+	
+	intToColourConversion = ["BLUE", "RED", "GREEN", "YELLOW"] # index with robot number to get colour as string
 
 	def __init__(self, colour, direction):
 		self.colour = colour # this int corresponds to the colour ints shown in the Board class
@@ -11,11 +13,13 @@ class Move:
 
 
 	def __str__(self):
-		return "Colour = {} and direction = {}".format(self.colour, self.direction)
+		return "Colour = {0} and direction = {1}".format(self.intToColourConversion[self.colour], self.direction)
 
 
 class AllMoves:
 	''' this class holds all possibe moves that can be made in Ricochet Robots '''
+
+
 
 	def __init__(self):
 		self.moveSet = self.createMoveSet() # a np array
@@ -37,3 +41,10 @@ class AllMoves:
 	def getMoveAtIndex(self, index):
 		''' return the move at this index '''
 		return self.moveSet[index]
+
+	def printMoveSequence(self, sequence):
+		''' given a sequence of moves (as ints) prints them out in human-readable format '''
+		count = 1
+		for moveInt in sequence:
+			print("Move {0}: {1}".format(count, self.getMoveAtIndex(moveInt)))
+			count += 1

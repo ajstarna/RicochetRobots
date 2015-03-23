@@ -98,6 +98,8 @@ class MCPlayer(Player):
 			sequence.append(moveToMake)
 			self.board.makeMoveByInt(moveToMake)
 			self.numMoves += 1
+			if self.board.endState():
+				break # don't move past an end state
 		return sequence
 
 

@@ -42,7 +42,10 @@ class Player:
 		self.board.lowerBoundPreProc() # set up the lower bound in each tile
 		
 		
-
+	def printMoveSequence(self, sequence):
+		''' this method takes a sequence of moves (as ints) and prints them in human-readable format '''
+		self.moves.printMoveSequence(sequence)
+			
 
 
 
