@@ -65,7 +65,7 @@ def testPlay():
 		
 		
 		
-		moveSequence, numMoves = mcPlayer.play(1, numSamples, depth) # let it search for 3 seconds
+		moveSequence, numMoves = mcPlayer.play(2, numSamples, depth) # let it search for 3 seconds
 		
 		if numMoves < 20:
 			mcPlayer.printMoveSequence(moveSequence)
