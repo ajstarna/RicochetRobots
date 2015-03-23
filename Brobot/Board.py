@@ -98,7 +98,7 @@ class Board:
 
 
 	def makeMoveByInt(self, moveInt):
-		''' this method will take an integer and make the move that that intege corresponds to.
+		''' this method will take an integer and make the move that that integer corresponds to.
 			in this way, we can store moves as just an integer and convert them as needed.
 			board will contain an AllMoves object where the move is grabbed from '''
 		move = self.allMoves.getMoveAtIndex(moveInt)
@@ -114,10 +114,14 @@ class Board:
 		#print("Start position = {}".format(startPosition))
 		# now see how far the robot can move in the direction
 		currentTile = self.array[startPosition]
+		somethingHappend = False
 		while True:
 			if currentTile.wallDict[move.direction]:
 				# there is a wall in the direction we need to move, so final spot
 				break
+			
+			somethingHappend = True # if the robot never moved even one position then nothing happened
+			
 			# since an edge tile will always have a wall, if we made it to here then we know we can find the adjacent tile
 			adjacentTile = self.getAdjacentTile(currentTile, move.direction)
 			if adjacentTile.robot != None:
@@ -131,9 +135,15 @@ class Board:
 			currentTile = adjacentTile
 
 		# the currentTile is the ending position
+		return somethingHappend
 		
 
-
+	def validMoveByInt(self, validMove):
+		move = self.allMoves.getMoveAtIndex(moveInt)
+		return self.validMove(move)
+	
+	def validMove(self, move):
+		currentTile =
 	
 		
 	def getAdjacentTile(self, tile, direction):
