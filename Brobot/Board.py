@@ -106,7 +106,8 @@ class Board:
 
 
 	def makeMove(self, move):
-		''' given a move, make it on the board (so move the colour in the direction and update the array) '''
+		''' given a move, make it on the board (so move the colour in the direction and update the array) 
+			if no movement is possible then False is returned to indicate nothing happend, otherwise True is returned'''
 
 		
 		startPosition = self.robotPositions[move.colour] # initalize the endPosition to be the starting position
@@ -114,13 +115,12 @@ class Board:
 		#print("Start position = {}".format(startPosition))
 		# now see how far the robot can move in the direction
 		currentTile = self.array[startPosition]
+		
 		somethingHappend = False
 		while True:
 			if currentTile.wallDict[move.direction]:
 				# there is a wall in the direction we need to move, so final spot
 				break
-			
-			somethingHappend = True # if the robot never moved even one position then nothing happened
 			
 			# since an edge tile will always have a wall, if we made it to here then we know we can find the adjacent tile
 			adjacentTile = self.getAdjacentTile(currentTile, move.direction)
@@ -128,6 +128,8 @@ class Board:
 				# there is a robot blocking us, so final spot
 				break
 
+			somethingHappend = True # the robot was able to move at least one tile
+			
 			# no wall or robot in the way, so move the robot onto the adjacent tile
 			adjacentTile.robot = currentTile.robot
 			currentTile.robot = None
@@ -138,12 +140,6 @@ class Board:
 		return somethingHappend
 		
 
-	def validMoveByInt(self, validMove):
-		move = self.allMoves.getMoveAtIndex(moveInt)
-		return self.validMove(move)
-	
-	def validMove(self, move):
-		currentTile =
 	
 		
 	def getAdjacentTile(self, tile, direction):
