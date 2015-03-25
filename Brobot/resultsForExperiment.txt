@@ -1,0 +1,171 @@
+Running MC with numGames = 20, depth = 1 and numSamples = 4
+{32: 1, 164: 1, 71: 1, 40: 1, 41: 2, 138: 1, 23: 1, 76: 1, 18: 1, 78: 1, 44: 1, 50: 1, 55: 1, 24: 1, 58: 1, 59: 1, 29: 1, 62: 1, 31: 1}
+Average Number of Moves Per Game = 56.7
+Running MC with numGames = 20, depth = 1 and numSamples = 6
+{37: 1, 38: 1, 12: 1, 43: 1, 140: 1, 29: 2, 17: 2, 18: 1, 20: 1, 21: 1, 22: 1, 57: 1, 26: 1, 27: 2, 28: 2, 122: 1}
+Average Number of Moves Per Game = 37.9
+Running MC with numGames = 20, depth = 1 and numSamples = 8
+{32: 1, 34: 2, 36: 1, 42: 1, 43: 1, 13: 1, 15: 1, 16: 1, 17: 1, 18: 1, 19: 2, 20: 2, 86: 1, 45: 1, 31: 3}
+Average Number of Moves Per Game = 30.1
+Running MC with numGames = 20, depth = 1 and numSamples = 10
+{67: 1, 38: 1, 40: 1, 10: 1, 11: 1, 12: 1, 18: 1, 15: 3, 48: 1, 17: 4, 114: 1, 55: 1, 27: 2, 31: 1}
+Average Number of Moves Per Game = 30.55
+Running MC with numGames = 20, depth = 1 and numSamples = 12
+{8: 1, 9: 1, 10: 1, 11: 2, 12: 3, 13: 3, 14: 1, 15: 4, 19: 1, 23: 1, 24: 1, 26: 1}
+Average Number of Moves Per Game = 14.5
+Running MC with numGames = 20, depth = 1 and numSamples = 14
+{9: 3, 10: 2, 11: 2, 12: 2, 13: 3, 14: 2, 15: 1, 16: 1, 18: 1, 20: 1, 28: 1, 31: 1}
+Average Number of Moves Per Game = 14.4
+Running MC with numGames = 20, depth = 1 and numSamples = 16
+{9: 3, 10: 2, 11: 3, 12: 2, 13: 2, 15: 1, 16: 2, 17: 1, 18: 1, 23: 1, 27: 2}
+Average Number of Moves Per Game = 14.45
+Running MC with numGames = 20, depth = 2 and numSamples = 4
+{32: 1, 66: 1, 49: 1, 341: 1, 17: 1, 54: 1, 348: 1, 42: 1, 295: 1, 325: 1, 81: 1, 53: 1, 278: 1, 24: 1, 250: 1, 27: 2, 188: 1, 125: 1, 117: 1}
+Average Number of Moves Per Game = 136.95
+Running MC with numGames = 20, depth = 2 and numSamples = 6
+{128: 1, 68: 1, 37: 1, 113: 1, 40: 1, 42: 1, 43: 1, 80: 1, 81: 1, 50: 1, 57: 1, 22: 1, 25: 1, 121: 1, 26: 2, 27: 1, 61: 2, 63: 1}
+Average Number of Moves Per Game = 58.55
+Running MC with numGames = 20, depth = 2 and numSamples = 8
+{35: 1, 43: 1, 45: 2, 93: 1, 109: 1, 49: 1, 50: 1, 52: 1, 21: 1, 89: 1, 25: 3, 90: 1, 29: 1, 30: 1, 31: 3}
+Average Number of Moves Per Game = 47.4
+Running MC with numGames = 20, depth = 2 and numSamples = 10
+{35: 1, 100: 1, 71: 1, 44: 1, 45: 1, 13: 1, 17: 1, 19: 2, 20: 1, 21: 1, 22: 1, 23: 1, 120: 1, 58: 1, 28: 1, 26: 3, 95: 1}
+Average Number of Moves Per Game = 41.4
+Running MC with numGames = 20, depth = 2 and numSamples = 12
+{35: 1, 38: 1, 46: 1, 14: 1, 16: 2, 18: 4, 19: 1, 20: 3, 21: 1, 24: 1, 25: 1, 26: 1, 28: 1, 31: 1}
+Average Number of Moves Per Game = 23.55
+Running MC with numGames = 20, depth = 2 and numSamples = 14
+{51: 1, 34: 1, 55: 1, 39: 1, 43: 1, 13: 1, 16: 1, 19: 3, 20: 3, 21: 1, 23: 1, 25: 2, 26: 1, 29: 1, 62: 1}
+Average Number of Moves Per Game = 28.95
+Running MC with numGames = 20, depth = 2 and numSamples = 16
+{33: 1, 42: 1, 12: 1, 14: 1, 15: 2, 16: 4, 17: 1, 19: 1, 22: 2, 23: 2, 24: 1, 26: 1, 123: 1, 29: 1}
+Average Number of Moves Per Game = 26.15
+Running MC with numGames = 20, depth = 3 and numSamples = 4
+{389: 1, 262: 1, 71: 1, 47: 1, 107: 1, 524: 1, 207: 1, 143: 1, 401: 1, 402: 1, 181: 1, 24: 1, 151: 1, 56: 2, 58: 1, 303: 1, 252: 1, 248: 1, 229: 1}
+Average Number of Moves Per Game = 205.55
+Running MC with numGames = 20, depth = 3 and numSamples = 6
+{64: 1, 97: 1, 34: 1, 67: 1, 399: 1, 33: 1, 40: 2, 77: 1, 47: 1, 82: 1, 51: 1, 20: 1, 53: 1, 24: 1, 58: 1, 79: 1, 60: 1, 61: 1, 62: 1}
+Average Number of Moves Per Game = 72.4
+Running MC with numGames = 20, depth = 3 and numSamples = 8
+{64: 1, 33: 1, 34: 1, 67: 1, 36: 2, 101: 1, 38: 1, 32: 1, 104: 1, 55: 1, 110: 1, 18: 1, 52: 1, 86: 1, 183: 1, 57: 1, 59: 1, 61: 1, 31: 1}
+Average Number of Moves Per Game = 62.85
+Running MC with numGames = 20, depth = 3 and numSamples = 10
+{64: 2, 33: 1, 35: 1, 32: 2, 41: 1, 44: 1, 18: 1, 46: 1, 49: 1, 50: 1, 19: 1, 56: 1, 153: 1, 59: 1, 61: 1, 30: 2, 31: 1}
+Average Number of Moves Per Game = 47.35
+Running MC with numGames = 20, depth = 3 and numSamples = 12
+{32: 1, 33: 1, 37: 1, 47: 1, 16: 1, 17: 1, 18: 1, 21: 1, 22: 1, 23: 3, 88: 1, 26: 2, 28: 1, 29: 1, 31: 3}
+Average Number of Moves Per Game = 30.1
+Running MC with numGames = 20, depth = 3 and numSamples = 14
+{130: 1, 36: 1, 39: 1, 41: 1, 34: 1, 16: 1, 17: 2, 18: 1, 19: 1, 20: 1, 21: 3, 23: 2, 26: 1, 28: 1, 30: 1, 31: 1}
+Average Number of Moves Per Game = 30.55
+Running MC with numGames = 20, depth = 3 and numSamples = 16
+{32: 1, 35: 1, 36: 2, 39: 1, 40: 1, 41: 1, 13: 1, 16: 2, 19: 1, 20: 1, 22: 1, 23: 2, 24: 1, 27: 2, 31: 2}
+Average Number of Moves Per Game = 27.55
+Running MC with numGames = 20, depth = 4 and numSamples = 4
+{133: 1, 257: 1, 131: 1, 324: 1, 54: 1, 102: 1, 72: 1, 138: 1, 267: 1, 205: 1, 237: 1, 280: 1, 163: 1, 692: 1, 245: 1, 246: 1, 568: 1, 347: 1, 286: 1, 255: 1}
+Average Number of Moves Per Game = 250.1
+Running MC with numGames = 20, depth = 4 and numSamples = 6
+{321: 1, 326: 1, 261: 1, 70: 1, 137: 1, 109: 1, 397: 1, 269: 1, 113: 1, 51: 1, 276: 1, 149: 1, 73: 1, 25: 1, 216: 1, 52: 2, 314: 1, 191: 1, 63: 1}
+Average Number of Moves Per Game = 173.25
+Running MC with numGames = 20, depth = 4 and numSamples = 8
+{132: 1, 68: 1, 37: 1, 70: 1, 81: 1, 143: 1, 140: 1, 29: 1, 17: 2, 82: 1, 51: 1, 148: 1, 87: 1, 72: 1, 36: 1, 79: 1, 156: 1, 61: 1, 69: 1}
+Average Number of Moves Per Game = 78.75
+Running MC with numGames = 20, depth = 4 and numSamples = 10
+{256: 1, 36: 1, 37: 1, 70: 1, 49: 1, 72: 1, 137: 1, 41: 1, 44: 1, 45: 1, 46: 1, 207: 1, 80: 1, 81: 1, 50: 1, 21: 1, 54: 1, 55: 1, 58: 1, 53: 1}
+Average Number of Moves Per Game = 74.6
+Running MC with numGames = 20, depth = 4 and numSamples = 12
+{33: 1, 228: 1, 37: 1, 38: 1, 65: 1, 41: 1, 42: 1, 43: 1, 29: 1, 45: 1, 125: 1, 80: 1, 50: 1, 48: 1, 54: 1, 120: 1, 122: 1, 26: 1, 30: 2}
+Average Number of Moves Per Game = 64.3
+Running MC with numGames = 20, depth = 4 and numSamples = 14
+{34: 2, 36: 1, 133: 1, 38: 2, 40: 1, 73: 1, 87: 2, 44: 2, 80: 1, 50: 1, 52: 1, 41: 1, 54: 1, 23: 1, 57: 1, 30: 1}
+Average Number of Moves Per Game = 53.75
+Running MC with numGames = 20, depth = 4 and numSamples = 16
+{34: 1, 35: 1, 133: 1, 38: 1, 40: 1, 28: 1, 61: 1, 45: 1, 77: 1, 47: 1, 48: 1, 37: 1, 20: 1, 22: 1, 55: 1, 27: 1, 60: 1, 29: 1, 30: 1, 31: 1}
+Average Number of Moves Per Game = 44.85
+Running MC with numGames = 20, depth = 5 and numSamples = 4
+{352: 1, 98: 1, 587: 1, 82: 1, 229: 1, 327: 1, 202: 1, 203: 1, 141: 1, 718: 1, 274: 1, 531: 1, 276: 1, 279: 1, 344: 1, 345: 1, 170: 1, 818: 1, 188: 1, 61: 1}
+Average Number of Moves Per Game = 311.25
+Running MC with numGames = 20, depth = 5 and numSamples = 6
+{98: 1, 131: 1, 326: 1, 135: 1, 104: 2, 138: 1, 139: 1, 77: 1, 111: 1, 208: 1, 184: 1, 178: 1, 147: 1, 116: 1, 85: 1, 55: 1, 120: 1, 153: 1, 155: 1}
+Average Number of Moves Per Game = 138.2
+Running MC with numGames = 20, depth = 5 and numSamples = 8
+{96: 1, 33: 1, 132: 1, 70: 1, 161: 1, 72: 1, 97: 1, 43: 1, 206: 1, 207: 1, 48: 1, 81: 1, 83: 1, 53: 2, 54: 1, 90: 1, 220: 1, 157: 1, 63: 1}
+Average Number of Moves Per Game = 100.95
+Running MC with numGames = 20, depth = 5 and numSamples = 10
+{19: 1, 65: 1, 67: 1, 134: 1, 136: 1, 42: 2, 49: 1, 51: 1, 116: 1, 53: 1, 59: 1, 56: 1, 25: 1, 27: 2, 92: 1, 93: 1, 94: 1, 181: 1}
+Average Number of Moves Per Game = 71.4
+Running MC with numGames = 20, depth = 5 and numSamples = 12
+{80: 1, 67: 1, 68: 1, 70: 1, 38: 1, 33: 1, 42: 1, 71: 1, 61: 1, 112: 1, 49: 1, 18: 1, 53: 1, 22: 1, 55: 1, 58: 1, 28: 1, 138: 1, 62: 1, 117: 1}
+Average Number of Moves Per Game = 62.1
+Running MC with numGames = 20, depth = 5 and numSamples = 14
+{67: 2, 136: 1, 41: 1, 74: 1, 43: 2, 44: 1, 47: 1, 82: 1, 51: 1, 21: 1, 54: 1, 55: 1, 56: 1, 57: 1, 27: 1, 53: 1, 31: 2}
+Average Number of Moves Per Game = 54.0
+Running MC with numGames = 20, depth = 5 and numSamples = 16
+{32: 1, 33: 2, 52: 1, 65: 1, 64: 1, 42: 1, 43: 1, 50: 1, 46: 1, 82: 1, 20: 1, 57: 1, 55: 2, 23: 1, 39: 1, 28: 1, 30: 1, 127: 1}
+Average Number of Moves Per Game = 48.8
+Running MC with numGames = 20, depth = 6 and numSamples = 4
+{416: 1, 450: 1, 452: 1, 86: 1, 423: 1, 200: 1, 361: 1, 194: 1, 651: 1, 236: 1, 333: 1, 78: 1, 180: 1, 597: 1, 502: 1, 823: 1, 121: 1, 506: 1, 250: 1, 1311: 1}
+Average Number of Moves Per Game = 408.5
+Running MC with numGames = 20, depth = 6 and numSamples = 6
+{193: 1, 130: 1, 43: 1, 196: 1, 101: 1, 198: 1, 129: 1, 266: 1, 107: 2, 206: 1, 335: 1, 83: 1, 86: 1, 119: 1, 153: 1, 163: 1, 801: 1, 199: 1, 295: 1}
+Average Number of Moves Per Game = 195.5
+Running MC with numGames = 20, depth = 6 and numSamples = 8
+{97: 1, 68: 1, 133: 2, 113: 1, 108: 1, 138: 1, 75: 1, 76: 1, 110: 1, 112: 1, 81: 1, 83: 1, 212: 1, 149: 1, 86: 1, 56: 1, 148: 1, 157: 1, 351: 1}
+Average Number of Moves Per Game = 124.3
+Running MC with numGames = 20, depth = 6 and numSamples = 10
+{69: 1, 232: 1, 44: 2, 106: 1, 76: 1, 61: 1, 79: 1, 80: 1, 146: 1, 84: 1, 85: 1, 86: 1, 121: 1, 376: 1, 57: 1, 169: 1, 93: 1, 62: 1, 127: 1}
+Average Number of Moves Per Game = 109.85
+Running MC with numGames = 20, depth = 6 and numSamples = 12
+{99: 1, 68: 1, 70: 1, 39: 1, 41: 1, 79: 1, 111: 1, 109: 1, 142: 1, 47: 1, 80: 1, 49: 1, 82: 1, 52: 1, 87: 1, 248: 1, 59: 1, 60: 1, 74: 1, 62: 1}
+Average Number of Moves Per Game = 82.9
+Running MC with numGames = 20, depth = 6 and numSamples = 14
+{98: 1, 59: 1, 37: 1, 70: 1, 105: 1, 140: 1, 77: 1, 79: 2, 76: 1, 113: 2, 116: 1, 54: 1, 56: 1, 57: 1, 91: 1, 28: 1, 60: 1, 95: 1}
+Average Number of Moves Per Game = 80.15
+Running MC with numGames = 20, depth = 6 and numSamples = 16
+{64: 1, 65: 1, 98: 1, 155: 1, 68: 1, 35: 1, 48: 1, 44: 2, 80: 1, 67: 1, 52: 1, 117: 1, 57: 1, 90: 1, 59: 1, 100: 1, 58: 1, 85: 1, 31: 1}
+Average Number of Moves Per Game = 70.85
+Running MC with numGames = 20, depth = 7 and numSamples = 4
+{481: 1, 738: 1, 163: 1, 228: 1, 357: 1, 710: 1, 454: 1, 905: 1, 170: 1, 2543: 1, 720: 1, 626: 1, 367: 1, 404: 1, 597: 1, 56: 1, 442: 1, 1115: 1, 682: 1, 510: 1}
+Average Number of Moves Per Game = 613.4
+Running MC with numGames = 20, depth = 7 and numSamples = 6
+{99: 1, 101: 1, 102: 1, 263: 1, 202: 1, 135: 1, 722: 1, 110: 1, 144: 1, 529: 1, 242: 1, 84: 1, 277: 1, 87: 1, 312: 1, 282: 1, 191: 1, 166: 1, 158: 1, 63: 1}
+Average Number of Moves Per Game = 213.45
+Running MC with numGames = 20, depth = 7 and numSamples = 8
+{225: 1, 123: 1, 81: 1, 168: 1, 73: 1, 139: 1, 253: 1, 176: 1, 104: 1, 274: 1, 147: 1, 213: 1, 279: 1, 88: 1, 121: 1, 111: 1, 135: 1, 93: 1, 127: 1, 63: 1}
+Average Number of Moves Per Game = 149.65
+Running MC with numGames = 20, depth = 7 and numSamples = 10
+{96: 1, 65: 1, 259: 1, 69: 1, 72: 1, 87: 1, 140: 1, 45: 1, 238: 1, 317: 1, 280: 1, 275: 1, 117: 1, 57: 1, 56: 1, 89: 1, 90: 1, 219: 1, 285: 1, 133: 1}
+Average Number of Moves Per Game = 149.45
+Running MC with numGames = 20, depth = 7 and numSamples = 12
+{82: 1, 37: 1, 81: 1, 49: 1, 72: 2, 170: 1, 71: 1, 108: 1, 146: 1, 47: 1, 177: 1, 50: 1, 52: 1, 183: 1, 87: 1, 151: 1, 61: 1, 190: 1, 95: 1}
+Average Number of Moves Per Game = 99.05
+Running MC with numGames = 20, depth = 7 and numSamples = 14
+{64: 1, 33: 1, 66: 1, 35: 1, 38: 1, 97: 1, 71: 2, 140: 1, 46: 1, 248: 1, 82: 1, 52: 1, 53: 1, 56: 2, 25: 1, 123: 1, 93: 1, 117: 1}
+Average Number of Moves Per Game = 78.3
+Running MC with numGames = 20, depth = 7 and numSamples = 16
+{64: 2, 65: 2, 98: 1, 99: 1, 36: 1, 101: 1, 102: 1, 39: 1, 48: 1, 43: 1, 66: 1, 79: 1, 80: 1, 52: 1, 85: 1, 87: 1, 24: 1, 117: 1}
+Average Number of Moves Per Game = 70.7
+Running MC with numGames = 20, depth = 8 and numSamples = 4
+{1075: 1, 603: 1, 726: 1, 998: 1, 247: 1, 76: 1, 1011: 1, 336: 1, 593: 1, 115: 1, 2452: 1, 1715: 1, 86: 1, 375: 1, 315: 1, 154: 1, 379: 1, 476: 1, 189: 1, 447: 1}
+Average Number of Moves Per Game = 618.4
+Running MC with numGames = 20, depth = 8 and numSamples = 6
+{385: 1, 162: 1, 196: 1, 146: 1, 105: 1, 107: 1, 140: 1, 1069: 1, 206: 1, 111: 1, 850: 1, 659: 1, 236: 1, 249: 1, 348: 1, 505: 1, 87: 1, 123: 1, 412: 1, 191: 1}
+Average Number of Moves Per Game = 314.35
+Running MC with numGames = 20, depth = 8 and numSamples = 8
+{161: 1, 69: 1, 68: 1, 101: 1, 74: 1, 75: 1, 524: 1, 397: 1, 303: 1, 432: 1, 446: 1, 114: 1, 340: 1, 245: 1, 153: 1, 100: 1, 122: 1, 125: 1, 94: 1, 133: 1}
+Average Number of Moves Per Game = 203.8
+Running MC with numGames = 20, depth = 8 and numSamples = 10
+{97: 1, 194: 1, 294: 1, 68: 1, 261: 1, 102: 1, 231: 1, 44: 1, 225: 1, 140: 1, 109: 1, 110: 1, 113: 1, 341: 1, 134: 2, 63: 1, 124: 1, 158: 1, 223: 1}
+Average Number of Moves Per Game = 158.25
+Running MC with numGames = 20, depth = 8 and numSamples = 12
+{97: 1, 130: 1, 82: 1, 98: 2, 134: 1, 231: 1, 145: 1, 105: 1, 34: 1, 46: 1, 77: 1, 80: 1, 49: 1, 50: 1, 150: 1, 185: 1, 57: 1, 156: 1, 169: 1}
+Average Number of Moves Per Game = 108.65
+Running MC with numGames = 20, depth = 8 and numSamples = 14
+{128: 1, 33: 1, 59: 1, 36: 1, 65: 1, 135: 1, 136: 1, 329: 1, 74: 1, 55: 1, 108: 1, 145: 1, 120: 1, 57: 1, 153: 1, 121: 1, 87: 1, 91: 1, 104: 2}
+Average Number of Moves Per Game = 107.0
+Running MC with numGames = 20, depth = 8 and numSamples = 16
+{65: 2, 66: 1, 54: 1, 161: 1, 41: 1, 106: 1, 62: 1, 76: 1, 48: 1, 82: 1, 51: 1, 84: 1, 117: 1, 86: 1, 52: 1, 58: 1, 59: 1, 42: 1, 94: 1}
+Average Number of Moves Per Game = 73.45
+Running Rand with numGames = 20
+{6584: 1, 41724: 1, 5062: 1, 4488: 1, 937: 1, 71050: 1, 40119: 1, 530: 1, 22296: 1, 1416: 1, 4338: 1, 276: 1, 25269: 1, 39190: 1, 2921: 1, 9976: 1, 5689: 1, 2619: 1, 2556: 1, 4565: 1}
+Average Number of Moves Per Game = 14580.25

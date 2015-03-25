@@ -79,12 +79,12 @@ if __name__ == "__main__":
 	for depth in [1,2,3,4,5,6,7,8]:
 		for numSamples in [4,6,8,10,12,14,16]:
 			print("Running MC with numGames = {2}, depth = {0} and numSamples = {1}".format(depth, numSamples, numGames))
-			MCDict, MCAverage = playMultipleGames(runMCPlayerFirstSol, numGames, "builtin1.txt", 16, numSamples, depth)
+			MCAverage, MCDict = playMultipleGames(runMCPlayerFirstSol, numGames, "builtin1.txt", 16, numSamples, depth)
 			print(MCDict)
 			print("Average Number of Moves Per Game = {0}".format(MCAverage))
 
 	print("Running Rand with numGames = {0}".format(numGames))
-	RandDict, RandAverage = playMultipleGames(runRandomPlayerFirstSol, numGames, "builtin1.txt", 16, numSamples, depth)
+	RandAverage, RandDict = playMultipleGames(runRandomPlayerFirstSol, numGames, "builtin1.txt", 16, numSamples, depth)
 	print(RandDict)
 	print("Average Number of Moves Per Game = {0}".format(RandAverage))
 
