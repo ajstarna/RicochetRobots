@@ -39,11 +39,28 @@ def testInitState():
 	except:
 		print("exception in testInitState")
 		return 0
-
+def testSolve():
+	''' use a standard board to test hashing score for initial state '''
+	size = 16
+	try:
+		
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		
+		rPlayer = Solver.Solver(rr)
+		print ('d')
+		d,b = rPlayer.play(1000)
+		
+		if d >0:
+			return 1
+		else:
+			return 0
+	except:
+		print("exception in testSolve")
+		return 0
 
 if __name__ == "__main__":
 
-	tests = [testGetHash,testInitState]
+	tests = [testGetHash,testInitState,testSolve]
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:

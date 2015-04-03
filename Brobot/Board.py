@@ -103,7 +103,21 @@ class Board:
 			board will contain an AllMoves object where the move is grabbed from '''
 		move = self.allMoves.getMoveAtIndex(moveInt)
 		self.makeMove(move)
-
+	def makeMoveByIntInverse(self, moveInt):
+		''' this method will take an integer and make the inverse move that that integer corresponds to.
+			in this way, we can store moves as just an integer and convert them as needed.
+			board will contain an AllMoves object where the move is grabbed from '''
+		move = self.allMoves.getMoveAtIndex(moveInt)
+		if(move.direction == 'NORTH'):
+			move.direction='SOUTH'
+		elif (move.direction == 'WEST'):
+			move.direction='EAST'
+		elif (move.direction == 'SOUTH'):
+			move.direction='NORTH'
+		else:
+			move.direction='WEST'
+		
+		self.makeMove(move)
 
 	def makeMove(self, move):
 		''' given a move, make it on the board (so move the colour in the direction and update the array) 
