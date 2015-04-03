@@ -541,6 +541,7 @@ class RandomBoard(Board):
 		for i in xrange(self.rows):
 			for j in xrange(self.cols):
 				result[i,j] = self.generateRandomTile((i,j))
+		self.correctWall()
 		return result
 	
 	
@@ -552,7 +553,35 @@ class RandomBoard(Board):
 		return Tile.Tile(position, None, None, wallDict) # return a tile with random walls and None robot/target
 
 
-
+	def correctWall(self):
+		r = self.rows
+		c = self.cols
+		for i in xrange(r):
+			for j in xrange(c):
+				if(i>0):
+					t = self.array[i,j].wallDict["NORTH"] or self.array[i-1,j].wallDict["SOUTH"]
+					self.array[i,j].wallDict["NORTH"]=t
+					self.array[i-1,j].wallDict["SOUTH"] = t
+				else:
+					self.array[i,j].wallDict["NORTH"]=True
+				if(i<r-1):
+					t = self.array[i+1,j].wallDict["NORTH"] or self.array[i,j].wallDict["SOUTH"]
+					self.array[i+1,j].wallDict["NORTH"]=t
+					self.array[i,j].wallDict["SOUTH"] = t
+				else:
+					self.array[i,j].wallDict["SOUTH"]=True
+				if(j>0):
+					t = self.array[i,j].wallDict["WEST"] or self.array[i,j-1].wallDict["EAST"]
+					self.array[i,j].wallDict["WEST"]=t
+					self.array[i,j-1].wallDict["EAST"] = t
+				else:
+					self.array[i,j].wallDict["WEST"]=True
+				if(j<c-1):
+					t = self.array[i,j+1].wallDict["WEST"] or self.array[i,j1].wallDict["EAST"]
+					self.array[i,j+1].wallDict["WEST"]=t
+					self.array[i,j].wallDict["EAST"] = t
+				else:
+					self.array[i,j].wallDict["EAST"]=True
 
 
 	def initializeTargetPositions(self):
@@ -562,9 +591,32 @@ class RandomBoard(Board):
 		result = {}
 		return result
 	
+	def genTileWithCorner(self,percent):
+		''' this method initializes the array of tiles randomly.
+			this includes wall placement but not robots or targets '''
+		result = np.empty((self.rows, self.cols), dtype=object)
+		# for each position on the board, generate a random tile (the wall placement)
+		for i in xrange(self.rows):
+			for j in xrange(self.cols):
+				x = random.randint(0,100)
+				if (x < percent):
+					result[i,j] = getConner((i,j))
+				else:
+					result[i,j] =Tile.Tile((i,j), None, None, {"NORTH" : False, "EAST" : False,"WEST" : False, "SOUTH":False})
+				
+		self.correctWall()
+		return result
+	
 
-
-
+	def getConner(self,position):
+		
+		a = [{"NORTH" : True, "EAST" : True,"WEST" : False, "SOUTH":False},
+		{"NORTH" : True, "EAST" : False,"WEST" : True, "SOUTH":False},
+		{"NORTH" : False, "EAST" : False,"WEST" : True, "SOUTH":True},
+		{"NORTH" : False, "EAST" : True,"WEST" : False, "SOUTH":True}]
+		x = random.randint(0,3)
+		return Tile.Tile(position, None, None, wallDict)
+		
 
 ########################### StandardBoard Subclass ##############################
 
