@@ -102,7 +102,7 @@ class Board:
 			in this way, we can store moves as just an integer and convert them as needed.
 			board will contain an AllMoves object where the move is grabbed from '''
 		move = self.allMoves.getMoveAtIndex(moveInt)
-		self.makeMove(move)
+		return self.makeMove(move)
 	def makeMoveByIntInverse(self, moveInt):
 		''' this method will take an integer and make the inverse move that that integer corresponds to.
 			in this way, we can store moves as just an integer and convert them as needed.
@@ -116,8 +116,8 @@ class Board:
 			move.direction='NORTH'
 		else:
 			move.direction='WEST'
-		
-		self.makeMove(move)
+		print (move)
+		return self.makeMove(move)
 
 	def makeMove(self, move):
 		''' given a move, make it on the board (so move the colour in the direction and update the array) 
@@ -180,7 +180,7 @@ class Board:
 	def endState(self):
 		''' returns boolean of whether the board is in an end state (i.e. is the right robot at the target '''
 		try:
-			return self.currentTarget == self.robotPositions[Board.BLUE] #we assume blue is always the target robot
+			return self.currentTarget == self.robotPositions[0] #we assume blue is always the target robot
 		except:
 			# currentTarget not set yet
 			print("currentTarget not yet set!")

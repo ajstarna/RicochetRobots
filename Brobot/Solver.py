@@ -7,7 +7,7 @@ import numpy as np
 class Solver(Player):
 	def __init__(self, board):
 		Player.__init__(self, board)
-	
+		self.transT={}
 	
 	
 	def play(self, timeLimit):
@@ -18,7 +18,7 @@ class Solver(Player):
 		#transTable = -1* transTable
 		# initialize transposition table
 		transTable = {}
-		
+		self.transT=transTable
 		r = self.board.rows
 		c = self.board.cols
 		depth =1
@@ -30,7 +30,7 @@ class Solver(Player):
 		s =self.getState()
 		
 		transTable[s] = 0   # start state = 0
-		
+		self.ops = s
 		op=deepcopy(self.board.robotPositions)
 		
 		queue = []
@@ -42,29 +42,33 @@ class Solver(Player):
 			if(time.clock()-tstart >= timeLimit):
 				break
 			cstate = queue.pop(0)	
+			
+			
 			self.board.resetRobots(cstate)
-			self.board.printBoard()
-			depth = transTable[self.getState()] //100 # get current depth used for pruning
+			csc = self.getState()
+#			depth = transTable[self.getState()] //100 # get current depth used for pruning
 			
 			if (self.board.endState()):
-				if(bestDepth >= depth):
-					bestDepth = depth +1
-					best = self.getState()
+#				if(bestDepth >= depth):
+				bestDepth = depth +1
+				best = self.getState()
 #				a = getState()
+				
 				return bestDepth, best
-			if( depth+1 >= bestDepth):
-				continue
+#			if( depth+1 >= bestDepth):
+#				continue
 				
 			for i in xrange(16): # try all moves at depth + 1
 				
-				t = self.makeMoveByInt(i)
+				t = self.board.makeMoveByInt(i)
 				
 				sc = self.getState()
 				if (self.board.endState()):
-					if(bestDepth >= depth):
-						bestDepth = depth +1
-						best = sc
+#					if(bestDepth >= depth):
+					bestDepth = depth +1
+					best = sc
 					
+					transTable[best] = i  +  csc* 100
 					return bestDepth, best
 				
 					
@@ -72,11 +76,11 @@ class Solver(Player):
 				
 				if(t and (not sc in transTable)):
 					queue.append(deepcopy(self.board.robotPositions))
-					transTable[self.getState()] = i  + (depth+1) * 100 # the move leads to this state
+					transTable[self.getState()] = i  +  csc* 100 # the move leads to this state
 			#		if it has not been visisted then add it to queue 	
 				self.board.resetRobots(cstate)
 			
-		self.transT=transTable
+		
 			
 		return bestDepth, best
 	
@@ -93,14 +97,20 @@ class Solver(Player):
 	
 	
 	
-	def getSolution(self,transT,s):
+	def getSolution(self,s):
 	# reconstuct list of moves to the endstate using the transition table and  end state s (an integer)
+		transT= self.transT
+		
 		movelist = []
 		self.setBoardByState(s)
-		while (transT[s]!=0):
+		#print (self.ops)
+		while (s!=self.ops):
+		#	self.setBoardByState(s)
+		#	self.board.printBoard()
 			moveId = transT[s]%100
 			movelist.append(moveId)
-			self.board.makeMoveByIntInverse(moveId)
+			print  self.board.allMoves.getMoveAtIndex(moveId)
+			s=transT[s]//100
 		return movelist[::-1]
 	
 	
@@ -116,8 +126,7 @@ class Solver(Player):
 			s = s // n
 			r = p // self.board.cols
 			c = p % self.board.cols
-			op[i][0] =r
-			op[i][1] =c
+			op[i] = (r,c)
 		self.board.resetRobots(op)
 		return op
 	
