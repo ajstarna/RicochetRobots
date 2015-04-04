@@ -149,6 +149,16 @@ class MCPlayer(Player):
 
 
 
+	def pngs(self, sequence):
+		''' plan neighbourhood graph search:
+			given a solution sequence of moves, this method will search around each state to expand the graph, 
+			and then before a shortest path search from the source to any end state to try and improve the solution.
+			return True if improved or False if didn't and the new(or old) sequence'''
+
+
+		return False, sequence 
+
+
 
 
 

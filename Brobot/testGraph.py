@@ -4,6 +4,7 @@
 ''' this file contains unit tests for the graph. '''
 
 import GraphModule
+import sys, traceback
 
 
 def testInit(name):
@@ -45,7 +46,7 @@ def testAddNode(name):
 		return 0
 
 
-def testEdge():
+def testEdge(name):
 	state = (0,1,2,3,9,8,10,3)
 	try:
 		graph = GraphModule.Graph()
@@ -55,11 +56,35 @@ def testEdge():
 		graph.addEdge(state, target, moveNum)
 		
 		if not state in graph.graphDict:
+			print("not in graph dict")
 			return 0
 		
-		if graph.graphDict[state].targetState != [target]:
+		if graph.graphDict[state][0].targetState != target:
+			print("not a target match")
 			return 0
-		if graph.graphDict[state].moveNum != moveNum:
+		if graph.graphDict[state][0].moveNum != moveNum:
+			return 0
+		
+		return 1
+
+	except:
+		print("exception in {}".format(name))
+		traceback.print_exc(file=sys.stdout)
+		return 0
+	return
+
+
+def testConvertRobotDict(name):
+	dict = {}
+	dict[0] = (0,0)
+	dict[1] = (1,1)
+	dict[2] = (2,2)
+	dict[3] = (3,3)
+	
+	try:
+		g = GraphModule.Graph()
+		tuple = g.convertRobotDictToTuple(dict)
+		if tuple != (0,0,1,1,2,2,3,3):
 			return 0
 		
 		return 1
@@ -73,7 +98,7 @@ def testEdge():
 
 if __name__ == "__main__":
 
-	tests = [testInit, testAddNode]
+	tests = [testInit, testAddNode, testEdge, testConvertRobotDict]
 
 
 	totalTestsRan = 0

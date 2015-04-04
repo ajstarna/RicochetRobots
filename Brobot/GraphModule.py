@@ -8,6 +8,9 @@ class Edge:
 		self.moveNum = moveNum
 		self.targetState = targetState
 
+	def __str__(self):
+		return str(self.moveNum) + ", " + str(self.targetState)
+
 
 
 class Graph:
@@ -32,7 +35,10 @@ class Graph:
 
 
 	def convertRobotDictToTuple(self, robotDict):
-		return (0,0)
+		result = ()
+		for i in xrange(4):
+			result += robotDict[i]
+		return result
 
 
 	def convertTupleToRobotDict(self, stateTuple):
