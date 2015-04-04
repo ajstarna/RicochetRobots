@@ -8,8 +8,7 @@ import numpy as np
 class MCPlayer(Player):
 	def __init__(self, board):
 		Player.__init__(self, board)
-	
-	
+		self.opp= deepcopy(self.board.robotPositions) # keep original position
 	
 	def play(self, timeLimit, numSamples, depth):
 		''' override super '''
@@ -18,7 +17,7 @@ class MCPlayer(Player):
 		bestSequence = None # this will be the best of all sequences found
 		tStart = time.clock()
 		
-		while True:
+		while True:self.board.resetRobots(op)
 			self.numMoves = 0
 			while not self.board.endState():
 				if bestSequence != None and len(currentSequence) >= len(bestSequence):
@@ -148,6 +147,25 @@ class MCPlayer(Player):
 		return finalScore
 
 
+	def pruneSequence(self,seq):
+		
+		newseq = deepcopy(seq)
+		
+		index =0
+		while (index<len(newseq)):
+			self.board.resetRobots(self.opp)
+			newseq2 = deepcopy(newseq)
+			newseq2.pop(index)
+			playseq(newseq2)
+			if(self.board.endState()):
+				newseq = newseq2
+				index -=1
+			
+				
+			 
+			index +=1
+		return newseq
+
 
 	def pngs(self, sequence):
 		''' plan neighbourhood graph search:
@@ -156,10 +174,7 @@ class MCPlayer(Player):
 			return True if improved or False if didn't and the new(or old) sequence'''
 
 
-		return False, sequence 
-
-
-
+		return False, sequence
 
 
 
