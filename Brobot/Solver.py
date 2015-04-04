@@ -78,12 +78,19 @@ class Solver(Player):
 			
 		return bestDepth, best
 	
+	
+	
 	def getState(self):
 		j = self.getHash()
 		sums=0
 		for i in xrange(len(self.board.robotPositions)):
 			sums+= pow(pow(2,j),i)* self.getScore(self.board.robotPositions[i][0],self.board.robotPositions[i][1])
 		return sums
+	
+	
+	
+	
+	
 	def getSolution(self,transT,s):
 	# reconstuct list of moves to the endstate using the transition table and  end state s (an integer)
 		movelist = []
@@ -93,7 +100,9 @@ class Solver(Player):
 			movelist.append(moveId)
 			self.board.makeMoveByIntInverse(moveId)
 		return movelist[::-1]
-			
+	
+	
+	
 	def setBoardByState (self,s):
 	#given a integer representing the state, reconstruct board using robotPositions and resetRobots
 		h =self.getHash()	

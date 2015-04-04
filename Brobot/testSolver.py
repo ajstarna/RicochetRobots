@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 import Solver
 import sys, traceback
@@ -20,6 +19,7 @@ def testGetHash():
 			return 0
 	except:
 		print("exception in testGetHash")
+		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
@@ -38,7 +38,9 @@ def testInitState():
 			return 0
 	except:
 		print("exception in testInitState")
+		traceback.print_exc(file=sys.stdout)
 		return 0
+		
 def testSolve():
 	''' use a standard board to test hashing score for initial state '''
 	size = 16
@@ -56,7 +58,11 @@ def testSolve():
 			return 0
 	except:
 		print("exception in testSolve")
+		traceback.print_exc(file=sys.stdout)
 		return 0
+
+
+		
 
 if __name__ == "__main__":
 
