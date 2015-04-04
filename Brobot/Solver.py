@@ -14,9 +14,11 @@ class Solver(Player):
 		n =len(self.board.robotPositions) #number of robot
 		h = self.getHash()
 		
-		transTable = np.ones((pow(pow(2,h),n),),dtype=np.int )
-		transTable = -1* transTable
+		#transTable = np.ones((pow(pow(2,h),n),),dtype=np.int )
+		#transTable = -1* transTable
 		# initialize transposition table
+		transTable = {}
+		
 		r = self.board.rows
 		c = self.board.cols
 		depth =1
@@ -49,7 +51,7 @@ class Solver(Player):
 					bestDepth = depth +1
 					best = self.getState()
 #				a = getState()
-#				return a, transTable
+				return bestDepth, best
 			if( depth+1 >= bestDepth):
 				continue
 				
@@ -62,13 +64,13 @@ class Solver(Player):
 					if(bestDepth >= depth):
 						bestDepth = depth +1
 						best = sc
-#					a = getState()
-#					return a, transTable
+					
+					return bestDepth, best
 				
 					
 				
 				
-				if(t and transTable[sc]==-1):
+				if(t and (not sc in transTable)):
 					queue.append(deepcopy(self.board.robotPositions))
 					transTable[self.getState()] = i  + (depth+1) * 100 # the move leads to this state
 			#		if it has not been visisted then add it to queue 	
