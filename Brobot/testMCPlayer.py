@@ -5,7 +5,7 @@ import Board
 import sys, traceback
 
 
-def testInit():
+def testInit(name):
 	''' use a standard board to test a MC player '''
 	size = 16
 	try:
@@ -16,14 +16,14 @@ def testInit():
 		else:
 			return 0
 	except:
-		print("exception in testInit")
+		print("exception in {}".format(name))
 		return 0
 
 
 
 
 
-def testFindFirstSol():
+def testFindFirstSol(name):
 	''' use a standard board to test a MCPlayer's play method '''
 	size = 16
 	fileName = "builtin1.txt"
@@ -47,13 +47,13 @@ def testFindFirstSol():
 			return 0
 
 	except:
-		print("exception in testPlay")
+		print("exception in {}".format(name))
 		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
 
-def testPlay():
+def testPlay(name):
 	''' use a standard board to test a MCPlayer's play method '''
 	size = 16
 	try:
@@ -65,7 +65,7 @@ def testPlay():
 		
 		
 		
-		moveSequence, numMoves = mcPlayer.play(20, numSamples, depth) # let it search for 3 seconds
+		moveSequence, numMoves = mcPlayer.play(2, numSamples, depth) # let it search for 3 seconds
 		
 		if numMoves < 15:
 			mcPlayer.printMoveSequence(moveSequence)
@@ -82,23 +82,61 @@ def testPlay():
 			return 0
 
 	except:
-		print("exception in testPlay")
+		print("exception in {}".format(name))
 		traceback.print_exc(file=sys.stdout)
 		return 0
 
 
 
+def testPNGS(name):
+	''' use a standard board to test a MCPlayer's play method '''
+	size = 16
+	try:
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		mcPlayer = MCPlayer.MCPlayer(rr)
+		mcPlayer.setTarget()
+		
+		
+		#moveSequence, numMoves = mcPlayer.play(20, numSamples, depth) # let it search for 3 seconds
+		moveSequence = [1,6,7,4,2,0,2,10,0,3]
+		
+		numSamples = 10
+		depth = 5
+		
+		change, newSequence = mcPlayer.pngs(moveSequence, numSamples, depth)
+		numMoves = len(newSequence)
+		if not change:
+			print("did not improve the sequence")
+			return 0
+
+		if rr.validateMoveSequence(newSequence):
+			# if the move sequence
+			print("valid new sequence with {0} moves!".format(numMoves))
+			mcPlayer.printMoveSequence(moveSequence)
+			return 1
+		else:
+			print("Invalid new sequence with {0} moves!".format(numMoves))
+			return 0
+
+	except:
+		print("exception in {}".format(name))
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
+
+
 if __name__ == "__main__":
 
-	#tests = [testInit, testFindFirstSol, testPlay]
-	tests = [testPlay]
+	tests = [testInit, testFindFirstSol, testPlay, testPNGS]
+
 
 
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:
 		totalTestsRan += 1
-		result = test()
+		result = test(str(test))
 		passedTests += result
 		if result:
 			print("Passed: " + str(test))

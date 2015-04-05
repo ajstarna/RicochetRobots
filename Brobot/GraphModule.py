@@ -32,6 +32,10 @@ class Graph:
 		self.graphDict[state1].append(newEdge)
 
 
+	def createNodeFromDict(self, robotDict):
+		''' given a robotDict from a board, creates a node in the dict with this state '''
+		state = self.convertRobotDictToTuple(robotDict)
+		self.addNode(state)
 
 
 	def convertRobotDictToTuple(self, robotDict):
@@ -40,6 +44,9 @@ class Graph:
 			result += robotDict[i]
 		return result
 
+
+	def shortestPath(self, startPositions, pathLength):
+		return float("inf"), None
 
 	def convertTupleToRobotDict(self, stateTuple):
 		return {}

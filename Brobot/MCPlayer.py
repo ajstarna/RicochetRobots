@@ -4,6 +4,7 @@ from copy import deepcopy
 import random
 import time
 import numpy as np
+from GraphModule import Graph
 
 class MCPlayer(Player):
 	def __init__(self, board):
@@ -17,7 +18,8 @@ class MCPlayer(Player):
 		bestSequence = None # this will be the best of all sequences found
 		tStart = time.clock()
 		
-		while True:self.board.resetRobots(op)
+		while True:
+			self.board.resetRobots(originalPositions)
 			self.numMoves = 0
 			while not self.board.endState():
 				if bestSequence != None and len(currentSequence) >= len(bestSequence):
@@ -167,14 +169,63 @@ class MCPlayer(Player):
 		return newseq
 
 
-	def pngs(self, sequence):
+	def pngs(self, sequence, numSamples, depth):
 		''' plan neighbourhood graph search:
 			given a solution sequence of moves, this method will search around each state to expand the graph, 
 			and then before a shortest path search from the source to any end state to try and improve the solution.
 			return True if improved or False if didn't and the new(or old) sequence'''
 
+		graph = Graph()
+		
+		originalPositions = deepcopy(self.board.robotPositions)
+		
+		
+		self.expandFromCurrent(graph, numSamples, depth) # add the start state
+		
+		for number in sequence:
+			self.board.makeMoveByInt(number)	# get to the next state
+			self.expandFromCurrent(graph, numSamples, depth)		# add the new state
+		
 
-		return False, sequence
+		# now find the shortest path from start to any end state
+		oldLength = len(sequence)
+		newLength, newPath = graph.shortestPath(originalPositions, oldLength)
+
+
+		self.board.resetRobots(originalPositions)
+
+		if newLength < len(sequence):
+			return True, newSequence
+		else:
+			return False, sequence # no new path found
+
+
+
+	def expandFromCurrent(self, graph, numSamples, depth):
+		''' this method will take a graph and first add the current state to the graph.
+			it will then expand the graph around this node. eventually reverts the board before returning 
+			so the next move can be made '''
+
+		originalPositions = deepcopy(self.board.robotPositions)
+
+		graph.createNodeFromDict(self.board.robotPositions) # add the start node
+		
+		for i in xrange(numSamples):
+			for d in xrange(depth):
+				moveToMake = random.randint(0,15)
+				self.board.makeMoveByInt(moveToMake)
+
+		self.board.resetRobots(originalPositions)
+
+
+
+
+
+
+
+
+
+
 
 
 
