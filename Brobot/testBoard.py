@@ -239,12 +239,31 @@ def testCopyBoard():
 		return 0
 
 
+def testBoardGenerate():
+	''' genenerate random board with conner setting'''
+	size = 16
+	fileName = "builtin1.txt"
+	try:
+		
+		rr = Board.RandomBoard(size,size)
+		rr.printBoard()
+		rr.reinitializeTileWithPercentage(30)
+		rr.printBoard()
+		print rr.array[7, 15].wallDict
+		if True:
+			return 1
+		else:
+			return 0
 
+	except:
+		print("exception in testBoardGenerate")
+		traceback.print_exc(file=sys.stdout)
+		return 0	
 
 if __name__ == "__main__":
 
 
-	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState, testResetRobots,testReachability]
+	tests = [testInitRandom, testRobotPlacement, testInitStandard, testPrintBoard, testLowerBounds, testMakeMove, testEndState, testResetRobots,testReachability,testBoardGenerate]
 
 
 	totalTestsRan = 0

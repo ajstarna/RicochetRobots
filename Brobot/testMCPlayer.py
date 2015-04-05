@@ -127,13 +127,31 @@ def testPNGS(name):
 		traceback.print_exc(file=sys.stdout)
 		return 0
 
+def testPruning(name):
+	''' use a standard board to test a MC player '''
+	size = 16
+	try:
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		rPlayer = MCPlayer.MCPlayer(rr)
+		rPlayer.setTarget()
+		seq = [1, 4, 2, 0, 2,10, 0, 3]
+		newseq = rPlayer.pruneSequence(seq)
+		print newseq
+		if len(newseq)== 8:
+			return 1
+		else:
+			return 0
+	except:
+		print("exception in {}".format(name))
+		traceback.print_exc(file=sys.stdout)
+		return 0
 
 
 
 if __name__ == "__main__":
 
 	#tests = [testInit, testFindFirstSol, testPlay, testPNGS]
-	tests = [testPNGS]
+	tests = [testPNGS,testPruning]
 
 
 	totalTestsRan = 0

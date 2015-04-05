@@ -530,8 +530,13 @@ class RandomBoard(Board):
 		self.array = self.initializeTiles()
 		self.targetPositions = self.initializeTargetPositions()
 		self.robotPositions = self.initializeRobotPositions()
+		self.correctWall()
 	
-	
+	def reinitializeTileWithPercentage(self,percent):
+		self.array = self.genTileWithCorner(percent)
+		self.correctWall()
+		self.robotPositions = self.initializeRobotPositions()
+		self.targetPositions = self.initializeTargetPositions()
 	
 	def initializeTiles(self):
 		''' this method initializes the array of tiles randomly.
@@ -541,7 +546,7 @@ class RandomBoard(Board):
 		for i in xrange(self.rows):
 			for j in xrange(self.cols):
 				result[i,j] = self.generateRandomTile((i,j))
-		self.correctWall()
+		
 		return result
 	
 	
@@ -554,34 +559,48 @@ class RandomBoard(Board):
 
 
 	def correctWall(self):
+	# this function checks current board is legal, and correct any walls with illegal placement
 		r = self.rows
 		c = self.cols
 		for i in xrange(r):
 			for j in xrange(c):
+				if (i== 7 and j ==15):
+					print self.array[i,j].wallDict
 				if(i>0):
 					t = self.array[i,j].wallDict["NORTH"] or self.array[i-1,j].wallDict["SOUTH"]
 					self.array[i,j].wallDict["NORTH"]=t
 					self.array[i-1,j].wallDict["SOUTH"] = t
 				else:
+					
 					self.array[i,j].wallDict["NORTH"]=True
+				if (i== 7 and j ==15):
+					print self.array[i,j].wallDict
 				if(i<r-1):
 					t = self.array[i+1,j].wallDict["NORTH"] or self.array[i,j].wallDict["SOUTH"]
 					self.array[i+1,j].wallDict["NORTH"]=t
 					self.array[i,j].wallDict["SOUTH"] = t
 				else:
 					self.array[i,j].wallDict["SOUTH"]=True
+				if (i== 7 and j ==15):
+					print self.array[i,j].wallDict
 				if(j>0):
 					t = self.array[i,j].wallDict["WEST"] or self.array[i,j-1].wallDict["EAST"]
 					self.array[i,j].wallDict["WEST"]=t
-					self.array[i,j-1].wallDict["EAST"] = t
+					self.array[i,j-1].wallDict["EAST"] =t
 				else:
 					self.array[i,j].wallDict["WEST"]=True
+				if (i== 7 and j ==15):
+					print self.array[i,j].wallDict
 				if(j<c-1):
-					t = self.array[i,j+1].wallDict["WEST"] or self.array[i,j1].wallDict["EAST"]
+					
+					t = self.array[i,j+1].wallDict["WEST"] or self.array[i,j].wallDict["EAST"]
 					self.array[i,j+1].wallDict["WEST"]=t
 					self.array[i,j].wallDict["EAST"] = t
 				else:
 					self.array[i,j].wallDict["EAST"]=True
+				if (i== 7 and j ==15):
+					print self.array[i,j].wallDict
+				
 
 
 	def initializeTargetPositions(self):
@@ -593,18 +612,20 @@ class RandomBoard(Board):
 	
 	def genTileWithCorner(self,percent):
 		''' this method initializes the array of tiles randomly.
-			this includes wall placement but not robots or targets '''
+			this includes wall placement but not robots or targets 
+			only produces corner walls with input probability out of 100'''
 		result = np.empty((self.rows, self.cols), dtype=object)
 		# for each position on the board, generate a random tile (the wall placement)
 		for i in xrange(self.rows):
 			for j in xrange(self.cols):
 				x = random.randint(0,100)
 				if (x < percent):
-					result[i,j] = getConner((i,j))
+					result[i,j] = self.getConner((i,j))
 				else:
 					result[i,j] =Tile.Tile((i,j), None, None, {"NORTH" : False, "EAST" : False,"WEST" : False, "SOUTH":False})
+		print 'herer'
 				
-		self.correctWall()
+		
 		return result
 	
 
@@ -615,7 +636,7 @@ class RandomBoard(Board):
 		{"NORTH" : False, "EAST" : False,"WEST" : True, "SOUTH":True},
 		{"NORTH" : False, "EAST" : True,"WEST" : False, "SOUTH":True}]
 		x = random.randint(0,3)
-		return Tile.Tile(position, None, None, wallDict)
+		return Tile.Tile(position, None, None, a[x])
 		
 
 ########################### StandardBoard Subclass ##############################
