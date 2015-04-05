@@ -18,9 +18,10 @@ class Edge:
 
 class Graph:
 
-	def __init__(self, graphDict = {}):
+	def __init__(self, board, graphDict = {}):
 		self.graphDict = graphDict  # this dictionary represents the nodes and adjacency lists. Maps a state tuple to a list of edges
 		self.duplicates = 0
+		self.board = board
 	
 	def numEdges(self):
 		''' returns the total number of edges in the graph '''
@@ -84,8 +85,14 @@ class Graph:
 	def shortestPath(self, startPositions):
 	
 		startState = self.convertRobotDictToTuple(startPositions)
-		
+		self.bfs(startState)
 		return float("inf"), None
+
+
+	def bfs(self, state):
+		if
+		for edge in self.graphDict[state]:
+
 
 
 
