@@ -179,21 +179,28 @@ class MCPlayer(Player):
 		
 		originalPositions = deepcopy(self.board.robotPositions)
 		
-		
+		graph.createNodeFromDict(self.board.robotPositions) # add the start node
 		self.expandFromCurrent(graph, numSamples, depth) # add the start state
 		
 		for number in sequence:
+			previousPosition = deepcopy(self.board.robotPositions)
 			self.board.makeMoveByInt(number)	# get to the next state
-			self.expandFromCurrent(graph, numSamples, depth)		# add the new state
+			graph.createNodeFromDict(self.board.robotPositions) # add the new node
+			graph.createEdgeFromDicts(previousPosition, self.board.robotPositions, number)
+			self.expandFromCurrent(graph,  numSamples, depth)		# expand around the new state
 		
 
 		# now find the shortest path from start to any end state
 		oldLength = len(sequence)
-		newLength, newPath = graph.shortestPath(originalPositions, oldLength)
+		newLength, newPath = graph.shortestPath(originalPositions)
 
 
 		self.board.resetRobots(originalPositions)
 
+		print("Graph has {0} nodes at end".format(len(graph.graphDict)))
+		print("Number of state duplicates = {0}".format(graph.duplicates))
+		print("Number of edges in graph = {0}".format(graph.numEdges()))
+		graph.printGraph()
 		if newLength < len(sequence):
 			return True, newSequence
 		else:
@@ -206,16 +213,22 @@ class MCPlayer(Player):
 			it will then expand the graph around this node. eventually reverts the board before returning 
 			so the next move can be made '''
 
-		originalPositions = deepcopy(self.board.robotPositions)
+		#originalPositions = deepcopy(self.board.robotPositions)
 
-		graph.createNodeFromDict(self.board.robotPositions) # add the start node
+
 		
+		savePositions = deepcopy(self.board.robotPositions)
 		for i in xrange(numSamples):
 			for d in xrange(depth):
+				previousPosition = deepcopy(self.board.robotPositions)
 				moveToMake = random.randint(0,15)
 				self.board.makeMoveByInt(moveToMake)
-
-		self.board.resetRobots(originalPositions)
+				graph.createNodeFromDict(self.board.robotPositions)
+				graph.createEdgeFromDicts(previousPosition, self.board.robotPositions, moveToMake)
+			self.board.resetRobots(savePositions)
+			
+			
+		#self.board.resetRobots(originalPositions)
 
 
 

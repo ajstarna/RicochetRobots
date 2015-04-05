@@ -97,14 +97,15 @@ def testPNGS(name):
 		mcPlayer.setTarget()
 		
 		
-		#moveSequence, numMoves = mcPlayer.play(20, numSamples, depth) # let it search for 3 seconds
-		moveSequence = [1,6,7,4,2,0,2,10,0,3]
+		moveSequence = [1,6,7, 6, 7, 4,2,0,2,10,0,3]
 		
 		numSamples = 10
-		depth = 5
+		depth = 0
 		
 		change, newSequence = mcPlayer.pngs(moveSequence, numSamples, depth)
 		numMoves = len(newSequence)
+		
+
 		if not change:
 			print("did not improve the sequence")
 			return 0
@@ -128,8 +129,8 @@ def testPNGS(name):
 
 if __name__ == "__main__":
 
-	tests = [testInit, testFindFirstSol, testPlay, testPNGS]
-
+	#tests = [testInit, testFindFirstSol, testPlay, testPNGS]
+	tests = [testPNGS]
 
 
 	totalTestsRan = 0
