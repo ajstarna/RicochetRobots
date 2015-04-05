@@ -175,7 +175,7 @@ class MCPlayer(Player):
 			and then before a shortest path search from the source to any end state to try and improve the solution.
 			return True if improved or False if didn't and the new(or old) sequence'''
 
-		graph = Graph()
+		graph = Graph(self.board)
 		
 		originalPositions = deepcopy(self.board.robotPositions)
 		
@@ -192,7 +192,7 @@ class MCPlayer(Player):
 
 		# now find the shortest path from start to any end state
 		oldLength = len(sequence)
-		newLength, newPath = graph.shortestPath(originalPositions)
+		newLength, newSequence = graph.shortestPath(originalPositions)
 
 
 		self.board.resetRobots(originalPositions)
@@ -200,8 +200,8 @@ class MCPlayer(Player):
 		print("Graph has {0} nodes at end".format(len(graph.graphDict)))
 		print("Number of state duplicates = {0}".format(graph.duplicates))
 		print("Number of edges in graph = {0}".format(graph.numEdges()))
-		graph.printGraph()
-		if newLength < len(sequence):
+		#graph.printGraph()
+		if newLength <= len(sequence):
 			return True, newSequence
 		else:
 			return False, sequence # no new path found

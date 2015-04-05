@@ -48,3 +48,5 @@ class AllMoves:
 		for moveInt in sequence:
 			print("Move {0}: {1}".format(count, self.getMoveAtIndex(moveInt)))
 			count += 1
+
+

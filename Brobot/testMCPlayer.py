@@ -97,8 +97,9 @@ def testPNGS(name):
 		mcPlayer.setTarget()
 		
 		
-		moveSequence = [1,6,7, 6, 7, 4,2,0,2,10,0,3]
-		
+		moveSequence = [1,4,2,0,2,10,0,3]
+		mcPlayer.printMoveSequence(moveSequence)
+		print(moveSequence)
 		numSamples = 10
 		depth = 0
 		
@@ -113,7 +114,9 @@ def testPNGS(name):
 		if rr.validateMoveSequence(newSequence):
 			# if the move sequence
 			print("valid new sequence with {0} moves!".format(numMoves))
-			mcPlayer.printMoveSequence(moveSequence)
+			
+			mcPlayer.printMoveSequence(newSequence)
+			print(newSequence)
 			return 1
 		else:
 			print("Invalid new sequence with {0} moves!".format(numMoves))
