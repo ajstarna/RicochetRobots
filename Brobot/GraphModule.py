@@ -100,14 +100,14 @@ class Graph:
 		retrace[startState] = None # no move led to the start state
 		q = []
 		q += self.graphDict[startState] # fill the q with edges from start state
-		print(startState)
+		#print(startState)
 		while q != []:
 			currentEdge = q.pop(0) # pop fron the front of the q
 			currentState = currentEdge.targetState
-			print(currentState)
+			#print(currentState)
 			if currentState in retrace:
 				# already seen this state along a shorter path
-				print("already seen")
+				#print("already seen")
 				continue
 			retrace[currentState] = currentEdge
 			if self.checkEndState(currentState):
@@ -128,10 +128,10 @@ class Graph:
 		sequence = []
 		
 		self.board.resetRobots(self.convertTupleToRobotDict(endState))
-		print("retracing best sequence")
+		#print("retracing best sequence")
 		while True:
 			
-			print(currentState)
+			#print(currentState)
 			edge = retrace[currentState]
 
 			if edge is None:
@@ -139,7 +139,7 @@ class Graph:
 				return sequence
 			
 			move = edge.moveNum
-			print(move)
+			#print(move)
 			sequence.insert(0, move)
 			currentState = edge.sourceState
 

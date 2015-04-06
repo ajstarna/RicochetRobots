@@ -1,0 +1,32 @@
+Running MC with numGames = 20, depth = 1 and numSamples = 4
+Average Number of Moves Per Game = 64.3
+Running PNGS with numGames = 20, depth = 1 and numSamples = 4
+Average Number of Moves Per Game = 14.95
+
+Running MC with numGames = 20, depth = 1 and numSamples = 6
+Average Number of Moves Per Game = 44.5
+Running PNGS with numGames = 20, depth = 1 and numSamples = 6
+Average Number of Moves Per Game = 9.2
+
+Running MC with numGames = 20, depth = 2 and numSamples = 4
+Average Number of Moves Per Game = 127.95
+Running PNGS with numGames = 20, depth = 2 and numSamples = 4
+Average Number of Moves Per Game = 8.0
+
+Running MC with numGames = 20, depth = 2 and numSamples = 6
+Average Number of Moves Per Game = 65.7
+Running PNGS with numGames = 20, depth = 2 and numSamples = 6
+Average Number of Moves Per Game = 8.0
+
+Running MC with numGames = 20, depth = 3 and numSamples = 4
+Average Number of Moves Per Game = 213.25
+Running PNGS with numGames = 20, depth = 3 and numSamples = 4
+Average Number of Moves Per Game = 8.0
+
+Running MC with numGames = 20, depth = 3 and numSamples = 6
+Average Number of Moves Per Game = 91.1
+Running PNGS with numGames = 20, depth = 3 and numSamples = 6
+Average Number of Moves Per Game = 8.0
+
+Running Rand with numGames = 20
+Average Number of Moves Per Game = 16298.7

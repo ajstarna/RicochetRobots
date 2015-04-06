@@ -40,6 +40,7 @@ class MCPlayer(Player):
 						return bestSequence, len(bestSequence)
 			
 			# at this point it is an endstate
+			
 			if bestSequence == None:
 				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
 				bestSequence = currentSequence
@@ -66,6 +67,8 @@ class MCPlayer(Player):
 
 
 		self.board.resetRobots(originalPositions) # don't want to actually change the board
+		
+		
 		return currentSequence, len(currentSequence)
 
 
@@ -167,11 +170,52 @@ class MCPlayer(Player):
 			 
 			index +=1
 		return newseq
+	
 	def playseq(self,seq):
 		
 		for i in seq:
 			self.board.makeMoveByInt(i)
+
+
+
+
+
+
+
+
+class PNGSPlayer(MCPlayer):
+	''' this class extends the MCPlayer to use the PNGS '''
+
+
+	def findFirstSolutionNoTimeLimit(self, numSamples, depth):
+
+		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
+		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 		
+		self.numMoves = 0
+		while not self.board.endState():
+			newSequence = self.jumpAhead(numSamples, depth)
+			currentSequence += newSequence
+
+
+		self.board.resetRobots(originalPositions) # don't want to actually change the board
+					
+			
+		# try to improve on the found solution PNGS
+		pngsSamples = 0
+		pngsdepth = 0
+		change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
+		
+		if change:
+			#print("PNGS Success!")
+			return newSequence, len(newSequence)
+		else:
+		
+			return currentSequence, len(currentSequence)
+	
+	
+	
+
 	def pngs(self, sequence, numSamples, depth):
 		''' plan neighbourhood graph search:
 			given a solution sequence of moves, this method will search around each state to expand the graph, 
@@ -200,9 +244,9 @@ class MCPlayer(Player):
 
 		self.board.resetRobots(originalPositions)
 
-		print("Graph has {0} nodes at end".format(len(graph.graphDict)))
-		print("Number of state duplicates = {0}".format(graph.duplicates))
-		print("Number of edges in graph = {0}".format(graph.numEdges()))
+		#print("Graph has {0} nodes at end".format(len(graph.graphDict)))
+		#print("Number of state duplicates = {0}".format(graph.duplicates))
+		#print("Number of edges in graph = {0}".format(graph.numEdges()))
 		#graph.printGraph()
 		if newLength < len(sequence):
 			return True, newSequence
@@ -212,8 +256,8 @@ class MCPlayer(Player):
 
 
 	def expandFromCurrent(self, graph, numSamples, depth):
-		''' this method will take a graph and first add the current state to the graph.
-			it will then expand the graph around this node. eventually reverts the board before returning 
+		''' this method will take a graph
+			it will expand the graph around this node. eventually reverts the board before returning
 			so the next move can be made '''
 
 		#originalPositions = deepcopy(self.board.robotPositions)
@@ -232,14 +276,6 @@ class MCPlayer(Player):
 			
 			
 		#self.board.resetRobots(originalPositions)
-
-
-
-
-
-
-
-
 
 
 

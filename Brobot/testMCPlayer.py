@@ -93,14 +93,14 @@ def testPNGS(name):
 	size = 16
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
-		mcPlayer = MCPlayer.MCPlayer(rr)
+		mcPlayer = MCPlayer.PNGSPlayer(rr)
 		mcPlayer.setTarget()
 		
 		
 		moveSequence = [1, 6,7, 4,2,0,2,10,0,3]
 		mcPlayer.printMoveSequence(moveSequence)
 		print(moveSequence)
-		numSamples = 10
+		numSamples = 0
 		depth = 0
 		
 		change, newSequence = mcPlayer.pngs(moveSequence, numSamples, depth)
