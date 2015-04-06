@@ -158,7 +158,7 @@ class MCPlayer(Player):
 			self.board.resetRobots(self.opp)
 			newseq2 = deepcopy(newseq)
 			newseq2.pop(index)
-			playseq(newseq2)
+			self.playseq(newseq2)
 			if(self.board.endState()):
 				newseq = newseq2
 				index -=1
@@ -167,8 +167,11 @@ class MCPlayer(Player):
 			 
 			index +=1
 		return newseq
-
-
+	def playseq(self,seq):
+		
+		for i in seq:
+			self.board.makeMoveByInt(i)
+		
 	def pngs(self, sequence, numSamples, depth):
 		''' plan neighbourhood graph search:
 			given a solution sequence of moves, this method will search around each state to expand the graph, 
