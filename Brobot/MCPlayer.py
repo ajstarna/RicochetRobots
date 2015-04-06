@@ -204,14 +204,14 @@ class PNGSPlayer(MCPlayer):
 		# try to improve on the found solution PNGS
 		pngsSamples = 0
 		pngsdepth = 0
-		change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
-		
-		if change:
+		#change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
+		newSequence = self.pruneSequence(currentSequence)
+		#if change:
 			#print("PNGS Success!")
-			return newSequence, len(newSequence)
-		else:
+		return newSequence, len(newSequence)
+		#else:
 		
-			return currentSequence, len(currentSequence)
+		#	return currentSequence, len(currentSequence)
 	
 	
 	
