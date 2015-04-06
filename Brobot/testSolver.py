@@ -46,7 +46,7 @@ def testSolve():
 	size = 16
 	try:
 		
-		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		rr = Board.StandardBoard(size, size, "builtin3.txt")
 		rr.setTarget()
 		rPlayer = Solver.Solver(rr)
 		 
