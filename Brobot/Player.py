@@ -83,7 +83,7 @@ class RandomPlayer(Player):
 					
 					self.board.resetRobots(originalPositions)
 					if bestSequence == None:
-						return [], 0
+						return [], float("inf")
 					else:
 						return bestSequence, len(bestSequence)
 			

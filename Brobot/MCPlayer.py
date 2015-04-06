@@ -35,7 +35,7 @@ class MCPlayer(Player):
 					
 					self.board.resetRobots(originalPositions)
 					if bestSequence == None:
-						return [], 0
+						return [], float("inf")
 					else:
 						return bestSequence, len(bestSequence)
 			
@@ -179,12 +179,56 @@ class MCPlayer(Player):
 
 
 
-
-
-
+####################################################################################
+#############################     PNGS Player     ###############################
+####################################################################################
 
 class PNGSPlayer(MCPlayer):
 	''' this class extends the MCPlayer to use the PNGS '''
+
+
+
+	def play(self, timeLimit, numSamples, depth):
+		''' override super '''
+		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
+		currentSequence = [] # keep track of the sequence of moves that brought us to current state
+		bestSequence = None # this will be the best of all sequences found
+		tStart = time.clock()
+		
+		while True:
+			self.board.resetRobots(originalPositions)
+			self.numMoves = 0
+			while not self.board.endState():
+				if bestSequence != None and len(currentSequence) >= len(bestSequence):
+					# no need to keep looking on this path
+					currentSequence = []
+					self.board.resetRobots(originalPositions)
+					continue
+				
+				newSequence = self.jumpAhead(numSamples, depth)
+				currentSequence += newSequence
+
+				if time.clock() - tStart >= timeLimit:
+					
+					self.board.resetRobots(originalPositions)
+					if bestSequence == None:
+						return [], 0
+					else:
+						return bestSequence, len(bestSequence)
+			
+			# at this point it is an endstate
+			
+			if bestSequence == None:
+				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
+				bestSequence = currentSequence
+			elif len(bestSequence) > len(currentSequence):
+				#print("Updating best sequence with length of {0}".format(len(self.currentSequence)))
+				bestSequence = currentSequence
+
+
+			currentSequence = []
+			self.board.resetRobots(originalPositions)
+
 
 
 	def findFirstSolutionNoTimeLimit(self, numSamples, depth):

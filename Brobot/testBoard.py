@@ -241,7 +241,7 @@ def testCopyBoard():
 
 def testBoardGenerate():
 	''' genenerate random board with conner setting'''
-	size = 16
+	size = 32
 	fileName = "builtin1.txt"
 	try:
 		
