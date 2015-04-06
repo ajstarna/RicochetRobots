@@ -201,7 +201,7 @@ class MCPlayer(Player):
 		print("Number of state duplicates = {0}".format(graph.duplicates))
 		print("Number of edges in graph = {0}".format(graph.numEdges()))
 		#graph.printGraph()
-		if newLength <= len(sequence):
+		if newLength < len(sequence):
 			return True, newSequence
 		else:
 			return False, sequence # no new path found
