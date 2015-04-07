@@ -244,18 +244,19 @@ class PNGSPlayer(MCPlayer):
 
 		self.board.resetRobots(originalPositions) # don't want to actually change the board
 					
-			
+		print("original sequence length = {0}".format(len(currentSequence)))
 		# try to improve on the found solution PNGS
 		pngsSamples = 0
-		pngsdepth = 0
-		#change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
-		newSequence = self.pruneSequence(currentSequence)
-		#if change:
+		pngsdepth =0
+		tStart = time.clock()
+		change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
+		print("time for improvement = {0}".format(time.clock()-tStart))
+		if change:
 			#print("PNGS Success!")
-		return newSequence, len(newSequence)
-		#else:
+			return newSequence, len(newSequence)
+		else:
 		
-		#	return currentSequence, len(currentSequence)
+			return currentSequence, len(currentSequence)
 	
 	
 	

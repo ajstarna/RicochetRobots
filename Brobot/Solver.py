@@ -53,8 +53,7 @@ class Solver(Player):
 				bestDepth = depth +1
 				best = self.getState()
 #				a = getState()
-				
-				return bestDepth, best
+				break
 #			if( depth+1 >= bestDepth):
 #				continue
 				
@@ -69,6 +68,7 @@ class Solver(Player):
 					best = sc
 					
 					transTable[best] = i  +  csc* 100
+					self.board.resetRobots(op)
 					return bestDepth, best
 				
 					
@@ -81,7 +81,7 @@ class Solver(Player):
 				self.board.resetRobots(cstate)
 			
 		
-			
+		self.board.resetRobots(op)
 		return bestDepth, best
 	
 	
@@ -100,7 +100,7 @@ class Solver(Player):
 	def getSolution(self,s):
 	# reconstuct list of moves to the endstate using the transition table and  end state s (an integer)
 		transT= self.transT
-		
+		op=deepcopy(self.board.robotPositions)
 		movelist = []
 		self.setBoardByState(s)
 		#print (self.ops)
@@ -109,8 +109,10 @@ class Solver(Player):
 		#	self.board.printBoard()
 			moveId = transT[s]%100
 			movelist.append(moveId)
-			print  self.board.allMoves.getMoveAtIndex(moveId)
+			#print  self.board.allMoves.getMoveAtIndex(moveId)
 			s=transT[s]//100
+		
+		self.board.resetRobots(op)
 		return movelist[::-1]
 	
 	

@@ -1,0 +1,40 @@
+Average Number of Moves Per Game = 65.6
+Average Time Per Game = 0.4965078
+Running PNGS with numGames = 20, depth = 1 and numSamples = 4
+Average Number of Moves Per Game = 12.4
+Average Time Per Game = 0.5572406
+
+Running MC with numGames = 20, depth = 1 and numSamples = 6
+Average Number of Moves Per Game = 45.05
+Average Time Per Game = 0.6747491
+Running PNGS with numGames = 20, depth = 1 and numSamples = 6
+Average Number of Moves Per Game = 10.0
+Average Time Per Game = 0.57735515
+
+Running MC with numGames = 20, depth = 2 and numSamples = 4
+Average Number of Moves Per Game = 117.65
+Average Time Per Game = 0.4445803
+Running PNGS with numGames = 20, depth = 2 and numSamples = 4
+Average Number of Moves Per Game = 10.0
+Average Time Per Game = 0.4262475
+
+Running MC with numGames = 20, depth = 2 and numSamples = 6
+Average Number of Moves Per Game = 80.0
+Average Time Per Game = 0.41434645
+Running PNGS with numGames = 20, depth = 2 and numSamples = 6
+Average Number of Moves Per Game = 9.6
+Average Time Per Game = 0.33780355
+
+Running MC with numGames = 20, depth = 3 and numSamples = 4
+Average Number of Moves Per Game = 167.95
+Average Time Per Game = 0.3819226
+Running PNGS with numGames = 20, depth = 3 and numSamples = 4
+Average Number of Moves Per Game = 9.0
+Average Time Per Game = 0.47156075
+
+Running MC with numGames = 20, depth = 3 and numSamples = 6
+Average Number of Moves Per Game = 67.2
+Average Time Per Game = 0.25031615
+Running PNGS with numGames = 20, depth = 3 and numSamples = 6
+Average Number of Moves Per Game = 9.0
+Average Time Per Game = 0.2923825

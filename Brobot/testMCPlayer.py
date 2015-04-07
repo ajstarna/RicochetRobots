@@ -3,7 +3,7 @@
 import MCPlayer
 import Board
 import sys, traceback
-
+import time
 
 def testInit(name):
 	''' use a standard board to test a MC player '''
@@ -89,7 +89,7 @@ def testPlay(name):
 
 
 def testPNGS(name):
-	''' use a standard board to test a MCPlayer's play method '''
+	''' use a standard board to test pngs method '''
 	size = 16
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
@@ -127,6 +127,7 @@ def testPNGS(name):
 		traceback.print_exc(file=sys.stdout)
 		return 0
 
+
 def testPruning(name):
 	''' use a standard board to test a MC player '''
 	size = 16
@@ -147,12 +148,44 @@ def testPruning(name):
 		return 0
 
 
+def testHardest(name):
+	''' use athe hardest board to test a PNGSPlayer's first sol method '''
+	size = 16
+	try:
+		rr = Board.StandardBoard(size, size, "builtin4.txt")
+		pngsPlayer = MCPlayer.PNGSPlayer(rr)
+		pngsPlayer.setTarget()
+		
+		numSamples = 10
+		depth = 1
+		
+		tStart = time.clock()
+		moveSequence, numMoves = pngsPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
+		print("time total = {0}".format(time.clock()-tStart))
+		if rr.validateMoveSequence(moveSequence):
+			# if the move sequence
+			
+			print("valid move sequence with {0} moves!".format(numMoves))
+			
+			#pngsPlayer.printMoveSequence(moveSequence)
+			return 1
+		else:
+			print("Invalid move sequence with {0} moves!".format(numMoves))
+			return 0
+
+	except:
+		print("exception in {}".format(name))
+		traceback.print_exc(file=sys.stdout)
+		return 0
+
+
+
 
 if __name__ == "__main__":
 
 	#tests = [testInit, testFindFirstSol, testPlay, testPNGS]
-	tests = [testPNGS,testPruning]
-
+	#tests = [testPNGS,testPruning]
+	tests = [testHardest]
 
 	totalTestsRan = 0
 	passedTests = 0
