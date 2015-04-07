@@ -180,3 +180,95 @@ reachableWeight = 0.1, lowerBoundWeight = 0.5, and totalReachableWeight = 0.5
 Average Number of Moves Per Game = 8.0
 
 Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.5, and totalReachableWeight = 0.6
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.5, and totalReachableWeight = 0.7
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.5, and totalReachableWeight = 0.8
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.5, and totalReachableWeight = 0.9
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.5, and totalReachableWeight = 1.0
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.1
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.2
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.3
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.4
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.5
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.6
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.7
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.8
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 0.9
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.6, and totalReachableWeight = 1.0
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.1
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.2
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.3
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.4
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.5
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.6
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.7
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.7, and totalReachableWeight = 0.8
+Average Number of Moves Per Game = 8.0
+
+Running PNGS with 

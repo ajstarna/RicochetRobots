@@ -249,7 +249,11 @@ class PNGSPlayer(MCPlayer):
 					if bestSequence == None:
 						return [], 0
 					else:
-						return bestSequence, len(bestSequence)
+						pngsSamples = 0
+						pngsdepth =0
+	
+						change, newSequence = self.pngs(bestSequence, pngsSamples, pngsdepth)
+						return newSequence, len(newSequence)
 			
 			# at this point it is an endstate
 			
