@@ -6,6 +6,36 @@ import time
 import numpy as np
 from GraphModule import Graph
 
+
+def playGivenFile(fileName):
+	''' called by the UI to set up a player from the given fileName and return the soltion '''
+	rr = Board.StandardBoard(16,16,fileName)
+	player = PNGSPlayer(rr)
+	timeLimit = 5
+	numSamples = 5
+	depth = 1
+	player.setTarget()
+	sequence, length = player.play(timeLimit, numSamples, depth)
+	return convertedForUI(sequence)
+
+def convertedForUI(sequence):
+	''' convert the solution to the UI format '''
+	result = []
+	dumby = Board.Board(1,1)
+	
+	colourConverter = ["B", "R", "G", "Y"]
+	directionConverter = {"NORTH":"N", "SOUTH":"S", "EAST":"E", "WEST":"W"}
+	
+	print(sequence)
+	for move in sequence:
+		moveObject = dumby.allMoves.getMoveAtIndex(move)
+		colourInt = moveObject.colour
+		directionName = moveObject.direction
+		result.append((colourConverter[colourInt], directionConverter[directionName]))
+
+	return result
+		
+
 class MCPlayer(Player):
 	def __init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1):
 		Player.__init__(self, board)
