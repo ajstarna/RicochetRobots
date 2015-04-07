@@ -7,9 +7,12 @@ import numpy as np
 from GraphModule import Graph
 
 class MCPlayer(Player):
-	def __init__(self, board):
+	def __init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1):
 		Player.__init__(self, board)
 		self.opp= deepcopy(self.board.robotPositions) # keep original position
+		self.reachableWeight = reachableWeight
+		self.lowerBoundWeight = lowerBoundWeight
+		self.totalReachableWeight = totalReachableWeight
 	
 	def play(self, timeLimit, numSamples, depth):
 		''' override super '''
@@ -118,7 +121,7 @@ class MCPlayer(Player):
 		currentReachability = blueTile.reachable
 		if currentReachability == -1:
 			# punish this heavily since if it is reachable then the answer is close (in this case not reachable)
-			reachableScore = -1000
+			reachableScore = -1000 #self.reachabilityPunishment
 		else:
 			# negate it since want to maximize score and lower reachability is better
 			reachableScore = -1*currentReachability
@@ -145,7 +148,9 @@ class MCPlayer(Player):
 		heuristicArray = np.array(heuristicList)
 		weightsArray = np.ones(heuristicArray.size) # try all weights the same for now
 		
-		#weightsArray[1] = 0 # turn off lower bound
+		weightsArray[0] = self.reachableWeight
+		weightsArray[1] = self.lowerBoundWeight
+		weightsArray[2] = self.totalReachableWeight
 		
 		finalScore = np.sum(heuristicArray * weightsArray)
 		
@@ -244,13 +249,13 @@ class PNGSPlayer(MCPlayer):
 
 		self.board.resetRobots(originalPositions) # don't want to actually change the board
 					
-		print("original sequence length = {0}".format(len(currentSequence)))
+		#print("original sequence length = {0}".format(len(currentSequence)))
 		# try to improve on the found solution PNGS
 		pngsSamples = 0
 		pngsdepth =0
-		tStart = time.clock()
+		#tStart = time.clock()
 		change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
-		print("time for improvement = {0}".format(time.clock()-tStart))
+		#print("time for improvement = {0}".format(time.clock()-tStart))
 		if change:
 			#print("PNGS Success!")
 			return newSequence, len(newSequence)
