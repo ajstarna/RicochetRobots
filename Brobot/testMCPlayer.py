@@ -169,9 +169,9 @@ def testPruning(name):
 	size = 16
 	try:
 		rr = Board.StandardBoard(size, size, "builtin1.txt")
-		rPlayer = MCPlayer.MCPlayer(rr)
+		rPlayer = MCPlayer.PNGSPlayer(rr)
 		rPlayer.setTarget()
-		seq = [1, 4, 2, 0, 2,10, 0, 3]
+		seq = [1, 4, 2, 5, 0, 2,10, 0, 3]
 		newseq = rPlayer.pruneSequence(seq)
 		print newseq
 		if len(newseq)== 8:
@@ -197,7 +197,9 @@ def testHardest(name):
 		
 		tStart = time.clock()
 		moveSequence, numMoves = pngsPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
+		#moveSequence, numMoves = pngsPlayer.play(5, numSamples, depth)
 		print("time total = {0}".format(time.clock()-tStart))
+		
 		if rr.validateMoveSequence(moveSequence):
 			# if the move sequence
 			
@@ -221,8 +223,8 @@ if __name__ == "__main__":
 
 	#tests = [testInit, testFindFirstSol, testPlay, testPNGS]
 	#tests = [testPNGS,testPruning]
-	#tests = [testHardest]
-	tests =[testRandPlay]
+	tests = [testHardest]
+	#tests =[testRandPlay]
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:

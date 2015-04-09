@@ -1,0 +1,321 @@
+Using file = builtin1.txt
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 1, and totalReachableWeight = 1
+Average Number of Moves Per Game = 40.0
+Average time per game = 0.5442395
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 1, and totalReachableWeight = 2
+Average Number of Moves Per Game = 64.55
+Average time per game = 0.71525925
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 1, and totalReachableWeight = 3
+Average Number of Moves Per Game = 61.6
+Average time per game = 0.68641635
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 1, and totalReachableWeight = 4
+Average Number of Moves Per Game = 69.2
+Average time per game = 0.6507092
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 2, and totalReachableWeight = 1
+Average Number of Moves Per Game = 260.8
+Average time per game = 3.98349015
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 2, and totalReachableWeight = 2
+Average Number of Moves Per Game = 410.2
+Average time per game = 6.25755055
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 2, and totalReachableWeight = 3
+Average Number of Moves Per Game = 222.25
+Average time per game = 2.97413585
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 2, and totalReachableWeight = 4
+Average Number of Moves Per Game = 143.7
+Average time per game = 1.667596
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 3, and totalReachableWeight = 1
+Average Number of Moves Per Game = 282.05
+Average time per game = 3.86466945
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 3, and totalReachableWeight = 2
+Average Number of Moves Per Game = 261.0
+Average time per game = 3.5462361
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 3, and totalReachableWeight = 3
+Average Number of Moves Per Game = 473.45
+Average time per game = 6.602828
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 3, and totalReachableWeight = 4
+Average Number of Moves Per Game = 567.95
+Average time per game = 8.10657765
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 4, and totalReachableWeight = 1
+Average Number of Moves Per Game = 544.8
+Average time per game = 7.8037432
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 4, and totalReachableWeight = 2
+Average Number of Moves Per Game = 357.45
+Average time per game = 4.90266125
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 4, and totalReachableWeight = 3
+Average Number of Moves Per Game = 347.75
+Average time per game = 4.7500916
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 1, lowerBoundWeight = 4, and totalReachableWeight = 4
+Average Number of Moves Per Game = 393.95
+Average time per game = 5.44324465
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 1, and totalReachableWeight = 1
+Average Number of Moves Per Game = 58.55
+Average time per game = 0.4720245
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 1, and totalReachableWeight = 2
+Average Number of Moves Per Game = 40.45
+Average time per game = 0.44500175
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 1, and totalReachableWeight = 3
+Average Number of Moves Per Game = 38.2
+Average time per game = 0.46273805
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 1, and totalReachableWeight = 4
+Average Number of Moves Per Game = 53.95
+Average time per game = 0.47593695
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 2, and totalReachableWeight = 1
+Average Number of Moves Per Game = 55.1
+Average time per game = 0.5306385
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 2, and totalReachableWeight = 2
+Average Number of Moves Per Game = 47.5
+Average time per game = 0.56930015
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 2, and totalReachableWeight = 3
+Average Number of Moves Per Game = 52.0
+Average time per game = 0.57981195
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 2, and totalReachableWeight = 4
+Average Number of Moves Per Game = 48.05
+Average time per game = 0.5365885
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 3, and totalReachableWeight = 1
+Average Number of Moves Per Game = 272.8
+Average time per game = 3.76969315
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 3, and totalReachableWeight = 2
+Average Number of Moves Per Game = 77.05
+Average time per game = 0.65575945
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 3, and totalReachableWeight = 3
+Average Number of Moves Per Game = 193.5
+Average time per game = 2.4329399
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 3, and totalReachableWeight = 4
+Average Number of Moves Per Game = 580.45
+Average time per game = 8.5537938
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 4, and totalReachableWeight = 1
+Average Number of Moves Per Game = 140.4
+Average time per game = 1.83066785
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 4, and totalReachableWeight = 2
+Average Number of Moves Per Game = 120.95
+Average time per game = 1.5003305
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 4, and totalReachableWeight = 3
+Average Number of Moves Per Game = 262.4
+Average time per game = 3.5985182
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 2, lowerBoundWeight = 4, and totalReachableWeight = 4
+Average Number of Moves Per Game = 338.55
+Average time per game = 4.8240945
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 1, and totalReachableWeight = 1
+Average Number of Moves Per Game = 57.8
+Average time per game = 0.4710112
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 1, and totalReachableWeight = 2
+Average Number of Moves Per Game = 44.25
+Average time per game = 0.4450966
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 1, and totalReachableWeight = 3
+Average Number of Moves Per Game = 65.9
+Average time per game = 0.5160734
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 1, and totalReachableWeight = 4
+Average Number of Moves Per Game = 46.2
+Average time per game = 0.4444588
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 2, and totalReachableWeight = 1
+Average Number of Moves Per Game = 54.0
+Average time per game = 0.5477239
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 2, and totalReachableWeight = 2
+Average Number of Moves Per Game = 61.5
+Average time per game = 0.52076445
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 2, and totalReachableWeight = 3
+Average Number of Moves Per Game = 60.5
+Average time per game = 0.51199485
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 2, and totalReachableWeight = 4
+Average Number of Moves Per Game = 50.65
+Average time per game = 0.5095507
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 3, and totalReachableWeight = 1
+Average Number of Moves Per Game = 41.6
+Average time per game = 0.50828875
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 3, and totalReachableWeight = 2
+Average Number of Moves Per Game = 37.5
+Average time per game = 0.45577965
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 3, and totalReachableWeight = 3
+Average Number of Moves Per Game = 84.8
+Average time per game = 0.8042041
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 3, and totalReachableWeight = 4
+Average Number of Moves Per Game = 49.2
+Average time per game = 0.52337255
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 4, and totalReachableWeight = 1
+Average Number of Moves Per Game = 256.1
+Average time per game = 3.50922845
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 4, and totalReachableWeight = 2
+Average Number of Moves Per Game = 527.25
+Average time per game = 7.39989255
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 4, and totalReachableWeight = 3
+Average Number of Moves Per Game = 270.3
+Average time per game = 3.6560727
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 3, lowerBoundWeight = 4, and totalReachableWeight = 4
+Average Number of Moves Per Game = 185.7
+Average time per game = 2.5742369
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 1, and totalReachableWeight = 1
+Average Number of Moves Per Game = 43.65
+Average time per game = 0.41924735
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 1, and totalReachableWeight = 2
+Average Number of Moves Per Game = 50.95
+Average time per game = 0.4492025
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 1, and totalReachableWeight = 3
+Average Number of Moves Per Game = 37.45
+Average time per game = 0.5174224
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 1, and totalReachableWeight = 4
+Average Number of Moves Per Game = 43.35
+Average time per game = 0.4703821
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 2, and totalReachableWeight = 1
+Average Number of Moves Per Game = 52.8
+Average time per game = 0.4762306
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 2, and totalReachableWeight = 2
+Average Number of Moves Per Game = 45.25
+Average time per game = 0.4886753
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 2, and totalReachableWeight = 3
+Average Number of Moves Per Game = 73.95
+Average time per game = 0.4918764
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 2, and totalReachableWeight = 4
+Average Number of Moves Per Game = 72.55
+Average time per game = 0.49263785
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 3, and totalReachableWeight = 1
+Average Number of Moves Per Game = 48.75
+Average time per game = 0.53489625
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 3, and totalReachableWeight = 2
+Average Number of Moves Per Game = 60.25
+Average time per game = 0.4804461
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 3, and totalReachableWeight = 3
+Average Number of Moves Per Game = 49.35
+Average time per game = 0.4987421
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 3, and totalReachableWeight = 4
+Average Number of Moves Per Game = 52.15
+Average time per game = 0.5143146
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 4, and totalReachableWeight = 1
+Average Number of Moves Per Game = 45.25
+Average time per game = 0.55323445
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 4, and totalReachableWeight = 2
+Average Number of Moves Per Game = 51.05
+Average time per game = 0.5508761
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 4, and totalReachableWeight = 3
+Average Number of Moves Per Game = 50.45
+Average time per game = 0.5127579
+
+Running MC with numGames = 20, depth = 1 and numSamples = 5
+reachableWeight = 4, lowerBoundWeight = 4, and totalReachableWeight = 4
+Average Number of Moves Per Game = 43.4
+Average time per game = 0.5502017
+

@@ -204,6 +204,7 @@ class MCPlayer(Player):
 				
 			 
 			index +=1
+		self.board.resetRobots(self.opp)
 		return newseq
 	
 	def playseq(self,seq):
@@ -221,6 +222,12 @@ class MCPlayer(Player):
 class PNGSPlayer(MCPlayer):
 	''' this class extends the MCPlayer to use the PNGS '''
 
+	def __init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1):
+		Player.__init__(self, board)
+		self.opp= deepcopy(self.board.robotPositions) # keep original position
+		self.reachableWeight = reachableWeight
+		self.lowerBoundWeight = lowerBoundWeight
+		self.totalReachableWeight = totalReachableWeight
 
 
 	def play(self, timeLimit, numSamples, depth):
@@ -253,6 +260,7 @@ class PNGSPlayer(MCPlayer):
 						pngsdepth =0
 	
 						change, newSequence = self.pngs(bestSequence, pngsSamples, pngsdepth)
+						newSequence = self.pruneSequence(newSequence)
 						return newSequence, len(newSequence)
 			
 			# at this point it is an endstate
@@ -290,12 +298,9 @@ class PNGSPlayer(MCPlayer):
 		#tStart = time.clock()
 		change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
 		#print("time for improvement = {0}".format(time.clock()-tStart))
-		if change:
-			#print("PNGS Success!")
-			return newSequence, len(newSequence)
-		else:
-		
-			return currentSequence, len(currentSequence)
+		newSequence = self.pruneSequence(newSequence)
+		return newSequence, len(newSequence)
+
 	
 	
 	
