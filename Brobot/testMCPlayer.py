@@ -85,7 +85,43 @@ def testPlay(name):
 		print("exception in {}".format(name))
 		traceback.print_exc(file=sys.stdout)
 		return 0
+def testRandPlay(name):
+	''' use a Random board to test a MCPlayer's play method '''
+	size = 32
+	try:
+		rr = Board.RandomBoard(size, size)
+		
+		rr.reinitializeTileWithPercentage(30)
+		mcPlayer = MCPlayer.MCPlayer(rr)
+		
+		
+		numSamples = 20
+		depth =20
+		
+		
+		#rr.printBoard()
+		moveSequence, numMoves = mcPlayer.play(15, numSamples, depth) # let it search for 3 seconds
+		#change, newSequence = mcPlayer.pngs(moveSequence, numSamples, depth)
+		#rr.printBoard()
+		
+		if numMoves < 15:
+			mcPlayer.printMoveSequence(moveSequence)
 
+		if rr.validateMoveSequence(moveSequence):
+			# if the move sequence
+			print("valid sequence with {0} moves!".format(numMoves))
+			return 1
+		elif numMoves == 0:
+			print("no sequence found in time limit!")
+			return 1
+		else:
+			print("Invalid sequence with {0} moves!".format(numMoves))
+			return 0
+
+	except:
+		print("exception in {}".format(name))
+		traceback.print_exc(file=sys.stdout)
+		return 0
 
 
 def testPNGS(name):
@@ -185,8 +221,8 @@ if __name__ == "__main__":
 
 	#tests = [testInit, testFindFirstSol, testPlay, testPNGS]
 	#tests = [testPNGS,testPruning]
-	tests = [testHardest]
-
+	#tests = [testHardest]
+	tests =[testRandPlay]
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:

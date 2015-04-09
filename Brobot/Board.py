@@ -33,8 +33,9 @@ class Board:
 	
 	def setTarget(self):
 		''' this method will pick a random target from the target list and make that the currentTarget for the game '''
+		
 		self.currentTarget = self.targetPositions.pop()
-	
+		self.array[self.currentTarget[0], self.currentTarget[1]].target = True
 		
 		
 	def initializeRobotPositions(self):
@@ -518,46 +519,6 @@ class Board:
 		nums += num1
 		sums += sum1
 		return nums, sums
-############################## RandomBoard Subclass ####################################
-
-			
-class RandomBoard(Board):
-	''' the random board which initializes the tiles randomly '''
-	
-	
-	def __init__(self, rows, cols):
-		Board.__init__(self, rows, cols) # call super constructor
-		self.array = self.initializeTiles()
-		self.targetPositions = self.initializeTargetPositions()
-		self.robotPositions = self.initializeRobotPositions()
-		self.correctWall()
-	
-	def reinitializeTileWithPercentage(self,percent):
-		self.array = self.genTileWithCorner(percent)
-		self.correctWall()
-		self.robotPositions = self.initializeRobotPositions()
-		self.targetPositions = self.initializeTargetPositions()
-	
-	def initializeTiles(self):
-		''' this method initializes the array of tiles randomly.
-			this includes wall placement but not robots or targets '''
-		result = np.empty((self.rows, self.cols), dtype=object)
-		# for each position on the board, generate a random tile (the wall placement)
-		for i in xrange(self.rows):
-			for j in xrange(self.cols):
-				result[i,j] = self.generateRandomTile((i,j))
-		
-		return result
-	
-	
-	def generateRandomTile(self, position):
-		wallDict = dict()
-		boolList = [True, False]
-		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
-			wallDict[direction] = boolList[random.randint(0,1)]
-		return Tile.Tile(position, None, None, wallDict) # return a tile with random walls and None robot/target
-
-
 	def correctWall(self):
 	# this function checks current board is legal, and correct any walls with illegal placement
 		r = self.rows
@@ -600,6 +561,71 @@ class RandomBoard(Board):
 					self.array[i,j].wallDict["EAST"]=True
 				if (i== 7 and j ==15):
 					print self.array[i,j].wallDict
+############################## RandomBoard Subclass ####################################
+
+			
+class RandomBoard(Board):
+	''' the random board which initializes the tiles randomly '''
+	
+	
+	def __init__(self, rows, cols):
+		Board.__init__(self, rows, cols) # call super constructor
+		self.array = self.initializeTiles()
+		self.targetPositions = self.initializeTargetPositions()
+		self.robotPositions = self.initializeRobotPositions()
+		self.correctWall()
+	
+	def reinitializeTileWithPercentage(self,percent):
+		self.array = self.genTileWithCorner(percent)
+		self.correctWall()
+		self.targetPositions = self.initializeTargetPositions()
+		self.setTarget()
+		self.lowerBoundPreProc()
+		self.robotPositions = self.initializeRobotPositions()
+		
+	
+	def initializeTiles(self):
+		''' this method initializes the array of tiles randomly.
+			this includes wall placement but not robots or targets '''
+		result = np.empty((self.rows, self.cols), dtype=object)
+		# for each position on the board, generate a random tile (the wall placement)
+		for i in xrange(self.rows):
+			for j in xrange(self.cols):
+				result[i,j] = self.generateRandomTile((i,j))
+		
+		return result
+	
+	def initializeRobotPositionsWithReachability():
+		'''this function initialzie robots within the reachable tiles'''
+		robotPositions = dict()
+		for robot in xrange(4):
+			# the while loop ensures that robots have unique positions.
+			while(True):
+				iCoord = random.randint(0, self.rows-1)
+				jCoord = random.randint(0, self.cols-1)
+				if (iCoord, jCoord) in robotPositions.values():
+					continue # another robot is already at this position so try again
+				elif self.array[iCoord, jCoord].target != None:
+					continue
+				elif self.array[iCoord, jCoord].lowerBound == -1:
+					continue
+				else:
+					robotPositions[robot] = (iCoord, jCoord)
+					self.array[iCoord, jCoord].robot = robot
+					break # move onto the next robot in the outer for loop
+		return robotPositions
+		
+		
+		
+	def generateRandomTile(self, position):
+		wallDict = dict()
+		boolList = [True, False]
+		for direction in ["NORTH", "SOUTH", "EAST", "WEST"]:
+			wallDict[direction] = boolList[random.randint(0,1)]
+		return Tile.Tile(position, None, None, wallDict) # return a tile with random walls and None robot/target
+
+
+	
 				
 
 
@@ -607,7 +633,8 @@ class RandomBoard(Board):
 		''' this method places the 17 targets randomly on the board.
 			self.array gets updated such that the tiles know when they posses a target.
 			A dictionary containing the targets is returned '''
-		result = {}
+		result = [(random.randint(0,15),random.randint(0,15))]
+		print result
 		return result
 	
 	def genTileWithCorner(self,percent):
