@@ -1,0 +1,43 @@
+Using file = builtin1.txt
+Running PNGS with numGames = 10, depth = 1 and numSamples = 5
+reachableWeight = 0.1, lowerBoundWeight = 0.1, and totalReachableWeight = 0.1
+exception in runMCPlayerFirstSolution
+Traceback (most recent call last):
+  File "./experimentHeuristics.py", line 18, in runPNGSPlayerFirstSol
+    moveSequence, numMoves = pngsPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/MCPlayer.py", line 246, in findFirstSolutionNoTimeLimit
+    newSequence = self.jumpAhead(numSamples, depth)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/MCPlayer.py", line 87, in jumpAhead
+    value = self.evaluateState()
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/MCPlayer.py", line 116, in evaluateState
+    totalReachableTiles, sum = self.board.CalcReachability(True) # initialize the reachable field of each tile
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 442, in CalcReachability
+    n,s = self.paintRB(a,1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 516, in paintRB
+    num1, sum1 = self.paintRB(newList,RB+1)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 513, in paintRB
+    n,s =self.shootRay(i,r,c,RB,newList)
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 457, in shootRay
+    if (not tile.wallDict[direct[direction]] and (tile.wallDict[direct[(direction+2)%4]] or self.getAdjacentTile(tile,(direction+2)%4).robot>0) and (tile.robot==None or tile.robot ==0)):
+  File "/Users/Adam/Documents/School/CMPUT657/Project/RicochetRobots/Brobot/Board.py", line 170, in getAdjacentTile
+    j -= 1
+KeyboardInterrupt
+Problem in function <function runPNGSPlayerFirstSol at 0x10b102b18>

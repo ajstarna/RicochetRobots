@@ -1,0 +1,5 @@
+Running MC with numGames = 20, depth = 1 and numSamples = 4
+Average Number of Moves Per Game = 81.55
+Running PNGS with numGames = 20, depth = 1 and numSamples = 4
+Invalid sequence with 18 moves!
+Problem in function <function runPNGSPlayerFirstSol at 0x100b7da28>
