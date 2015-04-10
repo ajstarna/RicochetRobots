@@ -52,9 +52,9 @@ if __name__ == "__main__":
 	numSamples = 5
 	fileName = "builtin1.txt"
 	print("Using file = {0}".format(fileName))
-	for reachableWeight in [x for x in range(1, 5)]:
-		for lowerBoundWeight in [x for x in range(1, 5)]:
-			for totalReachableWeight in [x for x in range(1, 5)]:
+	for reachableWeight in [4]: #[x for x in range(1, 5)]:
+		for lowerBoundWeight in [1]:#[x for x in range(1, 5)]:
+			for totalReachableWeight in [3]:#[x for x in range(1, 5)]:
 				
 				tstart = time.clock()
 	

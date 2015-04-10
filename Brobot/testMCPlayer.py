@@ -188,16 +188,22 @@ def testHardest(name):
 	''' use athe hardest board to test a PNGSPlayer's first sol method '''
 	size = 16
 	try:
-		rr = Board.StandardBoard(size, size, "builtin4.txt")
-		pngsPlayer = MCPlayer.PNGSPlayer(rr)
+		rr = Board.StandardBoard(size, size, "builtin1.txt")
+		
+		reachableWeight = 4
+		LBWeight = 1
+		totalReachableWeight = 3
+		
+		pngsPlayer = MCPlayer.PNGSPlayer(rr,  reachableWeight, LBWeight, totalReachableWeight)
 		pngsPlayer.setTarget()
 		
 		numSamples = 10
 		depth = 1
+
 		
 		tStart = time.clock()
-		moveSequence, numMoves = pngsPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
-		#moveSequence, numMoves = pngsPlayer.play(5, numSamples, depth)
+		#moveSequence, numMoves = pngsPlayer.findFirstSolutionNoTimeLimit(numSamples, depth)
+		moveSequence, numMoves = pngsPlayer.play(1, numSamples, depth)
 		print("time total = {0}".format(time.clock()-tStart))
 		
 		if rr.validateMoveSequence(moveSequence):

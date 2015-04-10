@@ -19,6 +19,7 @@ class Board:
 		self.rows = rows
 		self.cols = cols
 		self.allMoves = Move.AllMoves()
+		self.previousMove = None
 
 	def initializeTiles(self):
 		''' this method initializes the array of tiles randomly.
@@ -98,12 +99,57 @@ class Board:
 			print (result2)
 
 
+	def validMove(self, moveInt):
+		''' returns whether the move is valid or not.
+			i.e. will the robot actual move at all. '''
+		move = self.allMoves.getMoveAtIndex(moveInt)
+		position = self.robotPositions[move.colour]
+		tile = self.array[position]
+		if tile.wallDict[move.direction]:
+			return False # there is a wall in the way!
+
+		adjacentTile = self.getAdjacentTile(tile, move.direction)
+		if adjacentTile is None:
+			return False # just to be safe, however at this point since there is no wall in that direction, the
+						 # adjacent tile shouldn't be none
+						 
+		if not adjacentTile.robot is None:
+			return False # a robot in the way!
+
+		return True # nothing in the way
+
+
+	
+	
+
 	def makeMoveByInt(self, moveInt):
 		''' this method will take an integer and make the move that that integer corresponds to.
 			in this way, we can store moves as just an integer and convert them as needed.
 			board will contain an AllMoves object where the move is grabbed from '''
 		move = self.allMoves.getMoveAtIndex(moveInt)
+		self.previousMove = moveInt # set the previous move
 		return self.makeMove(move)
+	
+	
+	def makeRandomMove(self):
+		''' this method will make a random VALID move and return the move number.
+			we can call this move instead of doing a possible "useless" move '''
+		opposite = self.allMoves.getOppositeMove(self.previousMove)
+		while True:
+			moveToMake = random.randint(0,15)
+			if moveToMake == opposite:
+				continue # would be foolish to move one way then back again right after
+			if self.validMove(moveToMake):
+				break
+			# otherwise not valid so keep looking
+			
+		# found a valid move that isn't the opposite of the previous move, so make it
+		self.makeMoveByInt(moveToMake)
+		return moveToMake
+		
+		
+	
+	
 	def makeMoveByIntInverse(self, moveInt):
 		''' this method will take an integer and make the inverse move that that integer corresponds to.
 			in this way, we can store moves as just an integer and convert them as needed.
@@ -119,6 +165,8 @@ class Board:
 			move.direction='WEST'
 		print (move)
 		return self.makeMove(move)
+		
+		
 
 	def makeMove(self, move):
 		''' given a move, make it on the board (so move the colour in the direction and update the array) 
@@ -219,31 +267,8 @@ class Board:
 		''' takes a move sequence (as integers!) as input as validates if it results in an end state '''
 		resetPositions = deepcopy(self.robotPositions)
 		
-		#print("original position = {0}".format(resetPositions))
-		#print("states[0] = {0}".format(states[0]))
-		
-		
 		for i in sequence:
-			
-			
-			'''if not self.correctRobotTiles():
-				print("previous states at i-1 = {2}! {0}, {1}".format(states[i-1], previousState, i-1))
-				print("previous move = {}".format(self.allMoves.getMoveAtIndex(sequence[i-1])))
-				print("states are different at i = {2}! {0}, {1}".format(states[i], self.robotPositions, i))
-				return False
-			
-			#if states[i] != self.robotPositions:
-				print("previous states at i-1 = {2}! {0}, {1}".format(states[i-1], previousState, i-1))
-				print("previous move = {}".format(self.allMoves.getMoveAtIndex(sequence[i-1])))
-				print("states are different at i = {2}! {0}, {1}".format(states[i], self.robotPositions, i))
-				return False
-				
-			#previousState = deepcopy(self.robotPositions)
-			'''
-			#print(i)
 			self.makeMoveByInt(i)
-
-		
 
 		valid = self.endState()
 		#print("robot positions after making moves in validateMoveSequence = {0}".format(self.robotPositions))
@@ -561,6 +586,9 @@ class Board:
 					self.array[i,j].wallDict["EAST"]=True
 				if (i== 7 and j ==15):
 					print self.array[i,j].wallDict
+
+
+
 ############################## RandomBoard Subclass ####################################
 
 			

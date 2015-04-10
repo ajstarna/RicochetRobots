@@ -42,6 +42,21 @@ class AllMoves:
 		''' return the move at this index '''
 		return self.moveSet[index]
 
+
+	def getOppositeMove(self, moveInt):
+		''' given a move as integer, returns the opposite move as integer. 
+			opposite is the same colour in the opposite direction. '''
+		if moveInt is None: # no move has been made yet, so there is no opposite. just return -1
+			return -1
+		
+		# nice modular trick for finding opposite move
+		if moveInt % 2 == 0:
+			return moveInt + 1
+		else:
+			return moveInt - 1
+		
+	
+
 	def printMoveSequence(self, sequence):
 		''' given a sequence of moves (as ints) prints them out in human-readable format '''
 		count = 1

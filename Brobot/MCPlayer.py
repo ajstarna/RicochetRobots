@@ -223,11 +223,8 @@ class PNGSPlayer(MCPlayer):
 	''' this class extends the MCPlayer to use the PNGS '''
 
 	def __init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1):
-		Player.__init__(self, board)
-		self.opp= deepcopy(self.board.robotPositions) # keep original position
-		self.reachableWeight = reachableWeight
-		self.lowerBoundWeight = lowerBoundWeight
-		self.totalReachableWeight = totalReachableWeight
+		MCPlayer.__init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1)
+
 
 
 	def play(self, timeLimit, numSamples, depth):

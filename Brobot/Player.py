@@ -116,9 +116,9 @@ class RandomPlayer(Player):
 		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 
 		while not self.board.endState():
-			moveToMake = random.randint(0,15) # 16 possible moves; this is the index
-			currentSequence.append(moveToMake)
-			self.board.makeMoveByInt(moveToMake)
+			moveToMake = self.board.makeRandomMove() # make a random move
+			currentSequence.append(moveToMake) # add that move to the sequence
+		
 
 		
 		self.board.resetRobots(originalPositions) # don't want to actually change the board
@@ -128,17 +128,6 @@ class RandomPlayer(Player):
 		return currentSequence, len(currentSequence)
 
 
-
-	'''
-	def dictFromSequence(self, originalPositions, currentSequence):
-		rr = deepcopy(self.board)
-		rr.resetRobots(originalPositions)
-		
-		for move in currentSequence:
-			rr.makeMoveByInt(move)
-
-		return rr.robotPositions
-	'''
 
 
 
