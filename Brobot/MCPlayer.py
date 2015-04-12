@@ -131,9 +131,9 @@ class MCPlayer(Player):
 	def sample(self, depth):
 		sequence = []
 		for i in xrange(depth):
-			moveToMake = random.randint(0,15)
+			# moveToMake = random.randint(0,15)
+			moveToMake = self.board.makeRandomMove()
 			sequence.append(moveToMake)
-			self.board.makeMoveByInt(moveToMake)
 			self.numMoves += 1
 			if self.board.endState():
 				break # don't move past an end state
@@ -277,6 +277,7 @@ class PNGSPlayer(MCPlayer):
 
 	def findFirstSolutionNoTimeLimit(self, numSamples, depth):
 
+		tStart = time.clock()
 		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
 		currentSequence = [] # keep track of the sequence of moves that brought us to current state
 		
@@ -287,16 +288,24 @@ class PNGSPlayer(MCPlayer):
 
 
 		self.board.resetRobots(originalPositions) # don't want to actually change the board
-					
-		#print("original sequence length = {0}".format(len(currentSequence)))
+		
+		
+		findTime = time.clock() - tStart
+		print("original sequence length = {0}".format(len(currentSequence)))
 		# try to improve on the found solution PNGS
-		pngsSamples = 0
-		pngsdepth =0
-		#tStart = time.clock()
-		change, newSequence = self.pngs(currentSequence, pngsSamples, pngsdepth)
+
+		tStart = time.clock()
+		change, newSequence = self.pngs(currentSequence, 0, 0)
+		pngsTime = time.clock()-tStart
+		pngsSamples = 8
+		pngsdepth = 8
+		print("Solution length before expansion PNGS = {0}".format(len(newSequence)))
+		change, newSequence = self.pngs(newSequence, pngsSamples, pngsdepth)
+		print("Solution length after expansion PNGS = {0}".format(len(newSequence)))
 		#print("time for improvement = {0}".format(time.clock()-tStart))
 		newSequence = self.pruneSequence(newSequence)
-		return newSequence, len(newSequence)
+		print("Solution length after prune = {0}".format(len(newSequence)))
+		return newSequence, len(newSequence), len(currentSequence), findTime, pngsTime
 
 	
 	
@@ -354,14 +363,83 @@ class PNGSPlayer(MCPlayer):
 		for i in xrange(numSamples):
 			for d in xrange(depth):
 				previousPosition = deepcopy(self.board.robotPositions)
-				moveToMake = random.randint(0,15)
-				self.board.makeMoveByInt(moveToMake)
+				#moveToMake = random.randint(0,15)
+				#self.board.makeMoveByInt(moveToMake)
+				moveToMake = self.board.makeRandomMove()
 				graph.createNodeFromDict(self.board.robotPositions)
 				graph.createEdgeFromDicts(previousPosition, self.board.robotPositions, moveToMake)
 			self.board.resetRobots(savePositions)
 			
 			
 		#self.board.resetRobots(originalPositions)
+
+
+
+
+
+class GreedyPlayer(PNGSPlayer):
+	def __init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1):
+		PNGSPlayer.__init__(self, board, reachableWeight=1, lowerBoundWeight = 1, totalReachableWeight = 1)
+
+
+
+
+
+	def findFirstSolutionNoTimeLimit(self, numSamples, depth):
+
+		tStart = time.clock()
+		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
+		currentSequence = [] # keep track of the sequence of moves that brought us to current state
+		
+		self.numMoves = 0
+		while not self.board.endState():
+			#newSequence = self.jumpAhead(numSamples, depth)
+			newMove = self.makeGreedyMove()
+			currentSequence.append(newSequence)
+
+
+		self.board.resetRobots(originalPositions) # don't want to actually change the board
+		
+		
+		findTime = time.clock() - tStart
+		print("original sequence length = {0}".format(len(currentSequence)))
+		# try to improve on the found solution PNGS
+
+		tStart = time.clock()
+		change, newSequence = self.pngs(currentSequence, 0, 0)
+		pngsTime = time.clock()-tStart
+		pngsSamples = 8
+		pngsdepth = 8
+		print("Solution length before expansion PNGS = {0}".format(len(newSequence)))
+		change, newSequence = self.pngs(newSequence, pngsSamples, pngsdepth)
+		print("Solution length after expansion PNGS = {0}".format(len(newSequence)))
+		#print("time for improvement = {0}".format(time.clock()-tStart))
+		newSequence = self.pruneSequence(newSequence)
+		print("Solution length after prune = {0}".format(len(newSequence)))
+		return newSequence, len(newSequence), len(currentSequence), findTime, pngsTime
+
+
+	def makeGreedyMove(self):
+		bestScore = float("-inf")
+		startPositions = deepcopy(self.board.robotPositions)
+		for i in xrange(16):
+			if not self.board.validMove(i):
+				continue
+			if i == self.board.previousMove:
+				continue
+				
+			self.board.makeMoveByInt(i)
+			value = self.evaluateState()
+			if value > bestScore:
+				bestScore = value
+				bestMove = i
+			self.board.resetRobots(startPositions)
+
+		self.board.makeMoveByInt(bestMove)
+		return bestMove
+
+
+
 
 
 
