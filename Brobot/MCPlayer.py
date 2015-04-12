@@ -12,7 +12,7 @@ def playGivenFile(fileName):
 	rr = Board.StandardBoard(16,16,fileName)
 	player = PNGSPlayer(rr)
 	timeLimit = 5
-	numSamples = 5
+	numSamples = 10
 	depth = 1
 	player.setTarget()
 	sequence, length = player.play(timeLimit, numSamples, depth)
