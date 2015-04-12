@@ -550,7 +550,7 @@ class Board:
 		c = self.cols
 		for i in xrange(r):
 			for j in xrange(c):
-				if (i== 7 and j ==15):
+				#if (i== 7 and j ==15):
 					#print self.array[i,j].wallDict
 				if(i>0):
 					t = self.array[i,j].wallDict["NORTH"] or self.array[i-1,j].wallDict["SOUTH"]
@@ -559,7 +559,7 @@ class Board:
 				else:
 					
 					self.array[i,j].wallDict["NORTH"]=True
-				if (i== 7 and j ==15):
+				#if (i== 7 and j ==15):
 					#print self.array[i,j].wallDict
 				if(i<r-1):
 					t = self.array[i+1,j].wallDict["NORTH"] or self.array[i,j].wallDict["SOUTH"]
@@ -567,7 +567,7 @@ class Board:
 					self.array[i,j].wallDict["SOUTH"] = t
 				else:
 					self.array[i,j].wallDict["SOUTH"]=True
-				if (i== 7 and j ==15):
+				#if (i== 7 and j ==15):
 					#print self.array[i,j].wallDict
 				if(j>0):
 					t = self.array[i,j].wallDict["WEST"] or self.array[i,j-1].wallDict["EAST"]
@@ -575,7 +575,7 @@ class Board:
 					self.array[i,j-1].wallDict["EAST"] =t
 				else:
 					self.array[i,j].wallDict["WEST"]=True
-				if (i== 7 and j ==15):
+				#if (i== 7 and j ==15):
 					#print self.array[i,j].wallDict
 				if(j<c-1):
 					
@@ -584,7 +584,7 @@ class Board:
 					self.array[i,j].wallDict["EAST"] = t
 				else:
 					self.array[i,j].wallDict["EAST"]=True
-				if (i== 7 and j ==15):
+				#if (i== 7 and j ==15):
 					#print self.array[i,j].wallDict
 
 
