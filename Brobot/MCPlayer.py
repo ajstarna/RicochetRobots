@@ -11,9 +11,9 @@ def playGivenFile(fileName):
 	''' called by the UI to set up a player from the given fileName and return the soltion '''
 	rr = Board.StandardBoard(16,16,fileName)
 	player = PNGSPlayer(rr)
-	timeLimit = 5
-	numSamples = 5
-	depth = 1
+	timeLimit = 20
+	numSamples = 16
+	depth = 3
 	player.setTarget()
 	sequence, length = player.play(timeLimit, numSamples, depth)
 	return convertedForUI(sequence)

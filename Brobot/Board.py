@@ -163,7 +163,7 @@ class Board:
 			move.direction='NORTH'
 		else:
 			move.direction='WEST'
-		print (move)
+		#print (move)
 		return self.makeMove(move)
 		
 		
@@ -550,8 +550,8 @@ class Board:
 		c = self.cols
 		for i in xrange(r):
 			for j in xrange(c):
-				if (i== 7 and j ==15):
-					print self.array[i,j].wallDict
+				#if (i== 7 and j ==15):
+					#print self.array[i,j].wallDict
 				if(i>0):
 					t = self.array[i,j].wallDict["NORTH"] or self.array[i-1,j].wallDict["SOUTH"]
 					self.array[i,j].wallDict["NORTH"]=t
@@ -559,24 +559,24 @@ class Board:
 				else:
 					
 					self.array[i,j].wallDict["NORTH"]=True
-				if (i== 7 and j ==15):
-					print self.array[i,j].wallDict
+				#if (i== 7 and j ==15):
+					#print self.array[i,j].wallDict
 				if(i<r-1):
 					t = self.array[i+1,j].wallDict["NORTH"] or self.array[i,j].wallDict["SOUTH"]
 					self.array[i+1,j].wallDict["NORTH"]=t
 					self.array[i,j].wallDict["SOUTH"] = t
 				else:
 					self.array[i,j].wallDict["SOUTH"]=True
-				if (i== 7 and j ==15):
-					print self.array[i,j].wallDict
+				#if (i== 7 and j ==15):
+					#print self.array[i,j].wallDict
 				if(j>0):
 					t = self.array[i,j].wallDict["WEST"] or self.array[i,j-1].wallDict["EAST"]
 					self.array[i,j].wallDict["WEST"]=t
 					self.array[i,j-1].wallDict["EAST"] =t
 				else:
 					self.array[i,j].wallDict["WEST"]=True
-				if (i== 7 and j ==15):
-					print self.array[i,j].wallDict
+				#if (i== 7 and j ==15):
+					#print self.array[i,j].wallDict
 				if(j<c-1):
 					
 					t = self.array[i,j+1].wallDict["WEST"] or self.array[i,j].wallDict["EAST"]
@@ -584,8 +584,8 @@ class Board:
 					self.array[i,j].wallDict["EAST"] = t
 				else:
 					self.array[i,j].wallDict["EAST"]=True
-				if (i== 7 and j ==15):
-					print self.array[i,j].wallDict
+				#if (i== 7 and j ==15):
+					#print self.array[i,j].wallDict
 
 
 
@@ -662,7 +662,7 @@ class RandomBoard(Board):
 			self.array gets updated such that the tiles know when they posses a target.
 			A dictionary containing the targets is returned '''
 		result = [(random.randint(0,15),random.randint(0,15))]
-		print result
+		#print result
 		return result
 	
 	def genTileWithCorner(self,percent):
@@ -678,7 +678,7 @@ class RandomBoard(Board):
 					result[i,j] = self.getConner((i,j))
 				else:
 					result[i,j] =Tile.Tile((i,j), None, None, {"NORTH" : False, "EAST" : False,"WEST" : False, "SOUTH":False})
-		print 'herer'
+		#print 'herer'
 				
 		
 		return result

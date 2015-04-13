@@ -87,20 +87,21 @@ def testPlay(name):
 		return 0
 def testRandPlay(name):
 	''' use a Random board to test a MCPlayer's play method '''
-	size = 32
+	size = 16
 	try:
+		
 		rr = Board.RandomBoard(size, size)
 		
 		rr.reinitializeTileWithPercentage(30)
-		mcPlayer = MCPlayer.MCPlayer(rr)
+		mcPlayer = MCPlayer.PNGSPlayer(rr)
 		
 		
 		numSamples = 20
 		depth =20
 		
 		
-		#rr.printBoard()
-		moveSequence, numMoves = mcPlayer.play(15, numSamples, depth) # let it search for 3 seconds
+		rr.printBoard()
+		moveSequence, numMoves = mcPlayer.play(10,numSamples,depth) # let it search for 3 seconds
 		#change, newSequence = mcPlayer.pngs(moveSequence, numSamples, depth)
 		#rr.printBoard()
 		
@@ -123,6 +124,40 @@ def testRandPlay(name):
 		traceback.print_exc(file=sys.stdout)
 		return 0
 
+def testRandPlay2(name):
+	''' use a Random board to test a MCPlayer's play method '''
+	size = 16
+	try:
+		re =0
+		for i in xrange (50):
+			rr = Board.RandomBoard(size, size)
+		
+			rr.reinitializeTileWithPercentage(5)
+			mcPlayer = MCPlayer.PNGSPlayer(rr)
+		
+		
+			numSamples = 20
+			depth =20
+		
+		
+			#rr.printBoard()
+			moveSequence, numMoves = mcPlayer.play(10,numSamples,depth) # let it search for 3 seconds
+		#change, newSequence = mcPlayer.pngs(moveSequence, numSamples, depth)
+		#rr.printBoard()
+		
+			if numMoves > 50:
+				#mcPlayer.printMoveSequence(moveSequence)
+				print numMoves
+
+			if rr.validateMoveSequence(moveSequence):
+				re+=1
+		print re
+		return 1
+
+	except:
+		print("exception in {}".format(name))
+		traceback.print_exc(file=sys.stdout)
+		return 0
 
 def testPNGS(name):
 	''' use a standard board to test pngs method '''
@@ -229,8 +264,8 @@ if __name__ == "__main__":
 
 	#tests = [testInit, testFindFirstSol, testPlay, testPNGS]
 	#tests = [testPNGS,testPruning]
-	tests = [testHardest]
-	#tests =[testRandPlay]
+	#tests = [testHardest]
+	tests =[testRandPlay2]
 	totalTestsRan = 0
 	passedTests = 0
 	for test in tests:
