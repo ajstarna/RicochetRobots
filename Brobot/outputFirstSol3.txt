@@ -1,0 +1,1090 @@
+Using file = builtin4.txt    PNGS 8,8
+Running PNGS with numGames = 10, depth = 1 and numSamples = 8
+startGame 0
+original sequence length = 128
+Solution length before expansion PNGS = 103
+Solution length after expansion PNGS = 81
+Solution length after prune = 56
+startGame 1
+original sequence length = 344
+Solution length before expansion PNGS = 81
+Solution length after expansion PNGS = 79
+Solution length after prune = 56
+startGame 2
+original sequence length = 2233
+Solution length before expansion PNGS = 79
+Solution length after expansion PNGS = 72
+Solution length after prune = 33
+startGame 3
+original sequence length = 766
+Solution length before expansion PNGS = 72
+Solution length after expansion PNGS = 70
+Solution length after prune = 33
+startGame 4
+original sequence length = 580
+Solution length before expansion PNGS = 70
+Solution length after expansion PNGS = 67
+Solution length after prune = 42
+startGame 5
+original sequence length = 293
+Solution length before expansion PNGS = 67
+Solution length after expansion PNGS = 67
+Solution length after prune = 42
+startGame 6
+original sequence length = 1451
+Solution length before expansion PNGS = 67
+Solution length after expansion PNGS = 65
+Solution length after prune = 42
+startGame 7
+original sequence length = 900
+Solution length before expansion PNGS = 65
+Solution length after expansion PNGS = 63
+Solution length after prune = 42
+startGame 8
+original sequence length = 1749
+Solution length before expansion PNGS = 63
+Solution length after expansion PNGS = 63
+Solution length after prune = 42
+startGame 9
+original sequence length = 1812
+Solution length before expansion PNGS = 63
+Solution length after expansion PNGS = 62
+Solution length after prune = 42
+Average Number of Moves Per Game = 43.0
+Average Number of Moves Per Game Before Improvement = 1025.6
+Average findTime per game = 2.2420559
+Average pngsTime per game = 0.5379539
+[(56, 128, 0.865198, 0.012701999999999991), (56, 344, 0.8293349999999999, 0.2040980000000001), (33, 2233, 3.843906, 0.4492729999999998), (33, 766, 2.698784, 0.421818), (42, 580, 1.336309, 0.49561800000000034), (42, 293, 0.8800270000000001, 0.5382379999999998), (42, 1451, 2.820494, 0.6999260000000014), (42, 900, 2.121962, 0.7352300000000014), (42, 1749, 3.607894999999999, 0.8814279999999997), (42, 1812, 3.4166489999999996, 0.941207999999996)]
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 10
+startGame 0
+original sequence length = 833
+Solution length before expansion PNGS = 59
+Solution length after expansion PNGS = 48
+Solution length after prune = 42
+startGame 1
+original sequence length = 491
+Solution length before expansion PNGS = 48
+Solution length after expansion PNGS = 47
+Solution length after prune = 42
+startGame 2
+original sequence length = 977
+Solution length before expansion PNGS = 47
+Solution length after expansion PNGS = 46
+Solution length after prune = 42
+startGame 3
+original sequence length = 191
+Solution length before expansion PNGS = 46
+Solution length after expansion PNGS = 45
+Solution length after prune = 42
+startGame 4
+original sequence length = 408
+Solution length before expansion PNGS = 45
+Solution length after expansion PNGS = 45
+Solution length after prune = 42
+startGame 5
+original sequence length = 643
+Solution length before expansion PNGS = 45
+Solution length after expansion PNGS = 43
+Solution length after prune = 42
+startGame 6
+original sequence length = 420
+Solution length before expansion PNGS = 43
+Solution length after expansion PNGS = 43
+Solution length after prune = 42
+startGame 7
+original sequence length = 210
+Solution length before expansion PNGS = 43
+Solution length after expansion PNGS = 42
+Solution length after prune = 42
+startGame 8
+original sequence length = 320
+Solution length before expansion PNGS = 42
+Solution length after expansion PNGS = 42
+Solution length after prune = 42
+startGame 9
+original sequence length = 161
+Solution length before expansion PNGS = 42
+Solution length after expansion PNGS = 42
+Solution length after prune = 42
+Average Number of Moves Per Game = 42.0
+Average Number of Moves Per Game Before Improvement = 465.4
+Average findTime per game = 1.4033059
+Average pngsTime per game = 1.0700314
+[(42, 833, 2.461084999999997, 0.9344990000000024), (42, 491, 1.6535560000000018, 0.9136719999999983), (42, 977, 2.337225999999994, 0.9753669999999985), (42, 191, 0.7977459999999965, 1.0009999999999977), (42, 408, 1.1425249999999991, 0.9908049999999946), (42, 643, 1.7836269999999956, 1.0818779999999961), (42, 420, 1.1698769999999996, 1.0640929999999997), (42, 210, 0.9998209999999972, 1.143845000000006), (42, 320, 1.0893650000000008, 1.294477999999998), (42, 161, 0.5982309999999984, 1.3006769999999932)]
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 12
+startGame 0
+original sequence length = 159
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 396
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 3200
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 419
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 84
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 2426
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 1203
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 431
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 8
+original sequence length = 343
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 9
+original sequence length = 103
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+Average Number of Moves Per Game = 33.0
+Average Number of Moves Per Game Before Improvement = 876.4
+Average findTime per game = 2.4774509
+Average pngsTime per game = 1.0296905
+[(33, 159, 0.9210130000000021, 0.8505359999999911), (33, 396, 1.1567970000000116, 0.8990629999999982), (33, 3200, 7.725113999999991, 1.105201000000008), (33, 419, 1.4511559999999974, 1.012995999999987), (33, 84, 0.3436939999999993, 0.9363340000000022), (33, 2426, 5.750972000000004, 1.1317650000000015), (33, 1203, 3.623294999999999, 1.0991220000000084), (33, 431, 1.9289349999999956, 1.0711529999999954), (33, 343, 1.1215910000000093, 1.0937859999999944), (33, 103, 0.7519419999999997, 1.0969490000000093)]
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 14
+startGame 0
+original sequence length = 1357
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 89
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 360
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 175
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 6671
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 265
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 346
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 53
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 8
+original sequence length = 277
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 9
+original sequence length = 781
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+Average Number of Moves Per Game = 33.0
+Average Number of Moves Per Game Before Improvement = 1037.4
+Average findTime per game = 3.6617705
+Average pngsTime per game = 1.2791109
+[(33, 1357, 4.7777810000000045, 1.2069690000000008), (33, 89, 0.622754999999998, 1.1258079999999921), (33, 360, 1.6092879999999923, 1.216354999999993), (33, 175, 1.2990769999999827, 1.3021479999999883), (33, 6671, 18.94208599999999, 1.6219159999999988), (33, 265, 1.8588450000000023, 1.225923999999992), (33, 346, 1.6694719999999847, 1.2198799999999892), (33, 53, 0.4171010000000024, 1.2737079999999992), (33, 277, 1.6999649999999917, 1.2549910000000182), (33, 781, 3.7213350000000105, 1.3434100000000058)]
+
+Running PNGS with numGames = 10, depth = 1 and numSamples = 16
+startGame 0
+original sequence length = 1329
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 855
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 415
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 1730
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 75
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 826
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 416
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 170
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 8
+original sequence length = 642
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 9
+original sequence length = 416
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+Average Number of Moves Per Game = 33.0
+Average Number of Moves Per Game Before Improvement = 687.4
+Average findTime per game = 3.2758157
+Average pngsTime per game = 1.4512569
+[(33, 1329, 6.788983000000002, 1.3879190000000108), (33, 855, 6.267312000000004, 1.3723580000000197), (33, 415, 1.8775279999999839, 1.3800829999999848), (33, 1730, 6.190252000000015, 1.4658919999999966), (33, 75, 0.5588970000000018, 1.4041300000000092), (33, 826, 2.8175569999999936, 1.44577799999999), (33, 416, 1.6613959999999963, 1.472330999999997), (33, 170, 0.9312989999999957, 1.5074649999999963), (33, 642, 3.899124999999998, 1.5149089999999887), (33, 416, 1.7658080000000211, 1.5617040000000202)]
+
+Running PNGS with numGames = 10, depth = 2 and numSamples = 8
+startGame 0
+original sequence length = 4453
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 2746
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 12039
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 7341
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 809
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 9058
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 1972
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 2743
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 8
+original sequence length = 6422
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 9
+original sequence length = 8505
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+Average Number of Moves Per Game = 33.0
+Average Number of Moves Per Game Before Improvement = 5608.8
+Average findTime per game = 5.4689819
+Average pngsTime per game = 2.3954184
+[(33, 4453, 4.257294999999999, 1.852312000000012), (33, 2746, 2.568995000000001, 1.9237419999999759), (33, 12039, 11.727473000000032, 2.7525130000000217), (33, 7341, 7.048703000000046, 2.3728399999999965), (33, 809, 0.7160169999999653, 1.9481690000000071), (33, 9058, 8.809866, 2.7926009999999906), (33, 1972, 1.9382750000000328, 2.2961140000000455), (33, 2743, 2.8852660000000014, 2.2754869999999983), (33, 6422, 6.1334810000000175, 2.6952269999999885), (33, 8505, 8.60444799999999, 3.045178999999962)]
+
+Running PNGS with numGames = 10, depth = 2 and numSamples = 10
+startGame 0
+original sequence length = 1662
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 3791
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 5121
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 995
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 3014
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 4159
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 2739
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 1932
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 8
+original sequence length = 474
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 9
+original sequence length = 3105
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+Average Number of Moves Per Game = 33.0
+Average Number of Moves Per Game Before Improvement = 2699.2
+Average findTime per game = 3.7600714
+Average pngsTime per game = 2.727449
+[(33, 1662, 2.199748999999997, 2.5445660000000316), (33, 3791, 5.591914999999972, 2.650952000000018), (33, 5121, 6.734810999999979, 2.8805150000000026), (33, 995, 1.498314999999991, 2.488394000000028), (33, 3014, 3.793204000000003, 2.6139420000000086), (33, 4159, 5.465884000000017, 2.8634480000000053), (33, 2739, 3.8817750000000046, 2.784893000000011), (33, 1932, 3.1490459999999985, 2.769898000000012), (33, 474, 0.7024640000000204, 2.853341999999998), (33, 3105, 4.583551, 2.8245399999999563)]
+
+Running PNGS with numGames = 10, depth = 2 and numSamples = 12
+startGame 0
+original sequence length = 582
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 616
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 67
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 933
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 635
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 2071
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 793
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 1707
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 8
+original sequence length = 1261
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 9
+original sequence length = 2024
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+Average Number of Moves Per Game = 33.0
+Average Number of Moves Per Game Before Improvement = 1068.9
+Average findTime per game = 1.7865405
+Average pngsTime per game = 2.8179779
+[(33, 582, 0.8981620000000134, 2.693739999999991), (33, 616, 1.023348999999996, 2.8360620000000267), (33, 67, 0.2286980000000085, 2.670240999999976), (33, 933, 1.7761859999999956, 2.7264319999999884), (33, 635, 1.5393519999999512, 2.8368920000000344), (33, 2071, 3.5635130000000004, 2.8735039999999685), (33, 793, 1.2750260000000253, 2.8001840000000016), (33, 1707, 2.5118740000000344, 2.822517000000005), (33, 1261, 1.8668180000000234, 2.9168090000000007), (33, 2024, 3.1824269999999615, 3.0033980000000042)]
+
+Running PNGS with numGames = 10, depth = 2 and numSamples = 14
+startGame 0
+original sequence length = 243
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 1
+original sequence length = 931
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 2
+original sequence length = 159
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 3
+original sequence length = 985
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 4
+original sequence length = 364
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 5
+original sequence length = 715
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 6
+original sequence length = 333
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 33
+Solution length after prune = 33
+startGame 7
+original sequence length = 421
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 30
+Solution length after prune = 29
+startGame 8
+original sequence length = 216
+Solution length before expansion PNGS = 30
+Solution length after expansion PNGS = 30
+Solution length after prune = 29
+startGame 9
+original sequence length = 137
+Solution length before expansion PNGS = 30
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+Average Number of Moves Per Game = 31.8
+Average Number of Moves Per Game Before Improvement = 450.4
+Average findTime per game = 0.9477321
+Average pngsTime per game = 2.9163105
+[(33, 243, 0.4051350000000298, 2.8186039999999934), (33, 931, 1.6949959999999464, 2.961986999999908), (33, 159, 0.49223300000005565, 2.9141740000000027), (33, 985, 2.2068329999999605, 2.9411510000001044), (33, 364, 0.9262080000000878, 3.182284999999979), (33, 715, 1.161006000000043, 3.006403000000091), (33, 333, 0.7682419999999865, 3.000458999999978), (29, 421, 0.8564749999999322, 2.9456089999999904), (29, 216, 0.638101000000006, 2.7261190000000397), (29, 137, 0.32809199999996963, 2.6663140000000567)]
+
+Running PNGS with numGames = 10, depth = 2 and numSamples = 16
+startGame 0
+original sequence length = 873
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 1
+original sequence length = 453
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 2
+original sequence length = 169
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 3
+original sequence length = 564
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 4
+original sequence length = 577
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 5
+original sequence length = 1362
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 6
+original sequence length = 743
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 7
+original sequence length = 611
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 8
+original sequence length = 332
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 9
+original sequence length = 578
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+Average Number of Moves Per Game = 29.0
+Average Number of Moves Per Game Before Improvement = 626.2
+Average findTime per game = 1.424096
+Average pngsTime per game = 2.7334755
+[(29, 873, 2.3962750000000597, 2.6350049999999783), (29, 453, 0.9680949999999484, 2.5209169999999403), (29, 169, 0.3481500000000324, 2.57760200000007), (29, 564, 1.2894209999999475, 2.6921740000000227), (29, 577, 1.4411949999999933, 2.6743979999999965), (29, 1362, 2.6407070000000203, 2.7386320000000524), (29, 743, 1.683624000000009, 2.9846619999999575), (29, 611, 1.3003360000000157, 2.7799669999999423), (29, 332, 0.8604080000000067, 2.7154199999999946), (29, 578, 1.3127490000000535, 3.0159780000000183)]
+
+
+
+
+
+
+Using file = builtin4.txt
+Running PNGS with numGames = 10, depth = 3 and numSamples = 14
+startGame 0
+original sequence length = 1043
+Solution length before expansion PNGS = 453
+Solution length after expansion PNGS = 128
+Solution length after prune = 75
+startGame 1
+original sequence length = 2650
+Solution length before expansion PNGS = 128
+Solution length after expansion PNGS = 98
+Solution length after prune = 68
+startGame 2
+original sequence length = 7015
+Solution length before expansion PNGS = 98
+Solution length after expansion PNGS = 89
+Solution length after prune = 54
+startGame 3
+original sequence length = 271
+Solution length before expansion PNGS = 89
+Solution length after expansion PNGS = 77
+Solution length after prune = 50
+startGame 4
+original sequence length = 3722
+Solution length before expansion PNGS = 77
+Solution length after expansion PNGS = 74
+Solution length after prune = 50
+startGame 5
+original sequence length = 11366
+Solution length before expansion PNGS = 74
+Solution length after expansion PNGS = 69
+Solution length after prune = 50
+startGame 6
+original sequence length = 2497
+Solution length before expansion PNGS = 66
+Solution length after expansion PNGS = 52
+Solution length after prune = 36
+startGame 7
+original sequence length = 606
+Solution length before expansion PNGS = 52
+Solution length after expansion PNGS = 48
+Solution length after prune = 37
+startGame 8
+original sequence length = 3787
+Solution length before expansion PNGS = 48
+Solution length after expansion PNGS = 48
+Solution length after prune = 37
+startGame 9
+original sequence length = 6935
+Solution length before expansion PNGS = 46
+Solution length after expansion PNGS = 46
+Solution length after prune = 34
+Average Number of Moves Per Game = 49.1
+Average Number of Moves Per Game Before Improvement = 3989.2
+Average findTime per game = 4.542933
+Average pngsTime per game = 1.3538098
+[(75, 1043, 1.210389, 0.10794899999999985), (68, 2650, 3.196586, 0.8503109999999996), (54, 7015, 8.313355000000001, 1.4235389999999981), (50, 271, 0.3391559999999991, 1.0609509999999993), (50, 3722, 4.373123, 1.4752790000000005), (50, 11366, 12.678377000000001, 2.2001379999999955), (36, 2497, 2.7677109999999985, 1.5534260000000017), (37, 606, 0.7068510000000003, 1.2710790000000003), (37, 3787, 4.0820659999999975, 1.6942650000000015), (34, 6935, 7.761715999999993, 1.9011610000000019)]
+
+Running PNGS with numGames = 10, depth = 3 and numSamples = 16
+startGame 0
+original sequence length = 5284
+Solution length before expansion PNGS = 46
+Solution length after expansion PNGS = 45
+Solution length after prune = 34
+startGame 1
+original sequence length = 1150
+Solution length before expansion PNGS = 45
+Solution length after expansion PNGS = 45
+Solution length after prune = 34
+startGame 2
+original sequence length = 5356
+Solution length before expansion PNGS = 45
+Solution length after expansion PNGS = 45
+Solution length after prune = 34
+startGame 3
+original sequence length = 2635
+Solution length before expansion PNGS = 45
+Solution length after expansion PNGS = 45
+Solution length after prune = 34
+startGame 4
+original sequence length = 1161
+Solution length before expansion PNGS = 45
+Solution length after expansion PNGS = 45
+Solution length after prune = 34
+startGame 5
+original sequence length = 4795
+Solution length before expansion PNGS = 44
+Solution length after expansion PNGS = 44
+Solution length after prune = 34
+startGame 6
+original sequence length = 2989
+Solution length before expansion PNGS = 44
+Solution length after expansion PNGS = 44
+Solution length after prune = 34
+startGame 7
+original sequence length = 1897
+Solution length before expansion PNGS = 44
+Solution length after expansion PNGS = 42
+Solution length after prune = 39
+startGame 8
+original sequence length = 1088
+Solution length before expansion PNGS = 42
+Solution length after expansion PNGS = 42
+Solution length after prune = 39
+startGame 9
+original sequence length = 661
+Solution length before expansion PNGS = 42
+Solution length after expansion PNGS = 42
+Solution length after prune = 39
+Average Number of Moves Per Game = 35.5
+Average Number of Moves Per Game Before Improvement = 2701.6
+Average findTime per game = 3.5960405
+Average pngsTime per game = 2.0799782
+[(34, 5284, 6.682957999999999, 1.9355410000000006), (34, 1150, 1.4788750000000022, 1.6581500000000062), (34, 5356, 7.404404999999997, 2.104278000000008), (34, 2635, 3.4292970000000054, 2.0286100000000005), (34, 1161, 1.5907919999999933, 2.045465000000007), (34, 4795, 6.5588750000000005, 2.205007000000009), (34, 2989, 3.850404999999995, 2.193432999999999), (39, 1897, 2.5183120000000088, 2.260626000000002), (39, 1088, 1.5682760000000258, 2.1845460000000116), (39, 661, 0.8782099999999957, 2.184125999999992)]
+
+Running PNGS with numGames = 10, depth = 3 and numSamples = 18
+startGame 0
+original sequence length = 2848
+Solution length before expansion PNGS = 42
+Solution length after expansion PNGS = 40
+Solution length after prune = 37
+startGame 1
+original sequence length = 593
+Solution length before expansion PNGS = 40
+Solution length after expansion PNGS = 40
+Solution length after prune = 37
+startGame 2
+original sequence length = 696
+Solution length before expansion PNGS = 40
+Solution length after expansion PNGS = 40
+Solution length after prune = 37
+startGame 3
+original sequence length = 184
+Solution length before expansion PNGS = 40
+Solution length after expansion PNGS = 40
+Solution length after prune = 37
+startGame 4
+original sequence length = 2149
+Solution length before expansion PNGS = 40
+Solution length after expansion PNGS = 40
+Solution length after prune = 37
+startGame 5
+original sequence length = 5791
+Solution length before expansion PNGS = 40
+Solution length after expansion PNGS = 39
+Solution length after prune = 37
+startGame 6
+original sequence length = 3383
+Solution length before expansion PNGS = 39
+Solution length after expansion PNGS = 39
+Solution length after prune = 37
+startGame 7
+original sequence length = 2207
+Solution length before expansion PNGS = 39
+Solution length after expansion PNGS = 39
+Solution length after prune = 37
+startGame 8
+original sequence length = 2462
+Solution length before expansion PNGS = 39
+Solution length after expansion PNGS = 39
+Solution length after prune = 37
+startGame 9
+original sequence length = 2724
+Solution length before expansion PNGS = 39
+Solution length after expansion PNGS = 39
+Solution length after prune = 37
+Average Number of Moves Per Game = 37.0
+Average Number of Moves Per Game Before Improvement = 2303.7
+Average findTime per game = 3.6192393
+Average pngsTime per game = 2.463714
+[(37, 2848, 4.194078999999988, 2.417383000000001), (37, 593, 1.1802729999999997, 2.2981920000000002), (37, 696, 1.1161820000000091, 2.2590199999999925), (37, 184, 0.3170330000000092, 2.128489000000002), (37, 2149, 3.1727039999999818, 2.3982090000000085), (37, 5791, 9.071312000000006, 2.7784980000000132), (37, 3383, 5.181716999999992, 2.5341829999999845), (37, 2207, 3.707431000000014, 2.5048200000000236), (37, 2462, 4.025622999999996, 2.6359959999999774), (37, 2724, 4.226038999999986, 2.6823499999999854)]
+
+Running PNGS with numGames = 10, depth = 4 and numSamples = 14
+startGame 0
+original sequence length = 8655
+Solution length before expansion PNGS = 39
+Solution length after expansion PNGS = 38
+Solution length after prune = 31
+startGame 1
+original sequence length = 8937
+Solution length before expansion PNGS = 38
+Solution length after expansion PNGS = 35
+Solution length after prune = 31
+startGame 2
+original sequence length = 42395
+Solution length before expansion PNGS = 35
+Solution length after expansion PNGS = 33
+Solution length after prune = 31
+startGame 3
+original sequence length = 49704
+Solution length before expansion PNGS = 33
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 4
+original sequence length = 7279
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 5
+original sequence length = 37297
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 6
+original sequence length = 1698
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 7
+original sequence length = 11245
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 8
+original sequence length = 62485
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 9
+original sequence length = 17411
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+Average Number of Moves Per Game = 31.0
+Average Number of Moves Per Game Before Improvement = 24710.6
+Average findTime per game = 21.8191701
+Average pngsTime per game = 5.6964251
+[(31, 8655, 7.639592999999991, 3.302063000000004), (31, 8937, 8.303905000000015, 3.330101999999954), (31, 42395, 38.09695400000004, 6.229787999999985), (31, 49704, 43.14939700000002, 7.3602240000000165), (31, 7279, 6.419222999999988, 4.030755999999997), (31, 37297, 32.352363000000025, 6.711168000000043), (31, 1698, 1.5725099999999657, 4.4713689999999815), (31, 11245, 9.918259000000035, 5.12438800000001), (31, 62485, 55.462924999999984, 9.583362000000022), (31, 17411, 15.276571999999987, 6.821031000000062)]
+
+Running PNGS with numGames = 10, depth = 4 and numSamples = 16
+startGame 0
+original sequence length = 21238
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 1
+original sequence length = 47429
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 2
+original sequence length = 3959
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 3
+original sequence length = 12013
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 4
+original sequence length = 13901
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 5
+original sequence length = 249
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 6
+original sequence length = 38621
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 7
+original sequence length = 28348
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 8
+original sequence length = 14295
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 9
+original sequence length = 19002
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+Average Number of Moves Per Game = 31.0
+Average Number of Moves Per Game Before Improvement = 19905.5
+Average findTime per game = 19.7024826
+Average pngsTime per game = 8.7338761
+[(31, 21238, 21.002882999999997, 7.346007999999983), (31, 47429, 47.258173000000056, 10.013822000000005), (31, 3959, 3.9664549999999963, 6.934566000000018), (31, 12013, 11.972910999999954, 7.785819999999944), (31, 13901, 13.548453999999992, 8.104143000000022), (31, 249, 0.26108399999998255, 7.058828000000062), (31, 38621, 38.212897, 10.41913999999997), (31, 28348, 27.972688000000062, 10.074634999999944), (31, 14295, 14.104281000000015, 9.37054999999998), (31, 19002, 18.725000000000023, 10.231249000000048)]
+
+Running PNGS with numGames = 10, depth = 4 and numSamples = 18
+startGame 0
+original sequence length = 18109
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 1
+original sequence length = 5071
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 2
+original sequence length = 566
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 3
+original sequence length = 490
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 4
+original sequence length = 8093
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 5
+original sequence length = 17214
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 6
+original sequence length = 9402
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 7
+original sequence length = 9894
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 8
+original sequence length = 4782
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 9
+original sequence length = 4541
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+Average Number of Moves Per Game = 31.0
+Average Number of Moves Per Game Before Improvement = 7816.2
+Average findTime per game = 8.6763424
+Average pngsTime per game = 10.2689489
+[(31, 18109, 19.989473999999973, 10.386099000000058), (31, 5071, 5.627048000000059, 9.538379999999961), (31, 566, 0.6454730000000382, 9.30689099999995), (31, 490, 0.5556729999999561, 9.447549999999978), (31, 8093, 9.060968000000003, 10.156510000000026), (31, 17214, 19.122121000000107, 10.905228999999963), (31, 9402, 10.419497999999976, 10.606110000000172), (31, 9894, 11.002602999999908, 10.864943999999923), (31, 4782, 5.295074999999997, 10.708660999999893), (31, 4541, 5.045490999999856, 10.769114999999829)]
+
+Running PNGS with numGames = 10, depth = 5 and numSamples = 14
+startGame 0
+original sequence length = 70208
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 1
+original sequence length = 43287
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 2
+original sequence length = 67882
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 3
+original sequence length = 60386
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 4
+original sequence length = 14334
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 5
+original sequence length = 40262
+Solution length before expansion PNGS = 32
+Solution length after expansion PNGS = 32
+Solution length after prune = 31
+startGame 6
+original sequence length = 147025
+Solution length before expansion PNGS = 30
+Solution length after expansion PNGS = 30
+Solution length after prune = 29
+startGame 7
+original sequence length = 152984
+Solution length before expansion PNGS = 30
+Solution length after expansion PNGS = 30
+Solution length after prune = 29
+startGame 8
+original sequence length = 18358
+Solution length before expansion PNGS = 30
+Solution length after expansion PNGS = 30
+Solution length after prune = 29
+startGame 9
+original sequence length = 21347
+Solution length before expansion PNGS = 30
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+Average Number of Moves Per Game = 30.2
+Average Number of Moves Per Game Before Improvement = 63607.3
+Average findTime per game = 46.0435994
+Average pngsTime per game = 20.9681632
+[(31, 70208, 51.30747499999984, 16.69023399999992), (31, 43287, 31.618016000000125, 15.404719999999998), (31, 67882, 49.419032000000016, 18.279520000000048), (31, 60386, 43.907351999999946, 19.663884000000053), (31, 14334, 10.389748000000054, 15.959939000000077), (31, 40262, 29.190553000000136, 18.830832999999984), (29, 147025, 106.27547300000015, 27.862075000000004), (29, 152984, 109.75357100000019, 31.41266500000006), (29, 18358, 13.339525000000094, 22.57851800000003), (29, 21347, 15.235249000000067, 22.99924400000009)]
+
+Running PNGS with numGames = 10, depth = 5 and numSamples = 16
+startGame 0
+original sequence length = 19826
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 1
+original sequence length = 22493
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 2
+original sequence length = 52950
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 3
+original sequence length = 30511
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 4
+original sequence length = 33311
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 5
+original sequence length = 125280
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 6
+original sequence length = 214221
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 7
+original sequence length = 75453
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 8
+original sequence length = 51727
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 9
+original sequence length = 30663
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+Average Number of Moves Per Game = 29.0
+Average Number of Moves Per Game Before Improvement = 65643.5
+Average findTime per game = 53.5800687
+Average pngsTime per game = 31.4813156
+[(29, 19826, 16.25224800000001, 22.438619000000017), (29, 22493, 18.36857199999986, 23.424227999999857), (29, 52950, 43.01335999999992, 26.394256999999925), (29, 30511, 24.96200399999998, 25.41693499999974), (29, 33311, 27.147955000000366, 26.206526999999824), (29, 125280, 102.29361900000004, 35.14789500000006), (29, 214221, 174.5645840000002, 45.75134600000001), (29, 75453, 61.96023000000014, 37.18054600000005), (29, 51727, 42.27770299999975, 36.73621400000002), (29, 30663, 24.960411999999906, 36.11658899999975)]
+
+Running PNGS with numGames = 10, depth = 5 and numSamples = 18
+startGame 0
+original sequence length = 11546
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 1
+original sequence length = 89107
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 2
+original sequence length = 30439
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 3
+original sequence length = 56529
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 4
+original sequence length = 10578
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 5
+original sequence length = 19911
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 6
+original sequence length = 1283
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 7
+original sequence length = 64608
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 8
+original sequence length = 4839
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+startGame 9
+original sequence length = 95473
+Solution length before expansion PNGS = 29
+Solution length after expansion PNGS = 29
+Solution length after prune = 29
+Average Number of Moves Per Game = 29.0
+Average Number of Moves Per Game Before Improvement = 38431.3
+Average findTime per game = 35.2832982
+Average pngsTime per game = 40.9522957
+[(29, 11546, 10.717270999999982, 34.76636300000018), (29, 89107, 81.96588399999973, 42.422067999999854), (29, 30439, 27.76825699999972, 38.98650899999984), (29, 56529, 51.78705799999989, 41.66530700000021), (29, 10578, 9.780158000000029, 38.886217999999644), (29, 19911, 18.285679999999957, 40.01194099999975), (29, 1283, 1.1877770000000965, 38.80703200000016), (29, 64608, 59.35770399999956, 44.620358000000124), (29, 4839, 4.430693000000247, 40.49881899999991), (29, 95473, 87.55249999999978, 48.85834200000045)]
+

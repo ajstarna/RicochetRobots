@@ -385,7 +385,7 @@ class GreedyPlayer(PNGSPlayer):
 
 
 
-	def findFirstSolutionNoTimeLimit(self, numSamples, depth):
+	def findFirstSolutionNoTimeLimit(self):
 
 		tStart = time.clock()
 		originalPositions = deepcopy(self.board.robotPositions) # keep the original positions for resetting the board
@@ -395,7 +395,10 @@ class GreedyPlayer(PNGSPlayer):
 		while not self.board.endState():
 			#newSequence = self.jumpAhead(numSamples, depth)
 			newMove = self.makeGreedyMove()
-			currentSequence.append(newSequence)
+			currentSequence.append(newMove)
+			if len(currentSequence) % 100 == 0:
+				print("len current = {0}".format(len(currentSequence)))
+				print(self.board.robotPositions)
 
 
 		self.board.resetRobots(originalPositions) # don't want to actually change the board

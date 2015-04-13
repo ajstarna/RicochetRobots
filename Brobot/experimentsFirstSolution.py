@@ -3,7 +3,7 @@
 ''' this file contains functions for experimenting with the different players and for running many trials and averaging results '''
 
 from Player import RandomPlayer
-from MCPlayer import MCPlayer, PNGSPlayer
+from MCPlayer import MCPlayer, PNGSPlayer, GreedyPlayer
 import Board
 import sys, traceback
 import time
@@ -81,9 +81,39 @@ def runPNGSPlayerFirstSol(fileName, size, numSamples, depth):
 			return None
 
 	except:
-		print("exception in runMCPlayerFirstSolution")
+		print("exception in runPNGSPlayerFirstSolution")
 		traceback.print_exc(file=sys.stdout)
 		return None
+
+
+def runGreedyPlayerFirstSol(fileName, size, numSamples, depth):
+
+	try:
+		rr = Board.StandardBoard(size, size, fileName)
+		
+		reachableWeight = 4
+		LBWeight = 1
+		totalReachableWeight = 3
+		
+		greedyPlayer = GreedyPlayer(rr, reachableWeight, LBWeight, totalReachableWeight)
+
+		greedyPlayer.setTarget()
+		
+		moveSequence, numMoves, numMovesBeforePNGS, findTime, pngsTime = greedyPlayer.findFirstSolutionNoTimeLimit()
+		
+		if rr.validateMoveSequence(moveSequence):
+			# if the move sequence
+			#print("valid sequence with {} moves!".format(numMoves))
+			return numMoves, numMovesBeforePNGS, findTime, pngsTime
+		else:
+			print("Invalid sequence with {} moves!".format(numMoves))
+			return None
+
+	except:
+		print("exception in runGreedyPlayerFirstSolution")
+		traceback.print_exc(file=sys.stdout)
+		return None
+
 
 def playMultiplePNGSGames(function, numGames, fileName, size, numSamples, depth):
 	totalPNGSMoves = 0
@@ -92,6 +122,7 @@ def playMultiplePNGSGames(function, numGames, fileName, size, numSamples, depth)
 	totalFindTime = 0
 	totalPNGSTime = 0
 	for i in xrange(numGames):
+		print("startGame {0}".format(i))
 		numMoves, numMovesBeforePNGS, findTime, pngsTime = function(fileName, size, numSamples, depth)
 		totalFindTime += findTime
 		totalPNGSTime += pngsTime
@@ -127,17 +158,9 @@ if __name__ == "__main__":
 	depth = 4
 	fileName = "builtin4.txt"
 	print("Using file = {0}".format(fileName))
-	for depth in [1,2]:#3,4,5]: #,6,7,8]:
-		for numSamples in [8, 10, 12, 14, 16]: #8,10,12,14,16]:
-			'''tstart = time.clock()
-			print("Running MC with numGames = {2}, depth = {0} and numSamples = {1}".format(depth, numSamples, numGames))
-			MCAverage, MCDict = playMultipleGames(runMCPlayerFirstSol, numGames, fileName, 16, numSamples, depth)
-			#print(MCDict)
-			print("Average Number of Moves Per Game = {0}".format(MCAverage))
-			print("Average time per game = {0}\n".format((time.clock() - tstart)/ numGames))
-			'''
+	for depth in [3,4,5]: #,6,7,8]:
+		for numSamples in [14, 16, 18]: #8,10,12,14,16]:
 
-			tstart = time.clock()
 			print("Running PNGS with numGames = {2}, depth = {0} and numSamples = {1}".format(depth, numSamples, numGames))
 			PNGSAverage, MCAverage, findTime, pngsTime, PNGSResults = playMultiplePNGSGames(runPNGSPlayerFirstSol, numGames, fileName, 16, numSamples, depth)
 			#print(PNGSDict)
@@ -147,7 +170,18 @@ if __name__ == "__main__":
 			print("Average pngsTime per game = {0}".format(pngsTime))
 			print(PNGSResults)
 			print("")
-	
+
+	'''
+	print("Running Greedy with numGames = {0}".format(numGames))
+	PNGSAverage, MCAverage, findTime, pngsTime, PNGSResults = playMultiplePNGSGames(runGreedyPlayerFirstSol, numGames, fileName, 16, numSamples, depth)
+	#print(PNGSDict)
+	print("Average Number of Moves Per Game = {0}".format(PNGSAverage))
+	print("Average Number of Moves Per Game Before Improvement = {0}".format(MCAverage))
+	print("Average findTime per game = {0}".format(findTime))
+	print("Average pngsTime per game = {0}".format(pngsTime))
+	print(PNGSResults)
+	print("")
+	'''
 
 	
 	'''tstart = time.clock()
